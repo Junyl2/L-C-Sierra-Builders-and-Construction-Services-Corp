@@ -1,0 +1,41 @@
+import { motion } from "framer-motion";
+
+interface PageBannerProps {
+  title: string;
+  subtitle?: string;
+}
+
+const PageBanner = ({ title, subtitle }: PageBannerProps) => {
+  return (
+    <section className="relative min-h-[45vh] flex items-center justify-center bg-secondary text-secondary-foreground overflow-hidden">
+      {/* Subtle pattern overlay */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+        backgroundSize: "40px 40px"
+      }} />
+
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tight"
+        >
+          {title}
+        </motion.h1>
+        {subtitle && (
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="mt-4 text-lg text-secondary-foreground/70 max-w-xl mx-auto"
+          >
+            {subtitle}
+          </motion.p>
+        )}
+      </div>
+    </section>
+  );
+};
+
+export default PageBanner;
