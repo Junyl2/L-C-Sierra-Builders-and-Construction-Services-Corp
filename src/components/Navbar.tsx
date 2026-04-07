@@ -73,17 +73,17 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         className={`w-full z-50 transition-none ${
           isScrolled
             ? "bg-nav-solid text-nav-solid-foreground shadow-md"
-            : "bg-transparent text-foreground"
+            : "bg-transparent text-white"
         }`}
       >
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex flex-col leading-tight">
-              <span className={`font-heading font-extrabold text-xl tracking-tight ${isScrolled ? "text-primary-foreground" : "text-foreground"}`}>
+              <span className={`font-heading font-extrabold text-xl tracking-tight ${isScrolled ? "text-primary-foreground" : "text-white"}`}>
                 SONA <span className="text-primary">HVAC</span>
               </span>
-              <span className={`text-[10px] tracking-widest uppercase ${isScrolled ? "text-nav-solid-foreground/70" : "text-muted-foreground"}`}>
+              <span className={`text-[10px] tracking-widest uppercase ${isScrolled ? "text-nav-solid-foreground/70" : "text-white/70"}`}>
                 Heating & Air Conditioning
               </span>
             </div>
@@ -193,7 +193,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
               SONA <span className="text-primary">HVAC</span>
             </span>
           </div>
-          <button onClick={() => setMobileOpen(false)} aria-label="Close menu">
+          <button onClick={() => setMobileOpen(false)} className="p-2" aria-label="Close menu">
             <X className="w-6 h-6" />
           </button>
         </div>
