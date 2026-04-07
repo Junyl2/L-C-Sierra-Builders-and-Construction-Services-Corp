@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone, MapPin, ChevronDown } from "lucide-react";
+import { services } from "@/data/services";
+import { useLenis } from "@/lib/lenis";
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -9,14 +11,61 @@ interface NavbarProps {
 const navLinks = [
   { label: "HOME", path: "/" },
   { label: "ABOUT", path: "/about" },
-  { label: "SERVICES", path: "/services" },
+  { label: "SERVICES", path: "/services", hasDropdown: true },
   { label: "SERVICE AREA", path: "/service-area" },
   { label: "CONTACT US", path: "/contact" },
 ];
 
 const Navbar = ({ isScrolled }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const location = useLocation();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const { stop, start } = useLenis();
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setMobileServicesOpen(false);
+  }, [location.pathname]);
+
+  // Stop/Start Lenis when mobile menu opens/closes
+  useEffect(() => {
+    if (mobileOpen) {
+      stop();
+    } else {
+      start();
+    }
+  }, [mobileOpen, stop, start]);
+
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setServicesOpen(false);
+    }, 150);
+  };
+
+  const isServicePage = location.pathname.startsWith("/services");
 
   return (
     <>
@@ -43,17 +92,65 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-semibold tracking-wide relative py-1 transition-colors hover:text-primary ${
-                  location.pathname === link.path
-                    ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
-                    : ""
-                }`}
-              >
-                {link.label}
-              </Link>
+              link.hasDropdown ? (
+                <div
+                  key={link.path}
+                  ref={dropdownRef}
+                  className="relative"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <Link
+                    to={link.path}
+                    className={`text-sm font-semibold tracking-wide relative py-1 transition-colors hover:text-primary flex items-center gap-1 ${
+                      isServicePage
+                        ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                        : ""
+                    }`}
+                  >
+                    {link.label}
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`} />
+                  </Link>
+
+                  {/* Desktop Dropdown */}
+                  <div
+                    className={`absolute top-full left-0 mt-2 w-64 bg-card rounded shadow-lg border border-border overflow-hidden transition-all duration-200 ${
+                      servicesOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
+                    }`}
+                  >
+                    <div className="py-2">
+                      <Link
+                        to="/services"
+                        className="block px-4 py-2.5 text-sm font-semibold text-foreground hover:bg-accent hover:text-primary transition-colors border-b border-border"
+                      >
+                        All Services
+                      </Link>
+                      {services.map((service) => (
+                        <Link
+                          key={service.id}
+                          to={`/services/${service.slug}`}
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-foreground hover:bg-accent hover:text-primary transition-colors"
+                        >
+                          <service.icon className="w-4 h-4 text-primary" />
+                          {service.shortTitle}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-semibold tracking-wide relative py-1 transition-colors hover:text-primary ${
+                    location.pathname === link.path
+                      ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary"
+                      : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -82,8 +179,9 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         <div className="fixed inset-0 z-40 bg-foreground/30" onClick={() => setMobileOpen(false)} />
       )}
 
-      {/* Mobile menu - slides from right, not full width */}
+      {/* Mobile menu - slides from right */}
       <div
+        data-lenis-prevent
         className={`fixed top-0 right-0 h-full w-72 z-50 bg-card shadow-xl transform transition-transform duration-200 ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         } flex flex-col`}
@@ -100,19 +198,60 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
           </button>
         </div>
 
-        {/* Middle - Nav links */}
-        <div className="flex-1 overflow-y-auto py-4">
+        {/* Middle - Nav links (scrollable with data-lenis-prevent) */}
+        <div data-lenis-prevent className="flex-1 overflow-y-auto py-4">
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setMobileOpen(false)}
-              className={`block px-6 py-3 text-sm font-semibold tracking-wide transition-colors hover:bg-accent ${
-                location.pathname === link.path ? "text-primary border-l-2 border-primary" : "text-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
+            link.hasDropdown ? (
+              <div key={link.path}>
+                {/* Services accordion header */}
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className={`w-full flex items-center justify-between px-6 py-3 text-sm font-semibold tracking-wide transition-colors hover:bg-accent ${
+                    isServicePage ? "text-primary border-l-2 border-primary" : "text-foreground"
+                  }`}
+                >
+                  {link.label}
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                {/* Services accordion content */}
+                <div
+                  className={`overflow-hidden transition-all duration-200 ${
+                    mobileServicesOpen ? "max-h-96" : "max-h-0"
+                  }`}
+                >
+                  <Link
+                    to="/services"
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-10 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    All Services
+                  </Link>
+                  {services.map((service) => (
+                    <Link
+                      key={service.id}
+                      to={`/services/${service.slug}`}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 px-10 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <service.icon className="w-4 h-4" />
+                      {service.shortTitle}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setMobileOpen(false)}
+                className={`block px-6 py-3 text-sm font-semibold tracking-wide transition-colors hover:bg-accent ${
+                  location.pathname === link.path ? "text-primary border-l-2 border-primary" : "text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
           ))}
         </div>
 

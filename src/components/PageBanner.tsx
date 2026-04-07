@@ -3,16 +3,31 @@ import { motion } from "framer-motion";
 interface PageBannerProps {
   title: string;
   subtitle?: string;
+  backgroundImage?: string;
 }
 
-const PageBanner = ({ title, subtitle }: PageBannerProps) => {
+const PageBanner = ({ title, subtitle, backgroundImage }: PageBannerProps) => {
   return (
     <section className="relative min-h-[45vh] flex items-center justify-center bg-secondary text-secondary-foreground overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
-        backgroundSize: "40px 40px"
-      }} />
+      {/* Background Image */}
+      {backgroundImage && (
+        <div className="absolute inset-0">
+          <img
+            src={backgroundImage}
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-secondary/85" />
+        </div>
+      )}
+
+      {/* Subtle pattern overlay (shown when no image) */}
+      {!backgroundImage && (
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",
+          backgroundSize: "40px 40px"
+        }} />
+      )}
 
       <div className="container mx-auto px-4 text-center relative z-10">
         <motion.h1

@@ -1,40 +1,9 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Thermometer, Wind, Wrench, ClipboardCheck, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
-
-const serviceDetails = [
-  {
-    icon: Thermometer,
-    title: "Heating Services",
-    desc: "Help with heating system needs for homes and local properties. This can include general heating-related HVAC work and system support.",
-    items: ["Heating system service", "Seasonal heating support", "General HVAC help"],
-  },
-  {
-    icon: Wind,
-    title: "Air Conditioning Services",
-    desc: "Support for air conditioning and cooling needs in the local area.",
-    items: ["Cooling system service", "Air conditioning support", "General comfort system help"],
-  },
-  {
-    icon: Wrench,
-    title: "HVAC Systems",
-    desc: "General HVAC support for customers who need help with heating and cooling equipment.",
-    items: ["Heating and cooling systems", "Basic HVAC service needs", "Local on-site support"],
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Inspections",
-    desc: "Thorough HVAC system inspections to identify potential issues and ensure everything is running properly.",
-    items: ["System performance checks", "Safety inspections", "Preventive assessments"],
-  },
-  {
-    icon: Zap,
-    title: "Electrical Support",
-    desc: "Electrical support related to HVAC systems and their components.",
-    items: ["HVAC electrical diagnostics", "Wiring and connections", "Component support"],
-  },
-];
 
 const Services = () => {
   useEffect(() => {
@@ -43,50 +12,107 @@ const Services = () => {
 
   return (
     <>
-      <PageBanner title="Our Services" subtitle="Comprehensive HVAC solutions for your comfort" />
+      <PageBanner
+        title="Our Services"
+        subtitle="Comprehensive HVAC solutions for your comfort"
+        backgroundImage="/images/services/services-banner.jpg"
+      />
 
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 space-y-16">
-          {serviceDetails.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${
-                i % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
-            >
-              <div className={i % 2 === 1 ? "lg:order-2" : ""}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-                    <service.icon className="w-5 h-5 text-accent-foreground" />
+        <div className="container mx-auto px-4">
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, i) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+              >
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group block h-full bg-card rounded overflow-hidden border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                >
+                  {/* Image */}
+                  <div className="aspect-[16/10] overflow-hidden">
+                    <img
+                      src={service.contentImage}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                  <h3 className="text-2xl font-heading font-extrabold uppercase text-foreground">
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">{service.desc}</p>
-                <ul className="space-y-2">
-                  {service.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
-              {/* Placeholder */}
-              <div className={`aspect-[4/3] rounded-lg bg-muted flex items-center justify-center ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                <div className="text-center text-muted-foreground">
-                  <service.icon className="w-10 h-10 mx-auto mb-2 text-primary/30" />
-                  <p className="text-sm">Service Image</p>
-                </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Icon & Title */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded bg-accent flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                        <service.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <h3 className="text-xl font-heading font-bold text-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-muted-foreground leading-relaxed mb-5">
+                      {service.shortDesc}
+                    </p>
+
+                    {/* Features Preview */}
+                    <ul className="space-y-2 mb-5">
+                      {service.features.slice(0, 3).map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Link */}
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                      Learn More
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-20 text-center"
+          >
+            <div className="max-w-2xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-foreground mb-4">
+                Need Help with Your HVAC System?
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Contact us today to discuss your heating and cooling needs. We provide professional service throughout Elk Grove Village and surrounding areas.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="tel:+18473126967"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"
+                >
+                  Call (847) 312-6967
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-foreground/20 text-foreground font-semibold rounded hover:bg-foreground/5 transition-colors"
+                >
+                  Contact Us
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
       </section>
     </>
