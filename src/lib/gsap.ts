@@ -15,4 +15,9 @@ ScrollTrigger.defaults({
   toggleActions: "play none none reverse",
 });
 
+// Configure ScrollTrigger for SPA behavior
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+});
+
 export { gsap, ScrollTrigger };

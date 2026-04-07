@@ -39,10 +39,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: "100%", label: "Licensed & Insured" },
-    { value: "24/7", label: "Emergency Service" },
-    { value: "Local", label: "Family Business" },
-    { value: "IL", label: "State Licensed" },
+    { value: "IL", label: "Licensed & Insured" },
+    { value: "24/7", label: "Available" },
+    { value: "Local", label: "Service" },
+    { value: "Heating & Cooling", label: "Expertise" },
   ];
 
   useEffect(() => {

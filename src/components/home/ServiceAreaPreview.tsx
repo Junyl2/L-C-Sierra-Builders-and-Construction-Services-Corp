@@ -26,9 +26,14 @@ const ServiceAreaPreview = () => {
 
     if (!section || !content || !map || !areas) return;
 
+    // Ensure ScrollTrigger is ready
+    ScrollTrigger.refresh();
+
     const ctx = gsap.context(() => {
       // Content animation
       const contentElements = content.querySelectorAll(".animate-content");
+      if (contentElements.length === 0) return;
+
       gsap.fromTo(
         contentElements,
         { opacity: 0, y: 40 },

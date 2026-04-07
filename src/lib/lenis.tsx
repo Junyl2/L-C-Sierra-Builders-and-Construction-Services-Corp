@@ -40,7 +40,9 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
     setLenis(lenisInstance);
 
     // Sync Lenis scroll with GSAP ScrollTrigger
-    lenisInstance.on("scroll", ScrollTrigger.update);
+    lenisInstance.on("scroll", () => {
+      ScrollTrigger.update();
+    });
 
     // Use GSAP ticker for smooth animation frame sync
     const raf = (time: number) => {
@@ -50,7 +52,6 @@ export const LenisProvider = ({ children }: LenisProviderProps) => {
     // Add to GSAP ticker for better performance
     import("gsap").then(({ gsap }) => {
       gsap.ticker.add(raf);
-      gsap.ticker.lagSmooth(0);
     });
 
     return () => {

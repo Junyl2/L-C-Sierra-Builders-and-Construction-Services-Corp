@@ -1,13 +1,12 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Clock, Users, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 
 const AboutPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
 
   const highlights = [
     "Licensed & Insured Technicians",
@@ -16,19 +15,13 @@ const AboutPreview = () => {
     "Local to Elk Grove Village",
   ];
 
-  const stats = [
-    { icon: Shield, value: "100%", label: "Licensed & Insured" },
-    { icon: Clock, value: "24/7", label: "Emergency Service" },
-    { icon: Users, value: "Local", label: "Family Business" },
-  ];
 
   useEffect(() => {
     const section = sectionRef.current;
     const imageContainer = imageContainerRef.current;
     const content = contentRef.current;
-    const statsContainer = statsRef.current;
 
-    if (!section || !imageContainer || !content || !statsContainer) return;
+    if (!section || !imageContainer || !content) return;
 
     const ctx = gsap.context(() => {
       // Image layers animation
@@ -84,26 +77,6 @@ const AboutPreview = () => {
           scrollTrigger: {
             trigger: content,
             start: "top 75%",
-            once: true,
-          },
-        }
-      );
-
-      // Stats animation
-      const statItems = statsContainer.querySelectorAll(".stat-item");
-      gsap.fromTo(
-        statItems,
-        { opacity: 0, y: 30, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: statsContainer,
-            start: "top 85%",
             once: true,
           },
         }
@@ -275,32 +248,6 @@ const AboutPreview = () => {
           </div>
         </div>
 
-        {/* Stats Row */}
-        <div
-          ref={statsRef}
-          className="mt-16 md:mt-24 pt-12 border-t border-border"
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-12">
-            {stats.map((stat, idx) => (
-              <div
-                key={idx}
-                className="stat-item group flex items-center gap-5 p-6 bg-accent/30 hover:bg-accent/50 transition-colors"
-              >
-                <div className="w-14 h-14 bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <stat.icon className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <div className="text-3xl font-heading font-black text-foreground leading-none">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

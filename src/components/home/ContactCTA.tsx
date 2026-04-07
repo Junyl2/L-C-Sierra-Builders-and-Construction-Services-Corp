@@ -280,10 +280,10 @@ const ContactCTA = () => {
         <div className="mt-16 md:mt-24 pt-8 border-t border-background/10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { label: "Response Time", value: "< 1 Hour" },
-              { label: "Licensed", value: "Illinois" },
-              { label: "Satisfaction", value: "100%" },
-              { label: "Experience", value: "Expert" },
+              { label: "Service", value: "24/7" },
+              { label: "Licensed In", value: "Illinois" },
+              { label: "Service Type", value: "Local" },
+              { label: "Coverage", value: "Residential & Commercial" },
             ].map((stat, idx) => (
               <div key={idx} className="text-center md:text-left">
                 <p className="text-2xl md:text-3xl font-heading font-black text-primary leading-none mb-1">
