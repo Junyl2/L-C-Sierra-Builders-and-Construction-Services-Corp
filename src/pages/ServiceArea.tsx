@@ -747,33 +747,12 @@ const ServiceArea = () => {
 
       {/* Google Map Section */}
       <section className="relative" style={{ height: "450px" }}>
-        {/* Map header overlay */}
-        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-background via-background/50 to-transparent h-24 pointer-events-none" />
-
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 z-20">
-          <div className="bg-foreground text-background px-6 py-4 shadow-2xl">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary flex items-center justify-center">
-                <MapPin className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-widest text-background/60">
-                  Find Us
-                </p>
-                <p className="font-heading font-bold text-background">
-                  Elk Grove Village, IL
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <iframe
           title="Sona HVAC Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47424.77762385067!2d-88.02!3d42.00!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fb59b3b9b4e9d%3A0x7c7b7c7c7c7c7c7c!2sElk%20Grove%20Village%2C%20IL!5e0!3m2!1sen!2sus!4v1"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3081.1408444070144!2d-88.04963649999999!3d41.9936547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880faf4ef8780785%3A0x1cfe9d6bd981b593!2ssonahvac%20haresh%20shah!5e1!3m2!1sen!2suk!4v1775622959688!5m2!1sen!2suk"
           width="100%"
           height="100%"
-          style={{ border: 0, filter: "grayscale(20%)" }}
+          style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
