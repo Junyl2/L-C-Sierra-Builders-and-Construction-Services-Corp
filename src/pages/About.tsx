@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Shield, Heart, MessageSquare, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Shield, Heart, MessageSquare, Phone, Mail, MapPin, Facebook, Youtube, Twitter } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import PageBanner from "@/components/PageBanner";
 
@@ -325,13 +325,44 @@ const About = () => {
                 </span>
               </div>
 
-              <div className="anim">
+              <div className="anim flex flex-wrap items-center gap-5">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center px-10 py-5 bg-primary text-primary-foreground font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   Schedule Service
                 </Link>
+
+                {/* Social links */}
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://www.facebook.com/carloselectric1/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-4 h-4 text-background/60 hover:text-primary" />
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@cbelectricacservices986"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="w-4 h-4 text-background/60 hover:text-primary" />
+                  </a>
+                  <a
+                    href="https://x.com/carloselectric1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                    aria-label="X (Twitter)"
+                  >
+                    <Twitter className="w-4 h-4 text-background/60 hover:text-primary" />
+                  </a>
+                </div>
               </div>
             </div>
 
