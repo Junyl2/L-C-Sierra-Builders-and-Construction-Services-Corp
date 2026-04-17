@@ -27,13 +27,14 @@ const MarqueeColumn = ({
     const track = trackRef.current;
     if (!track) return;
 
-    // Duplicate content for seamless loop
     const scrollHeight = track.scrollHeight / 2;
     const dirMultiplier = direction === "up" ? -1 : 1;
+    // speed = pixels per second — calculate duration from content height
+    const duration = scrollHeight / speed;
 
     const tween = gsap.to(track, {
       y: dirMultiplier * scrollHeight,
-      duration: speed,
+      duration,
       ease: "none",
       repeat: -1,
       modifiers: {
@@ -166,13 +167,13 @@ const GallerySection = () => {
         {/* Marquee columns — full width, no container constraint */}
         <div className="h-[500px] md:h-[600px] lg:h-[700px] flex gap-3 md:gap-4 px-3 md:px-4">
           <div className="flex-1">
-            <MarqueeColumn images={col1} direction="up" speed={14} onImageClick={openModal} />
+            <MarqueeColumn images={col1} direction="up" speed={60} onImageClick={openModal} />
           </div>
           <div className="flex-1">
-            <MarqueeColumn images={col2} direction="down" speed={16} onImageClick={openModal} />
+            <MarqueeColumn images={col2} direction="down" speed={50} onImageClick={openModal} />
           </div>
           <div className="flex-1">
-            <MarqueeColumn images={col3} direction="up" speed={15} onImageClick={openModal} />
+            <MarqueeColumn images={col3} direction="up" speed={55} onImageClick={openModal} />
           </div>
         </div>
       </section>
