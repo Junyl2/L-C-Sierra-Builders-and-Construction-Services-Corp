@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
-import { PhoneCall, ClipboardCheck, Wrench, ThumbsUp, ArrowRight } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { PhoneCall, ClipboardCheck, Wrench, ThumbsUp } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 
 const steps = [
   {
@@ -25,214 +25,97 @@ const steps = [
     icon: ThumbsUp,
     number: "04",
     label: "Deliver",
-    desc: "Your system runs optimally. We ensure your complete satisfaction before leaving.",
+    desc: "Your system runs optimally. We ensure your satisfaction before the job is done.",
   },
 ];
 
 const ProcessSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
-    const header = headerRef.current;
-    const stepsContainer = stepsRef.current;
-    const progress = progressRef.current;
-
-    if (!section || !header || !stepsContainer) return;
+    if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Header animation
-      gsap.fromTo(
-        header.children,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: header,
-            start: "top 85%",
-            once: true,
-          },
-        }
-      );
-
-      // Progress bar animation (desktop)
-      if (progress && window.innerWidth >= 1024) {
-        gsap.fromTo(
-          progress,
-          { scaleX: 0 },
-          {
-            scaleX: 1,
-            duration: 1.5,
-            ease: "power2.inOut",
-            scrollTrigger: {
-              trigger: stepsContainer,
-              start: "top 65%",
-              once: true,
-            },
-          }
-        );
-      }
-
-      // Steps staggered animation with individual triggers
-      const stepElements = stepsContainer.querySelectorAll(".process-step");
-      stepElements.forEach((step, index) => {
-        const card = step.querySelector(".step-card");
-        const icon = step.querySelector(".step-icon");
-        const number = step.querySelector(".step-number");
-        const content = step.querySelector(".step-content");
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: step,
-            start: "top 80%",
-            once: true,
-          },
-        });
-
-        tl.fromTo(
-          card,
-          { opacity: 0, y: 80, scale: 0.95 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out", delay: index * 0.1 }
-        )
-          .fromTo(
-            icon,
-            { scale: 0, rotation: -45 },
-            { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(2)" },
-            "-=0.4"
-          )
-          .fromTo(
-            number,
-            { opacity: 0, x: -20 },
-            { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" },
-            "-=0.3"
-          )
-          .fromTo(
-            content,
-            { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-            "-=0.2"
-          );
+      // Header
+      const header = section.querySelectorAll(".proc-header");
+      gsap.fromTo(header, { opacity: 0, y: 40 }, {
+        opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1,
+        scrollTrigger: { trigger: section, start: "top 75%", once: true },
       });
+
+      // Steps — stagger from left with a slight cascade
+      const stepEls = section.querySelectorAll(".proc-step");
+      gsap.fromTo(stepEls, { opacity: 0, y: 50 }, {
+        opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15,
+        scrollTrigger: { trigger: section.querySelector(".proc-steps"), start: "top 78%", once: true },
+      });
+
+      // Connecting line
+      const line = section.querySelector(".proc-line");
+      if (line) {
+        gsap.fromTo(line, { scaleX: 0 }, {
+          scaleX: 1, duration: 1.2, ease: "power2.inOut",
+          scrollTrigger: { trigger: section.querySelector(".proc-steps"), start: "top 70%", once: true },
+        });
+      }
     }, section);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative py-24 md:py-32 overflow-hidden"
-      style={{
-        background: "linear-gradient(135deg, hsl(var(--primary) / 0.03) 0%, hsl(var(--background)) 50%, hsl(var(--accent) / 0.5) 100%)",
-      }}
-    >
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Large faded number */}
-        <span className="absolute -right-20 top-1/2 -translate-y-1/2 text-[400px] font-heading font-black text-primary/[0.02] leading-none select-none">
-          04
-        </span>
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
-          }}
-        />
-      </div>
-
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Header - split layout */}
-        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16 md:mb-24">
-          <div className="max-w-xl">
-            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary font-semibold text-xs tracking-widest uppercase mb-4">
-              Our Process
-            </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-foreground leading-[0.9] tracking-tight">
-              How It
-              <br />
-              <span className="text-primary">Works</span>
+    <section ref={sectionRef} className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-background">
+      <div className="container mx-auto px-4">
+        {/* Header — wide spread layout */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 md:mb-28">
+          <div>
+            <div className="proc-header flex items-center gap-3 mb-5">
+              <span className="block w-10 h-[2px] bg-primary" />
+              <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">How It Works</span>
+            </div>
+            <h2 className="proc-header text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-foreground leading-[0.92] tracking-tight">
+              Our <span className="text-primary">Process</span>
             </h2>
           </div>
-          <p className="text-muted-foreground text-lg max-w-md lg:text-right lg:pb-2">
-            A straightforward, professional approach from your first call to job completion.
+          <p className="proc-header text-muted-foreground text-base md:text-lg max-w-sm md:text-right leading-relaxed">
+            A straightforward approach from first call to job completion.
           </p>
         </div>
 
-        {/* Steps */}
-        <div ref={stepsRef} className="relative">
-          {/* Progress track (desktop) */}
-          <div className="hidden lg:block absolute top-[72px] left-[calc(12.5%-8px)] right-[calc(12.5%-8px)] h-1 bg-border/50 rounded-full">
-            <div
-              ref={progressRef}
-              className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-primary/60 rounded-full origin-left"
-              style={{ transform: "scaleX(0)" }}
-            />
-          </div>
+        {/* Steps — horizontal on desktop, vertical on mobile */}
+        <div className="proc-steps relative">
+          {/* Connecting line (desktop) */}
+          <div className="proc-line hidden lg:block absolute top-[52px] left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-[1px] bg-border origin-left" style={{ transform: "scaleX(0)" }} />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 lg:gap-x-6">
             {steps.map((step, i) => (
-              <div key={step.label} className="process-step relative">
-                {/* Card */}
-                <div className="step-card relative h-full group">
-                  {/* Timeline dot (desktop) */}
-                  <div className="hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                    <div className="w-6 h-6 rounded-full bg-primary border-4 border-background shadow-lg shadow-primary/20" />
+              <div key={step.label} className="proc-step relative" style={{ opacity: 0 }}>
+                {/* Step number + icon row */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative z-10 w-[52px] h-[52px] bg-foreground flex items-center justify-center">
+                    <step.icon className="w-5 h-5 text-primary" />
                   </div>
-
-                  {/* Main card */}
-                  <div className="relative bg-background border border-border/60 p-8 pt-12 lg:pt-16 h-full overflow-hidden transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/5 group-hover:-translate-y-1">
-                    {/* Background gradient on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                    {/* Step number - large background */}
-                    <span className="step-number absolute -top-4 -left-2 text-8xl lg:text-9xl font-heading font-black text-primary/[0.07] leading-none select-none">
-                      {step.number}
-                    </span>
-
-                    {/* Icon */}
-                    <div className="step-icon relative mb-6 inline-block">
-                      <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/25 group-hover:shadow-primary/40 transition-shadow">
-                        <step.icon className="w-7 h-7 text-primary-foreground" />
-                      </div>
-                      {/* Floating badge */}
-                      <span className="absolute -bottom-2 -right-2 w-8 h-8 bg-foreground text-background text-sm font-bold flex items-center justify-center shadow-md">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-
-                    {/* Content */}
-                    <div className="step-content relative z-10">
-                      <h3 className="font-heading font-bold text-xl uppercase text-foreground mb-3 tracking-wide">
-                        {step.label}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {step.desc}
-                      </p>
-                    </div>
-
-                    {/* Bottom accent */}
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary/50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  </div>
+                  <div className="flex-1 h-[1px] bg-border lg:hidden" />
+                  <span className="text-xs font-semibold text-muted-foreground tracking-widest tabular-nums lg:hidden">
+                    {step.number}
+                  </span>
                 </div>
 
-                {/* Connector arrow (mobile/tablet) */}
-                {i < steps.length - 1 && (
-                  <div className="lg:hidden flex justify-center py-6">
-                    <div className="flex flex-col items-center gap-1 text-primary/40">
-                      <div className="w-px h-6 bg-current" />
-                      <ArrowRight className="w-4 h-4 rotate-90" />
-                    </div>
-                  </div>
-                )}
+                {/* Desktop number */}
+                <span className="hidden lg:block text-[11px] font-semibold text-primary tracking-widest tabular-nums mb-3">
+                  Step {step.number}
+                </span>
+
+                {/* Label */}
+                <h3 className="font-heading font-bold text-lg uppercase text-foreground tracking-wide mb-3">
+                  {step.label}
+                </h3>
+
+                {/* Description */}
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {step.desc}
+                </p>
               </div>
             ))}
           </div>

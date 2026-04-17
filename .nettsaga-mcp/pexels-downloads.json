@@ -4,25 +4,85 @@
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/banners/contact-banner.jpg",
     "downloadedAt": "2026-04-07T04:00:41.465Z"
   },
+  "221047": {
+    "url": "https://images.pexels.com/photos/221047/pexels-photo-221047.jpeg",
+    "path": "public/images/services/lighting-banner.jpg",
+    "downloadedAt": "2026-04-17T03:23:38.885Z"
+  },
+  "236089": {
+    "url": "https://images.pexels.com/photos/236089/pexels-photo-236089.jpeg",
+    "path": "public/images/about/contact-cta.jpg",
+    "downloadedAt": "2026-04-17T02:34:20.424Z"
+  },
+  "257736": {
+    "url": "https://images.pexels.com/photos/257736/pexels-photo-257736.jpeg",
+    "path": "src/assets/hero-1.jpg",
+    "downloadedAt": "2026-04-17T02:34:11.823Z"
+  },
+  "442160": {
+    "url": "https://images.pexels.com/photos/442160/pexels-photo-442160.jpeg",
+    "path": "public/images/services/electrical-banner.jpg",
+    "downloadedAt": "2026-04-17T03:23:35.256Z"
+  },
+  "462394": {
+    "url": "https://images.pexels.com/photos/462394/pexels-photo-462394.jpeg",
+    "path": "public/images/services/diagnostics-content.jpg",
+    "downloadedAt": "2026-04-17T02:35:57.310Z"
+  },
   "1546168": {
     "url": "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/service-area/neighborhood.jpg",
     "downloadedAt": "2026-04-07T04:33:50.845Z"
+  },
+  "1575093": {
+    "url": "https://images.pexels.com/photos/1575093/pexels-photo-1575093.png",
+    "path": "public/images/banners/service-area-banner.jpg",
+    "downloadedAt": "2026-04-17T02:36:19.792Z"
   },
   "2464420": {
     "url": "https://images.pexels.com/photos/2464420/pexels-photo-2464420.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/hvac-systems-banner.jpg",
     "downloadedAt": "2026-04-07T03:38:57.386Z"
   },
+  "2539462": {
+    "url": "https://images.pexels.com/photos/2539462/pexels-photo-2539462.jpeg",
+    "path": "public/images/services/hvac-maintenance-banner.jpg",
+    "downloadedAt": "2026-04-17T02:35:55.156Z"
+  },
+  "3615735": {
+    "url": "https://images.pexels.com/photos/3615735/pexels-photo-3615735.jpeg",
+    "path": "public/images/about/about-preview.jpg",
+    "downloadedAt": "2026-04-17T02:34:18.908Z"
+  },
   "3855223": {
     "url": "https://images.pexels.com/photos/3855223/pexels-photo-3855223.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/about/about-preview.jpg",
     "downloadedAt": "2026-04-07T04:23:33.864Z"
   },
+  "4119844": {
+    "url": "https://images.pexels.com/photos/4119844/pexels-photo-4119844.jpeg",
+    "path": "public/images/services/ac-repair-content.jpg",
+    "downloadedAt": "2026-04-17T02:34:49.672Z"
+  },
   "4496282": {
     "url": "https://images.pexels.com/photos/4496282/pexels-photo-4496282.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/about/about-main.jpg",
     "downloadedAt": "2026-04-07T04:26:43.834Z"
+  },
+  "4981794": {
+    "url": "https://images.pexels.com/photos/4981794/pexels-photo-4981794.jpeg",
+    "path": "public/images/about/about-main.jpg",
+    "downloadedAt": "2026-04-17T02:34:17.913Z"
+  },
+  "5373703": {
+    "url": "https://images.pexels.com/photos/5373703/pexels-photo-5373703.jpeg",
+    "path": "public/images/service-area/city-aerial.jpg",
+    "downloadedAt": "2026-04-17T03:30:12.400Z"
+  },
+  "5463575": {
+    "url": "https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg",
+    "path": "src/assets/hero-2.jpg",
+    "downloadedAt": "2026-04-17T02:34:14.221Z"
   },
   "5463581": {
     "url": "https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg",
@@ -33,6 +93,21 @@
     "url": "https://images.pexels.com/photos/5463587/pexels-photo-5463587.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/src/assets/hero-1.jpg",
     "downloadedAt": "2026-04-07T06:15:20.385Z"
+  },
+  "5693845": {
+    "url": "https://images.pexels.com/photos/5693845/pexels-photo-5693845.jpeg",
+    "path": "public/images/services/power-content.jpg",
+    "downloadedAt": "2026-04-17T03:23:33.336Z"
+  },
+  "6010269": {
+    "url": "https://images.pexels.com/photos/6010269/pexels-photo-6010269.jpeg",
+    "path": "public/images/service-area/residential.jpg",
+    "downloadedAt": "2026-04-17T03:30:21.660Z"
+  },
+  "6349399": {
+    "url": "https://images.pexels.com/photos/6349399/pexels-photo-6349399.jpeg",
+    "path": "public/images/contact/contact-tools.jpg",
+    "downloadedAt": "2026-04-17T03:49:03.352Z"
   },
   "6720531": {
     "url": "https://images.pexels.com/photos/6720531/pexels-photo-6720531.jpeg",
@@ -59,6 +134,16 @@
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/inspections-content.jpg",
     "downloadedAt": "2026-04-07T03:39:31.235Z"
   },
+  "7937305": {
+    "url": "https://images.pexels.com/photos/7937305/pexels-photo-7937305.jpeg",
+    "path": "public/images/services/contact-section.jpg",
+    "downloadedAt": "2026-04-17T02:36:17.376Z"
+  },
+  "8278494": {
+    "url": "https://images.pexels.com/photos/8278494/pexels-photo-8278494.jpeg",
+    "path": "public/images/service-area/neighborhood.jpg",
+    "downloadedAt": "2026-04-17T02:34:22.245Z"
+  },
   "8293680": {
     "url": "https://images.pexels.com/photos/8293680/pexels-photo-8293680.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/inspections-banner.jpg",
@@ -74,10 +159,80 @@
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/banners/about-banner.jpg",
     "downloadedAt": "2026-04-07T04:00:43.839Z"
   },
+  "9889054": {
+    "url": "https://images.pexels.com/photos/9889054/pexels-photo-9889054.jpeg",
+    "path": "public/images/services/power-banner.jpg",
+    "downloadedAt": "2026-04-17T03:23:36.767Z"
+  },
+  "9889061": {
+    "url": "https://images.pexels.com/photos/9889061/pexels-photo-9889061.jpeg",
+    "path": "public/images/services/services-banner.jpg",
+    "downloadedAt": "2026-04-17T03:24:31.828Z"
+  },
+  "9889063": {
+    "url": "https://images.pexels.com/photos/9889063/pexels-photo-9889063.jpeg",
+    "path": "public/images/services/power-content.jpg",
+    "downloadedAt": "2026-04-17T02:34:56.488Z"
+  },
+  "9889066": {
+    "url": "https://images.pexels.com/photos/9889066/pexels-photo-9889066.jpeg",
+    "path": "src/assets/hero-3.jpg",
+    "downloadedAt": "2026-04-17T02:34:16.870Z"
+  },
+  "10471102": {
+    "url": "https://images.pexels.com/photos/10471102/pexels-photo-10471102.jpeg",
+    "path": "public/images/services/lighting-banner.jpg",
+    "downloadedAt": "2026-04-17T02:35:01.245Z"
+  },
+  "10871929": {
+    "url": "https://images.pexels.com/photos/10871929/pexels-photo-10871929.jpeg",
+    "path": "public/images/banners/about-banner.jpg",
+    "downloadedAt": "2026-04-17T04:22:58.856Z"
+  },
+  "10963036": {
+    "url": "https://images.pexels.com/photos/10963036/pexels-photo-10963036.jpeg",
+    "path": "public/images/services/refrigeration-banner.jpg",
+    "downloadedAt": "2026-04-17T02:36:01.676Z"
+  },
+  "11538226": {
+    "url": "https://images.pexels.com/photos/11538226/pexels-photo-11538226.jpeg",
+    "path": "public/images/services/hvac-maintenance-content.jpg",
+    "downloadedAt": "2026-04-17T03:24:17.974Z"
+  },
+  "13278726": {
+    "url": "https://images.pexels.com/photos/13278726/pexels-photo-13278726.jpeg",
+    "path": "public/images/service-area/neighborhood.jpg",
+    "downloadedAt": "2026-04-17T03:30:14.999Z"
+  },
   "14319099": {
     "url": "https://images.pexels.com/photos/14319099/pexels-photo-14319099.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/electrical-content.jpg",
     "downloadedAt": "2026-04-07T03:39:31.822Z"
+  },
+  "17188088": {
+    "url": "https://images.pexels.com/photos/17188088/pexels-photo-17188088.jpeg",
+    "path": "public/images/banners/service-area-banner.jpg",
+    "downloadedAt": "2026-04-17T03:30:29.152Z"
+  },
+  "18468536": {
+    "url": "https://images.pexels.com/photos/18468536/pexels-photo-18468536.jpeg",
+    "path": "public/images/services/power-banner.jpg",
+    "downloadedAt": "2026-04-17T02:35:03.115Z"
+  },
+  "19016904": {
+    "url": "https://images.pexels.com/photos/19016904/pexels-photo-19016904.jpeg",
+    "path": "public/images/services/hvac-maintenance-content.jpg",
+    "downloadedAt": "2026-04-17T02:35:56.582Z"
+  },
+  "19841115": {
+    "url": "https://images.pexels.com/photos/19841115/pexels-photo-19841115.jpeg",
+    "path": "public/images/banners/about-banner.jpg",
+    "downloadedAt": "2026-04-17T04:23:29.149Z"
+  },
+  "19841125": {
+    "url": "https://images.pexels.com/photos/19841125/pexels-photo-19841125.jpeg",
+    "path": "public/images/services/diagnostics-banner.jpg",
+    "downloadedAt": "2026-04-17T02:35:57.995Z"
   },
   "20046689": {
     "url": "https://images.pexels.com/photos/20046689/pexels-photo-20046689.jpeg",
@@ -94,20 +249,55 @@
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/cooling-content.jpg",
     "downloadedAt": "2026-04-07T03:39:21.772Z"
   },
+  "27928762": {
+    "url": "https://images.pexels.com/photos/27928762/pexels-photo-27928762.jpeg",
+    "path": "public/images/banners/about-banner.jpg",
+    "downloadedAt": "2026-04-17T02:36:18.021Z"
+  },
+  "28265032": {
+    "url": "https://images.pexels.com/photos/28265032/pexels-photo-28265032.jpeg",
+    "path": "public/images/services/services-banner.jpg",
+    "downloadedAt": "2026-04-17T02:36:20.991Z"
+  },
   "28726413": {
     "url": "https://images.pexels.com/photos/28726413/pexels-photo-28726413.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/cooling-banner.jpg",
     "downloadedAt": "2026-04-07T03:38:56.514Z"
+  },
+  "28942196": {
+    "url": "https://images.pexels.com/photos/28942196/pexels-photo-28942196.jpeg",
+    "path": "public/images/services/electrical-content.jpg",
+    "downloadedAt": "2026-04-17T02:34:52.102Z"
   },
   "28950842": {
     "url": "https://images.pexels.com/photos/28950842/pexels-photo-28950842.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/electrical-banner.jpg",
     "downloadedAt": "2026-04-07T03:38:59.538Z"
   },
+  "29409104": {
+    "url": "https://images.pexels.com/photos/29409104/pexels-photo-29409104.jpeg",
+    "path": "public/images/services/refrigeration-content.jpg",
+    "downloadedAt": "2026-04-17T02:35:28.458Z"
+  },
+  "29452977": {
+    "url": "https://images.pexels.com/photos/29452977/pexels-photo-29452977.jpeg",
+    "path": "public/images/services/ac-repair-banner.jpg",
+    "downloadedAt": "2026-04-17T02:36:02.840Z"
+  },
+  "29834274": {
+    "url": "https://images.pexels.com/photos/29834274/pexels-photo-29834274.jpeg",
+    "path": "public/images/services/refrigeration-content.jpg",
+    "downloadedAt": "2026-04-17T03:24:25.525Z"
+  },
   "30226733": {
     "url": "https://images.pexels.com/photos/30226733/pexels-photo-30226733.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/src/assets/hero-hvac.jpg",
     "downloadedAt": "2026-04-07T04:50:43.041Z"
+  },
+  "30749458": {
+    "url": "https://images.pexels.com/photos/30749458/pexels-photo-30749458.jpeg",
+    "path": "public/images/services/hvac-maintenance-banner.jpg",
+    "downloadedAt": "2026-04-17T03:24:26.249Z"
   },
   "32032996": {
     "url": "https://images.pexels.com/photos/32032996/pexels-photo-32032996.jpeg",
@@ -123,5 +313,15 @@
     "url": "https://images.pexels.com/photos/36129008/pexels-photo-36129008.jpeg",
     "path": "/Users/macbook/Documents/GitHub/sonahvac-haresh-shah/public/images/services/hvac-systems-content.jpg",
     "downloadedAt": "2026-04-07T03:39:28.044Z"
+  },
+  "36230779": {
+    "url": "https://images.pexels.com/photos/36230779/pexels-photo-36230779.jpeg",
+    "path": "public/images/services/lighting-content.jpg",
+    "downloadedAt": "2026-04-17T03:23:34.614Z"
+  },
+  "36286291": {
+    "url": "https://images.pexels.com/photos/36286291/pexels-photo-36286291.jpeg",
+    "path": "public/images/services/lighting-content.jpg",
+    "downloadedAt": "2026-04-17T02:34:58.956Z"
   }
 }

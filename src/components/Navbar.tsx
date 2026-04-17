@@ -10,8 +10,8 @@ interface NavbarProps {
 
 const navLinks = [
   { label: "HOME", path: "/" },
-  { label: "ABOUT", path: "/about" },
   { label: "SERVICES", path: "/services", hasDropdown: true },
+  { label: "ABOUT", path: "/about" },
   { label: "SERVICE AREA", path: "/service-area" },
   { label: "CONTACT US", path: "/contact" },
 ];
@@ -81,10 +81,10 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
           <Link to="/" className="flex items-center gap-2">
             <div className="flex flex-col leading-tight">
               <span className={`font-heading font-extrabold text-xl tracking-tight ${isScrolled ? "text-primary-foreground" : "text-white"}`}>
-                SONA <span className="text-primary">HVAC</span>
+                C&B <span className="text-primary">ELECTRIC</span>
               </span>
               <span className={`text-[10px] tracking-widest uppercase ${isScrolled ? "text-nav-solid-foreground/70" : "text-white/70"}`}>
-                Heating & Air Conditioning
+                & A/C Services
               </span>
             </div>
           </Link>
@@ -156,11 +156,11 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
           {/* CTA */}
           <a
-            href="tel:+18473126967"
-            className="hidden lg:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+            href="tel:+19567154379"
+            className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            (847) 312-6967
+            (956) 715-4379
           </a>
 
           {/* Mobile hamburger */}
@@ -190,7 +190,7 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         <div className="flex items-center justify-between p-4 border-b border-border">
           <div className="flex flex-col leading-tight">
             <span className="font-heading font-extrabold text-lg">
-              SONA <span className="text-primary">HVAC</span>
+              C&B <span className="text-primary">ELECTRIC</span>
             </span>
           </div>
           <button onClick={() => setMobileOpen(false)} className="p-2" aria-label="Close menu">
@@ -257,13 +257,13 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
         {/* Bottom - Contact info (sticky) */}
         <div className="border-t border-border p-4 space-y-3">
-          <a href="tel:+18473126967" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+          <a href="tel:+19567154379" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
             <Phone className="w-4 h-4" />
-            (847) 312-6967
+            (956) 715-4379
           </a>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="w-4 h-4" />
-            Elk Grove Village, IL
+            McAllen, TX
           </div>
         </div>
       </div>

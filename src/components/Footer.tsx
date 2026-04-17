@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Mail, ArrowRight } from "lucide-react";
+import { Phone, MapPin, Mail, ArrowRight, Facebook, Youtube } from "lucide-react";
 import { services } from "@/data/services";
 
 const Footer = () => {
@@ -14,22 +14,45 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <div className="mb-6">
               <span className="font-heading font-extrabold text-2xl text-footer-heading">
-                SONA <span className="text-primary">HVAC</span>
+                C&B <span className="text-primary">ELECTRIC</span>
               </span>
               <p className="text-xs tracking-widest uppercase mt-1 text-footer-foreground/60">
-                Heating & Air Conditioning
+                & A/C Services
               </p>
             </div>
             <p className="text-sm leading-relaxed text-footer-foreground/70 mb-6 max-w-xs">
-              Local heating and air conditioning service in Elk Grove Village, Illinois. Keeping homes and businesses comfortable.
+              Professional electrical and air conditioning repair services for residential and commercial customers in McAllen, Texas and the Rio Grande Valley.
             </p>
+
+            {/* Social links */}
+            <div className="flex items-center gap-3 mb-6">
+              <a
+                href="https://www.facebook.com/carloselectric1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center hover:bg-primary/10 transition-colors group"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-4 h-4 text-footer-foreground/50 group-hover:text-primary transition-colors" />
+              </a>
+              <a
+                href="https://www.youtube.com/@cbelectricacservices986"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center hover:bg-primary/10 transition-colors group"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-4 h-4 text-footer-foreground/50 group-hover:text-primary transition-colors" />
+              </a>
+            </div>
+
             {/* CTA */}
             <a
-              href="tel:+18473126967"
+              href="tel:+19567154379"
               className="inline-flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (847) 312-6967
+              (956) 715-4379
             </a>
           </div>
 
@@ -41,8 +64,8 @@ const Footer = () => {
             <nav className="flex flex-col gap-3">
               {[
                 { label: "Home", path: "/" },
-                { label: "About", path: "/about" },
                 { label: "Services", path: "/services" },
+                { label: "About", path: "/about" },
                 { label: "Service Area", path: "/service-area" },
                 { label: "Contact", path: "/contact" },
               ].map((link) => (
@@ -84,30 +107,30 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+18473126967"
+                href="tel:+19567154379"
                 className="flex items-center gap-3 text-sm text-footer-foreground/70 hover:text-primary transition-colors group"
               >
                 <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
-                <span>(847) 312-6967</span>
+                <span>(956) 715-4379</span>
               </a>
               <a
-                href="mailto:info@sonahvac.com"
+                href="mailto:carloselectric1@yahoo.com"
                 className="flex items-center gap-3 text-sm text-footer-foreground/70 hover:text-primary transition-colors group"
               >
                 <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                   <Mail className="w-4 h-4 text-primary" />
                 </div>
-                <span>info@sonahvac.com</span>
+                <span>carloselectric1@yahoo.com</span>
               </a>
               <div className="flex items-start gap-3 text-sm text-footer-foreground/70">
                 <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <span className="pt-2.5">
-                  1073 Florida Ln<br />
-                  Elk Grove Village, IL 60007
+                  6024 South 23rd Street<br />
+                  McAllen, TX 78501
                 </span>
               </div>
             </div>
@@ -119,8 +142,8 @@ const Footer = () => {
       <div className="border-t border-footer-foreground/10">
         <div className="container mx-auto px-4 py-5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-footer-foreground/50">
-            <p>© {currentYear} Sona HVAC. All rights reserved.</p>
-            <p>Serving Elk Grove Village & surrounding areas</p>
+            <p>&copy; {currentYear} C&B Electric & A/C Services. All rights reserved.</p>
+            <p>Serving McAllen & the Rio Grande Valley</p>
           </div>
         </div>
       </div>

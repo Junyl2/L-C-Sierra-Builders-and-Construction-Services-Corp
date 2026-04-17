@@ -6,44 +6,45 @@
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 220 30% 15%;
+    /* ─── Cool Electric Palette ─── */
+    --background: 210 20% 98%;
+    --foreground: 215 28% 10%;
 
-    --card: 30 20% 99%;
-    --card-foreground: 220 30% 15%;
+    --card: 210 18% 99%;
+    --card-foreground: 215 28% 10%;
 
-    --popover: 30 20% 99%;
-    --popover-foreground: 220 30% 15%;
+    --popover: 210 18% 99%;
+    --popover-foreground: 215 28% 10%;
 
-    --primary: 24 85% 55%;
+    --primary: 192 82% 42%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 35% 18%;
+    --secondary: 218 38% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 30 15% 93%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 212 14% 92%;
+    --muted-foreground: 215 12% 46%;
 
-    --accent: 24 75% 95%;
-    --accent-foreground: 24 85% 40%;
+    --accent: 200 28% 94%;
+    --accent-foreground: 192 82% 28%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 88%;
-    --input: 30 15% 88%;
-    --ring: 24 85% 55%;
+    --border: 212 16% 88%;
+    --input: 212 16% 88%;
+    --ring: 192 82% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.125rem;
 
-    --hero-gradient: linear-gradient(135deg, hsl(30 25% 97%) 0%, hsl(30 20% 94%) 50%, hsl(24 30% 92%) 100%);
-    --section-warm: 30 20% 95%;
-    --nav-solid: 220 35% 18%;
-    --nav-solid-foreground: 30 20% 95%;
-    --topbar-bg: 220 35% 14%;
-    --topbar-foreground: 30 20% 90%;
-    --footer-bg: 220 35% 12%;
-    --footer-foreground: 30 15% 80%;
+    --hero-gradient: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(210 18% 95%) 50%, hsl(200 20% 93%) 100%);
+    --section-warm: 210 18% 96%;
+    --nav-solid: 218 38% 12%;
+    --nav-solid-foreground: 210 16% 94%;
+    --topbar-bg: 218 38% 8%;
+    --topbar-foreground: 210 14% 82%;
+    --footer-bg: 218 40% 7%;
+    --footer-foreground: 210 12% 65%;
     --footer-heading: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
@@ -53,7 +54,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 192 82% 42%;
   }
 }
 
@@ -71,23 +72,23 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(30 15% 93%);
+  background: hsl(212 14% 92%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(24 85% 55%);
-  border-radius: 4px;
+  background: hsl(192 82% 42%);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(24 85% 45%);
+  background: hsl(192 82% 34%);
 }
 
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: hsl(24 85% 55%) hsl(30 15% 93%);
+  scrollbar-color: hsl(192 82% 42%) hsl(212 14% 92%);
 }
 
 /* Lenis smooth scroll */
