@@ -8,7 +8,7 @@ interface PageBannerProps {
 
 const PageBanner = ({ title, subtitle, backgroundImage }: PageBannerProps) => {
   return (
-    <section className="relative min-h-[45vh] flex items-center justify-center bg-secondary text-secondary-foreground overflow-hidden">
+    <section className="relative min-h-[50vh] md:min-h-[55vh] flex items-center justify-center bg-secondary text-secondary-foreground overflow-hidden">
       {/* Background Image */}
       {backgroundImage && (
         <div className="absolute inset-0">
@@ -29,12 +29,12 @@ const PageBanner = ({ title, subtitle, backgroundImage }: PageBannerProps) => {
         }} />
       )}
 
-      <div className="container mx-auto px-4 text-center relative z-10">
+      <div className="container mx-auto px-6 md:px-4 py-20 md:py-24 text-center relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold uppercase tracking-tight leading-[0.95]"
         >
           {title}
         </motion.h1>
@@ -43,7 +43,7 @@ const PageBanner = ({ title, subtitle, backgroundImage }: PageBannerProps) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            className="mt-4 text-lg text-secondary-foreground/70 max-w-xl mx-auto"
+            className="mt-5 md:mt-6 text-base md:text-lg text-secondary-foreground/70 max-w-xl mx-auto leading-relaxed px-2"
           >
             {subtitle}
           </motion.p>
