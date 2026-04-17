@@ -201,16 +201,17 @@ const ServicesOverview = () => {
                 alt={service.title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-foreground/10" />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-foreground/40" />
             </div>
           ))}
 
-          <div className="absolute bottom-10 left-10 right-10">
-            <p className="text-white/50 text-xs uppercase tracking-[0.2em] mb-2">{current.shortTitle}</p>
-            <p className="text-white/80 text-sm leading-relaxed max-w-sm">
-              {current.shortDesc}
-            </p>
+          <div className="absolute inset-0 flex items-center justify-center p-10">
+            <div className="text-center max-w-md">
+              <p className="text-white/50 text-xs uppercase tracking-[0.2em] mb-3">{current.shortTitle}</p>
+              <p className="text-white/90 text-base leading-relaxed">
+                {current.shortDesc}
+              </p>
+            </div>
           </div>
         </div>
       </div>
