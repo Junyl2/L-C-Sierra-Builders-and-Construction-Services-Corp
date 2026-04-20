@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ServiceContactSectionProps {
@@ -22,14 +22,14 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
             <div className="aspect-[4/3] rounded overflow-hidden">
               <img
                 src="/images/services/contact-section.jpg"
-                alt="Electrical installation work"
+                alt="HVAC installation work"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded shadow-lg hidden md:block">
               <p className="text-sm font-medium uppercase tracking-wide">Local Service</p>
-              <p className="text-2xl font-heading font-bold">McAllen, TX</p>
+              <p className="text-2xl font-heading font-bold">Boise, Idaho</p>
             </div>
           </motion.div>
 
@@ -48,13 +48,13 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
               Ready for {serviceName}?
             </h2>
             <p className="text-secondary-foreground/80 leading-relaxed mb-8">
-              Contact us today to discuss your electrical and AC needs. We provide on-site service throughout McAllen and the Rio Grande Valley. Our team is ready to deliver reliable, efficient solutions.
+              Contact us today to discuss your heating and air conditioning needs. We provide on-site service throughout the Boise, Idaho area. Our team is ready to deliver reliable, efficient HVAC solutions.
             </p>
 
             {/* Contact Details */}
             <div className="space-y-4 mb-8">
               <a
-                href="tel:+19567154379"
+                href="tel:+19864974822"
                 className="flex items-center gap-4 group"
               >
                 <div className="w-12 h-12 rounded bg-primary/20 flex items-center justify-center">
@@ -63,7 +63,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
                 <div>
                   <p className="text-sm text-secondary-foreground/60">Call Us</p>
                   <p className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-                    (956) 715-4379
+                    (986) 497-4822
                   </p>
                 </div>
               </a>
@@ -75,19 +75,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
                 <div>
                   <p className="text-sm text-secondary-foreground/60">Location</p>
                   <p className="text-lg font-semibold text-primary-foreground">
-                    McAllen, TX 78501
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded bg-primary/20 flex items-center justify-center">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <p className="text-sm text-secondary-foreground/60">Availability</p>
-                  <p className="text-lg font-semibold text-primary-foreground">
-                    Open 24/7
+                    Boise, Idaho
                   </p>
                 </div>
               </div>
@@ -96,7 +84,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+19567154379"
+                href="tel:+19864974822"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"
               >
                 <Phone className="w-4 h-4" />

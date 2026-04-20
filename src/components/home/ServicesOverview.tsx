@@ -1,220 +1,159 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ChevronDown } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { ArrowUpRight } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 import { services } from "@/data/services";
 
 const ServicesOverview = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const [activeService, setActiveService] = useState(0);
-  const [expandedMobile, setExpandedMobile] = useState<number | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const rows = section.querySelectorAll(".svc-row");
-      gsap.fromTo(
-        rows,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: { trigger: section, start: "top 72%", once: true },
-        }
-      );
+      const header = section.querySelector<HTMLElement>(".services-header");
+      const tiles = section.querySelectorAll<HTMLElement>(".svc-tile");
 
-      const counter = section.querySelector(".svc-counter");
-      if (counter) {
+      if (header) {
         gsap.fromTo(
-          counter,
-          { opacity: 0, x: -20 },
+          header,
+          { opacity: 0, y: 30 },
           {
             opacity: 1,
-            x: 0,
-            duration: 0.6,
+            y: 0,
+            duration: 0.7,
             ease: "power3.out",
             scrollTrigger: { trigger: section, start: "top 75%", once: true },
           }
         );
       }
+
+      gsap.fromTo(
+        tiles,
+        { opacity: 0, y: 56 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: { trigger: section, start: "top 70%", once: true },
+        }
+      );
     }, section);
 
     return () => ctx.revert();
   }, []);
 
-  const current = services[activeService];
-
-  const handleMobileTap = (index: number) => {
-    setExpandedMobile(expandedMobile === index ? null : index);
-  };
-
   return (
-    <section ref={sectionRef} className="relative bg-background overflow-hidden">
-      <div className="lg:flex lg:min-h-[85vh]">
-        {/* Left column — service list */}
-        <div className="lg:w-[55%] xl:w-[50%] flex flex-col">
-          {/* Section header */}
-          <div className="px-6 md:px-12 lg:px-16 pt-24 md:pt-32 pb-10 md:pb-14">
-            <span className="svc-counter text-primary font-semibold text-xs uppercase tracking-[0.2em] mb-4 block" style={{ opacity: 0 }}>
-              {String(activeService + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")} — Services
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-secondary"
+    >
+      {/* Thin primary rule — top-edge accent */}
+      <span
+        aria-hidden="true"
+        className="absolute left-0 top-0 h-[2px] w-24 bg-primary md:w-32"
+      />
+
+      <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
+        {/* ── Header ── */}
+        <div
+          className="services-header mb-14 flex flex-col gap-10 md:mb-20 md:flex-row md:items-end md:justify-between"
+          style={{ opacity: 0 }}
+        >
+          <div>
+            <span className="mb-5 inline-flex items-center gap-3 text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+              <span className="block h-[2px] w-10 bg-primary" />
+              Our Services
             </span>
-            <h2 className="text-4xl md:text-5xl font-heading font-black uppercase text-foreground leading-[0.92] tracking-tight">
-              What We<br /><span className="text-primary">Do</span>
+            <h2 className="max-w-3xl font-heading font-black uppercase leading-[0.95] tracking-tight text-white text-4xl md:text-5xl lg:text-6xl">
+              HVAC services for
+              <br />
+              Boise-area{" "}
+              <span className="text-primary">homes &amp; businesses.</span>
             </h2>
           </div>
+          <Link
+            to="/services"
+            className="group inline-flex shrink-0 items-center gap-2 self-start text-sm font-semibold uppercase tracking-wider text-white/90 transition-colors hover:text-primary md:self-end"
+          >
+            View All Services
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
 
-          {/* Service rows */}
-          <div className="flex-1 flex flex-col border-t border-border">
-            {services.map((service, index) => {
-              const isActive = activeService === index;
-              const isExpanded = expandedMobile === index;
+        {/* ── Tiles ── */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
+          {services.map((service, i) => {
+            const Icon = service.icon;
+            const idx = String(i + 1).padStart(2, "0");
+            return (
+              <Link
+                key={service.id}
+                to={`/services/${service.slug}`}
+                className="svc-tile group relative block aspect-[4/5] overflow-hidden bg-foreground"
+                style={{ opacity: 0 }}
+                aria-label={`${service.title} — learn more`}
+              >
+                {/* Image */}
+                <img
+                  src={service.contentImage}
+                  alt={service.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
 
-              return (
-                <div key={service.id} className="svc-row border-b border-border" style={{ opacity: 0 }}>
-                  {/* ── Desktop: hover row → link ── */}
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className={`hidden lg:flex items-center gap-6 px-16 py-6 transition-colors duration-300 group ${
-                      isActive ? "bg-foreground text-background" : "hover:bg-accent/40"
-                    }`}
-                    onMouseEnter={() => setActiveService(index)}
-                  >
-                    <span className={`text-xs font-semibold tracking-widest tabular-nums transition-colors ${
-                      isActive ? "text-primary" : "text-muted-foreground"
-                    }`}>
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                {/* Gradient for legibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10 transition-all duration-500 group-hover:from-black/80 group-hover:via-black/30 group-hover:to-black/0" />
 
-                    <div className={`w-9 h-9 flex items-center justify-center transition-colors ${
-                      isActive ? "bg-primary" : "bg-primary/10"
-                    }`}>
-                      <service.icon className={`w-4 h-4 ${isActive ? "text-primary-foreground" : "text-primary"}`} />
-                    </div>
+                {/* Top-left: Massive numeral */}
+                <div className="absolute left-6 top-6 md:left-7 md:top-7">
+                  <span className="block font-heading font-black text-primary leading-none tracking-tight text-5xl md:text-6xl">
+                    {idx}
+                  </span>
+                </div>
 
-                    <span className={`flex-1 font-heading font-bold text-lg uppercase tracking-wide transition-colors ${
-                      isActive ? "text-background" : "text-foreground group-hover:text-primary"
-                    }`}>
-                      {service.shortTitle}
-                    </span>
+                {/* Top-right: Icon badge */}
+                <div className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center border border-white/25 bg-white/10 backdrop-blur-sm transition-all duration-300 group-hover:border-primary group-hover:bg-primary/20 md:right-7 md:top-7">
+                  <Icon className="h-4 w-4 text-white" />
+                </div>
 
-                    <ArrowUpRight className={`w-5 h-5 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${
-                      isActive ? "text-primary" : "text-muted-foreground"
-                    }`} />
-                  </Link>
+                {/* Bottom: content */}
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 lg:p-8">
+                  <span className="mb-5 block h-[2px] w-8 bg-primary transition-all duration-500 group-hover:w-16" />
 
-                  {/* ── Mobile: accordion ── */}
-                  <div className="lg:hidden">
-                    {/* Trigger */}
-                    <button
-                      onClick={() => handleMobileTap(index)}
-                      className={`w-full flex items-center gap-4 px-6 md:px-12 py-5 transition-colors duration-300 ${
-                        isExpanded ? "bg-foreground" : ""
-                      }`}
-                    >
-                      <span className={`text-xs font-semibold tracking-widest tabular-nums ${
-                        isExpanded ? "text-primary" : "text-muted-foreground"
-                      }`}>
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
+                  <h3 className="mb-3 font-heading font-black uppercase leading-tight tracking-tight text-white text-xl md:text-2xl">
+                    {service.shortTitle}
+                  </h3>
 
-                      <div className={`w-9 h-9 flex items-center justify-center transition-colors ${
-                        isExpanded ? "bg-primary" : "bg-primary/10"
-                      }`}>
-                        <service.icon className={`w-4 h-4 ${isExpanded ? "text-primary-foreground" : "text-primary"}`} />
-                      </div>
+                  <p className="mb-5 line-clamp-3 text-sm font-medium leading-relaxed text-white/70">
+                    {service.shortDesc}
+                  </p>
 
-                      <span className={`flex-1 text-left font-heading font-bold text-base uppercase tracking-wide transition-colors ${
-                        isExpanded ? "text-background" : "text-foreground"
-                      }`}>
-                        {service.shortTitle}
-                      </span>
-
-                      <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${
-                        isExpanded ? "text-primary rotate-180" : "text-muted-foreground"
-                      }`} />
-                    </button>
-
-                    {/* Expanded content */}
-                    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                      isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-                    }`}>
-                      <div className="bg-foreground">
-                        {/* Image */}
-                        <div className="relative aspect-[16/10] overflow-hidden">
-                          <img
-                            src={service.contentImage}
-                            alt={service.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
-                        </div>
-
-                        {/* Description + CTA */}
-                        <div className="px-6 md:px-12 py-6">
-                          <p className="text-background/60 text-sm leading-relaxed mb-5">
-                            {service.shortDesc}
-                          </p>
-                          <Link
-                            to={`/services/${service.slug}`}
-                            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider group"
-                          >
-                            <span>Learn More</span>
-                            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="inline-flex items-center gap-2 text-primary text-xs font-semibold uppercase tracking-wider">
+                    Learn More
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </div>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* View all */}
-          <div className="px-6 md:px-12 lg:px-16 py-8 md:py-10">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-wider text-foreground hover:text-primary transition-colors group"
-            >
-              <span>View All Services</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
-          </div>
-        </div>
-
-        {/* Right column — full-bleed featured image (desktop only) */}
-        <div className="hidden lg:block lg:w-[45%] xl:w-[50%] relative">
-          {services.map((service, index) => (
-            <div
-              key={service.id}
-              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-                activeService === index ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={service.contentImage}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-foreground/40" />
-            </div>
-          ))}
-
-          <div className="absolute inset-0 flex items-center justify-center p-10">
-            <div className="text-center max-w-md">
-              <p className="text-white/50 text-xs uppercase tracking-[0.2em] mb-3">{current.shortTitle}</p>
-              <p className="text-white/90 text-base leading-relaxed">
-                {current.shortDesc}
-              </p>
-            </div>
-          </div>
+                {/* Hover edge accent — bottom orange line grows */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-x-0 bottom-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
+                />
+              </Link>
+            );
+          })}
         </div>
       </div>
+
+      {/* Thin primary rule — bottom-right accent */}
+      <span
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 h-[2px] w-24 bg-primary md:w-32"
+      />
     </section>
   );
 };

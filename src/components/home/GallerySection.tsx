@@ -99,7 +99,7 @@ const MarqueeColumn = ({
           >
             <img
               src={src}
-              alt={`Gallery ${(idx % images.length) + 1}`}
+              alt={`HVAC equipment and service work ${(idx % images.length) + 1}`}
               className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors duration-300" />
@@ -185,8 +185,8 @@ const GallerySection = () => {
                 Project <span className="text-primary">Gallery</span>
               </h2>
             </div>
-            <p className="anim text-muted-foreground text-base md:text-lg max-w-sm md:text-right leading-relaxed">
-              A look at our electrical and AC work across the Rio Grande Valley.
+            <p className="anim text-muted-foreground text-base md:text-lg max-w-sm md:text-right leading-relaxed font-medium">
+              A look at Komfort iQ HVAC heating and air work in the Boise area.
             </p>
           </div>
         </div>
@@ -235,7 +235,7 @@ const GallerySection = () => {
           <div className="relative z-10 max-w-5xl mx-4 mb-28">
             <img
               src={allImages[activeIndex]}
-              alt={`Gallery image ${activeIndex + 1}`}
+              alt={`HVAC equipment and service work ${activeIndex + 1}`}
               className="max-w-full max-h-[60vh] md:max-h-[65vh] object-contain"
             />
           </div>

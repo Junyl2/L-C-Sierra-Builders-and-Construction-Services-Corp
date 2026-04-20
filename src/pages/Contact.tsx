@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Phone, MapPin, Mail, Clock, Send, Check, Facebook, Youtube } from "lucide-react";
+import { Phone, MapPin, Send, Check } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
@@ -24,7 +24,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    document.title = "Contact Us | C&B Electric & A/C Services";
+    document.title = "Contact | Komfort iQ HVAC";
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const Contact = () => {
     <>
       <PageBanner
         title="Contact Us"
-        subtitle="Get in touch for electrical and AC service"
+        subtitle="Get in touch for heating and air service"
         backgroundImage="/images/banners/contact-banner.jpg"
       />
 
@@ -75,41 +75,31 @@ const Contact = () => {
 
               <h2 className="anim text-3xl sm:text-4xl md:text-5xl font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground mb-6">
                 Let's talk about<br />
-                your <span className="text-primary">project.</span>
+                your <span className="text-primary">comfort.</span>
               </h2>
 
               <p className="anim text-muted-foreground text-base leading-relaxed mb-10 max-w-md">
-                Whether you need electrical work, AC repair, or have questions about our services — we're here to help.
+                Contact us to ask about service or request a quote. We help with heating, cooling, and general HVAC needs in the Boise area.
               </p>
 
               {/* Image */}
               <div className="anim relative aspect-[16/10] overflow-hidden mb-10">
                 <img
                   src="/images/contact/contact-tools.jpg"
-                  alt="Professional electrical tools and equipment"
+                  alt="HVAC tools and equipment"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Contact rows */}
               <div className="border-t border-border">
-                <a href="tel:+19567154379" className="anim group flex items-center gap-5 py-5 border-b border-border">
+                <a href="tel:+19864974822" className="anim group flex items-center gap-5 py-5 border-b border-border">
                   <span className="flex items-center justify-center w-12 h-12 bg-foreground group-hover:bg-primary transition-colors duration-300">
                     <Phone className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </span>
                   <span className="flex-1">
-                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Call Anytime</span>
-                    <span className="block text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors">(956) 715-4379</span>
-                  </span>
-                </a>
-
-                <a href="mailto:carloselectric1@yahoo.com" className="anim group flex items-center gap-5 py-5 border-b border-border">
-                  <span className="flex items-center justify-center w-12 h-12 bg-foreground group-hover:bg-primary transition-colors duration-300">
-                    <Mail className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Email Us</span>
-                    <span className="block text-sm sm:text-base font-semibold text-foreground group-hover:text-primary transition-colors">carloselectric1@yahoo.com</span>
+                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Call Us</span>
+                    <span className="block text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors">(986) 497-4822</span>
                   </span>
                 </a>
 
@@ -119,42 +109,15 @@ const Contact = () => {
                   </span>
                   <span className="flex-1">
                     <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Location</span>
-                    <span className="block text-base font-semibold text-foreground">6024 S 23rd St, McAllen, TX 78501</span>
-                  </span>
-                </div>
-
-                <div className="anim flex items-center gap-5 py-5 border-b border-border">
-                  <span className="flex items-center justify-center w-12 h-12 bg-foreground">
-                    <Clock className="w-5 h-5 text-primary" />
-                  </span>
-                  <span className="flex-1">
-                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Hours</span>
-                    <span className="block text-base font-semibold text-foreground">Open 24/7</span>
+                    <span className="block text-base font-semibold text-foreground">Boise, Idaho</span>
                   </span>
                 </div>
               </div>
 
-              {/* Social links */}
-              <div className="anim flex items-center gap-3 mt-8">
-                <a
-                  href="https://www.facebook.com/carloselectric1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-foreground flex items-center justify-center hover:bg-primary transition-colors duration-300 group"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                </a>
-                <a
-                  href="https://www.youtube.com/@cbelectricacservices986"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-foreground flex items-center justify-center hover:bg-primary transition-colors duration-300 group"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                </a>
-              </div>
+              {/* Facebook plain-text mention (no URL publicly listed) */}
+              <p className="anim text-sm text-muted-foreground mt-8">
+                Find us on Facebook: <span className="text-foreground font-semibold">Komfort IQ Heating and Air</span>
+              </p>
             </div>
 
             {/* ── RIGHT: Contact form (dark) ── */}
@@ -257,7 +220,7 @@ const Contact = () => {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         className="w-full px-5 py-4 bg-transparent border border-background/15 text-background placeholder:text-background/30 focus:outline-none focus:border-primary transition-colors resize-none"
-                        placeholder="Tell us about your electrical or AC needs..."
+                        placeholder="Tell us about your heating or cooling needs..."
                       />
                     </div>
 
@@ -271,7 +234,7 @@ const Contact = () => {
                           required
                         />
                         <label htmlFor="consent" className="text-sm text-background/50 leading-relaxed">
-                          I consent to C&B Electric & A/C Services collecting and storing my information to respond to this inquiry. *
+                          I consent to Komfort iQ HVAC collecting and storing my information to respond to this inquiry. *
                         </label>
                       </div>
 
@@ -293,11 +256,11 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ───── Google Map — full width bottom ───── */}
+      {/* ───── Google Map — full width bottom (Boise, Idaho) ───── */}
       <div ref={mapRef} className="relative" style={{ height: "450px" }}>
         <iframe
-          title="C&B Electric & A/C Services Location"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14620203.109348014!2d-99.3571293!3d30.5719527!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a72e27895ec7%3A0xc053aa4993fb2234!2sC%26B%20Electric%20%26%20A%2FC%20Services!5e1!3m2!1sen!2sph!4v1776397271828!5m2!1sen!2sph"
+          title="Komfort iQ HVAC service area — Boise, Idaho"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d180000!2d-116.2023!3d43.6150!3m2!1i1024!2i768!4f13.1!2m1!1sBoise%2C%20Idaho!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
           width="100%"
           height="100%"
           style={{ border: 0 }}

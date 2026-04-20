@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import HeroSection from "@/components/home/HeroSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
-import ReviewSection from "@/components/home/ReviewSection";
 import AboutPreview from "@/components/home/AboutPreview";
 import GallerySection from "@/components/home/GallerySection";
 import ProcessSection from "@/components/home/ProcessSection";
@@ -10,14 +9,13 @@ import ContactCTA from "@/components/home/ContactCTA";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Home | C&B Electric & A/C Services";
+    document.title = "Komfort iQ HVAC | Heating and Air Services in Boise, Idaho";
   }, []);
 
   return (
     <>
       <HeroSection />
       <ServicesOverview />
-      <ReviewSection />
       <AboutPreview />
       <GallerySection />
       <ProcessSection />

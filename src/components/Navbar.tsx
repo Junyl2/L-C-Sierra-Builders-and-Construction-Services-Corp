@@ -6,6 +6,7 @@ import { useLenis } from "@/lib/lenis";
 
 interface NavbarProps {
   isScrolled: boolean;
+  isHome: boolean;
 }
 
 const navLinks = [
@@ -16,7 +17,7 @@ const navLinks = [
   { label: "CONTACT US", path: "/contact" },
 ];
 
-const Navbar = ({ isScrolled }: NavbarProps) => {
+const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -67,24 +68,36 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
   const isServicePage = location.pathname.startsWith("/services");
 
+  const navClass = isScrolled
+    ? "bg-nav-solid text-nav-solid-foreground shadow-md"
+    : isHome
+    ? "bg-transparent text-white lg:text-foreground"
+    : "bg-transparent text-white";
+
+  const logoMainClass = isScrolled
+    ? "text-primary-foreground"
+    : isHome
+    ? "text-white lg:text-foreground"
+    : "text-white";
+
+  const logoSubClass = isScrolled
+    ? "text-nav-solid-foreground/70"
+    : isHome
+    ? "text-white/70 lg:text-foreground/70"
+    : "text-white/70";
+
   return (
     <>
-      <nav
-        className={`w-full z-50 transition-none ${
-          isScrolled
-            ? "bg-nav-solid text-nav-solid-foreground shadow-md"
-            : "bg-transparent text-white"
-        }`}
-      >
+      <nav className={`w-full z-50 transition-none ${navClass}`}>
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
             <div className="flex flex-col leading-tight">
-              <span className={`font-heading font-extrabold text-xl tracking-tight ${isScrolled ? "text-primary-foreground" : "text-white"}`}>
-                C&B <span className="text-primary">ELECTRIC</span>
+              <span className={`font-heading font-extrabold text-xl tracking-tight ${logoMainClass}`}>
+                KOMFORT <span className="text-primary">iQ</span>
               </span>
-              <span className={`text-[10px] tracking-widest uppercase ${isScrolled ? "text-nav-solid-foreground/70" : "text-white/70"}`}>
-                & A/C Services
+              <span className={`text-[10px] tracking-widest uppercase ${logoSubClass}`}>
+                HVAC
               </span>
             </div>
           </Link>
@@ -156,11 +169,11 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
           {/* CTA */}
           <a
-            href="tel:+19567154379"
+            href="tel:+19864974822"
             className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            (956) 715-4379
+            (986) 497-4822
           </a>
 
           {/* Mobile hamburger */}
@@ -190,7 +203,10 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
         <div className="flex items-center justify-between p-4 border-b border-border">
           <div className="flex flex-col leading-tight">
             <span className="font-heading font-extrabold text-lg">
-              C&B <span className="text-primary">ELECTRIC</span>
+              KOMFORT <span className="text-primary">iQ</span>
+            </span>
+            <span className="text-[10px] tracking-widest uppercase text-muted-foreground">
+              HVAC
             </span>
           </div>
           <button onClick={() => setMobileOpen(false)} className="p-2" aria-label="Close menu">
@@ -257,13 +273,13 @@ const Navbar = ({ isScrolled }: NavbarProps) => {
 
         {/* Bottom - Contact info (sticky) */}
         <div className="border-t border-border p-4 space-y-3">
-          <a href="tel:+19567154379" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+          <a href="tel:+19864974822" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
             <Phone className="w-4 h-4" />
-            (956) 715-4379
+            (986) 497-4822
           </a>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="w-4 h-4" />
-            McAllen, TX
+            Boise, Idaho
           </div>
         </div>
       </div>

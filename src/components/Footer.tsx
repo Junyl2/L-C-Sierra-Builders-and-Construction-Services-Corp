@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin, Mail, ArrowRight, Facebook, Youtube } from "lucide-react";
+import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-footer-bg text-footer-foreground">
       {/* Main footer content */}
@@ -14,45 +12,28 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <div className="mb-6">
               <span className="font-heading font-extrabold text-2xl text-footer-heading">
-                C&B <span className="text-primary">ELECTRIC</span>
+                KOMFORT <span className="text-primary">iQ</span>
               </span>
               <p className="text-xs tracking-widest uppercase mt-1 text-footer-foreground/60">
-                & A/C Services
+                HVAC
               </p>
             </div>
             <p className="text-sm leading-relaxed text-footer-foreground/70 mb-6 max-w-xs">
-              Professional electrical and air conditioning repair services for residential and commercial customers in McAllen, Texas and the Rio Grande Valley.
+              Komfort iQ HVAC is a family-owned heating and air company based in Boise, Idaho. We provide heating, air conditioning, and general HVAC support in the Boise area.
             </p>
 
-            {/* Social links */}
-            <div className="flex items-center gap-3 mb-6">
-              <a
-                href="https://www.facebook.com/carloselectric1/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center hover:bg-primary/10 transition-colors group"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-4 h-4 text-footer-foreground/50 group-hover:text-primary transition-colors" />
-              </a>
-              <a
-                href="https://www.youtube.com/@cbelectricacservices986"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center hover:bg-primary/10 transition-colors group"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-4 h-4 text-footer-foreground/50 group-hover:text-primary transition-colors" />
-              </a>
-            </div>
+            {/* Social mention (plain text — no URL provided) */}
+            <p className="text-sm text-footer-foreground/70 mb-6">
+              Facebook: Komfort IQ Heating and Air
+            </p>
 
             {/* CTA */}
             <a
-              href="tel:+19567154379"
+              href="tel:+19864974822"
               className="inline-flex items-center gap-2 px-5 py-3 bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-colors"
             >
               <Phone className="w-4 h-4" />
-              (956) 715-4379
+              (986) 497-4822
             </a>
           </div>
 
@@ -107,31 +88,19 @@ const Footer = () => {
             </h4>
             <div className="space-y-4">
               <a
-                href="tel:+19567154379"
+                href="tel:+19864974822"
                 className="flex items-center gap-3 text-sm text-footer-foreground/70 hover:text-primary transition-colors group"
               >
                 <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
                   <Phone className="w-4 h-4 text-primary" />
                 </div>
-                <span>(956) 715-4379</span>
+                <span>(986) 497-4822</span>
               </a>
-              <a
-                href="mailto:carloselectric1@yahoo.com"
-                className="flex items-center gap-3 text-sm text-footer-foreground/70 hover:text-primary transition-colors group"
-              >
-                <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
-                </div>
-                <span>carloselectric1@yahoo.com</span>
-              </a>
-              <div className="flex items-start gap-3 text-sm text-footer-foreground/70">
+              <div className="flex items-center gap-3 text-sm text-footer-foreground/70">
                 <div className="w-10 h-10 bg-footer-foreground/5 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
-                <span className="pt-2.5">
-                  6024 South 23rd Street<br />
-                  McAllen, TX 78501
-                </span>
+                <span>Boise, Idaho</span>
               </div>
             </div>
           </div>
@@ -141,9 +110,8 @@ const Footer = () => {
       {/* Bottom bar */}
       <div className="border-t border-footer-foreground/10">
         <div className="container mx-auto px-4 py-5">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-footer-foreground/50">
-            <p>&copy; {currentYear} C&B Electric & A/C Services. All rights reserved.</p>
-            <p>Serving McAllen & the Rio Grande Valley</p>
+          <div className="flex items-center justify-center text-xs text-footer-foreground/50">
+            <p>&copy; 2026 Komfort iQ HVAC. All rights reserved.</p>
           </div>
         </div>
       </div>

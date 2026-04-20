@@ -1,7 +1,27 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
+
+const brandProfile = [
+  {
+    label: "Ownership",
+    description: "Family-owned and locally run.",
+  },
+  {
+    label: "Location",
+    description: "Based in Boise, Idaho. Serving Boise and nearby areas.",
+  },
+  {
+    label: "Services",
+    description: "Heating, air conditioning, and general HVAC.",
+  },
+  {
+    label: "Approach",
+    description:
+      "Practical and straightforward, with a focus on day-to-day comfort.",
+  },
+];
 
 const AboutPreview = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -11,44 +31,82 @@ const AboutPreview = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Headline
-      const headline = section.querySelector(".about-headline");
+      const headline = section.querySelector<HTMLElement>(".about-headline");
       if (headline) {
-        gsap.fromTo(headline, { opacity: 0, y: 60 }, {
-          opacity: 1, y: 0, duration: 0.9, ease: "power4.out",
-          scrollTrigger: { trigger: section, start: "top 70%", once: true },
-        });
+        gsap.fromTo(
+          headline,
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power4.out",
+            scrollTrigger: { trigger: section, start: "top 70%", once: true },
+          }
+        );
       }
 
-      // Body copy
-      const body = section.querySelectorAll(".about-body");
-      gsap.fromTo(body, { opacity: 0, y: 30 }, {
-        opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.12,
-        scrollTrigger: { trigger: section, start: "top 65%", once: true },
-      });
+      const copy = section.querySelectorAll<HTMLElement>(".about-copy");
+      gsap.fromTo(
+        copy,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: section, start: "top 65%", once: true },
+        }
+      );
 
-      // Image reveal
-      const img = section.querySelector(".about-img");
+      const img = section.querySelector<HTMLElement>(".about-img");
       if (img) {
-        gsap.fromTo(img, { clipPath: "inset(100% 0 0 0)" }, {
-          clipPath: "inset(0% 0 0 0)", duration: 1.3, ease: "power3.inOut",
-          scrollTrigger: { trigger: img, start: "top 80%", once: true },
-        });
+        gsap.fromTo(
+          img,
+          { clipPath: "inset(100% 0 0 0)" },
+          {
+            clipPath: "inset(0% 0 0 0)",
+            duration: 1.3,
+            ease: "power3.inOut",
+            scrollTrigger: { trigger: img, start: "top 80%", once: true },
+          }
+        );
       }
 
-      // Stats
-      const stats = section.querySelectorAll(".about-stat");
-      gsap.fromTo(stats, { opacity: 0, y: 20 }, {
-        opacity: 1, y: 0, duration: 0.5, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: section.querySelector(".about-stats"), start: "top 85%", once: true },
-      });
+      const profileRows =
+        section.querySelectorAll<HTMLElement>(".about-profile-row");
+      const profileList = section.querySelector<HTMLElement>(".about-profile");
+      if (profileRows.length && profileList) {
+        gsap.fromTo(
+          profileRows,
+          { opacity: 0, x: 24 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            ease: "power3.out",
+            stagger: 0.08,
+            scrollTrigger: {
+              trigger: profileList,
+              start: "top 80%",
+              once: true,
+            },
+          }
+        );
+      }
 
-      // Parallax on image
-      const imgInner = section.querySelector(".about-img img");
+      const imgInner = section.querySelector<HTMLElement>(".about-img img");
       if (imgInner) {
         gsap.to(imgInner, {
-          y: -50, ease: "none",
-          scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.5 },
+          y: -40,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
         });
       }
     }, section);
@@ -57,72 +115,132 @@ const AboutPreview = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden bg-foreground text-background">
-      <div className="container mx-auto px-4">
-        {/* Asymmetric two-column: text-heavy left, image right */}
-        <div className="lg:flex lg:items-stretch lg:gap-0 min-h-[70vh]">
+    <section ref={sectionRef} className="relative bg-background">
+      <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-24">
+          {/* ═══════════════ Left: sticky image + caption ═══════════════ */}
+          <div className="relative">
+            <div className="lg:sticky lg:top-28">
+              {/* Small editorial "tag" above image */}
+              <div className="mb-4 flex items-center gap-3">
+                <span className="block h-[2px] w-8 bg-primary" />
+                <span className="text-primary text-[10px] font-semibold uppercase tracking-[0.3em]">
+                  Est. Local
+                </span>
+              </div>
 
-          {/* Left — editorial text block */}
-          <div className="lg:w-[55%] flex flex-col justify-center py-20 md:py-28 lg:py-36 lg:pr-16 xl:pr-24">
-            {/* Kicker */}
-            <div className="flex items-center gap-3 mb-8">
-              <span className="block w-10 h-[2px] bg-primary" />
-              <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">About Us</span>
+              {/* Image frame */}
+              <div
+                className="about-img relative aspect-[16/10] overflow-hidden bg-secondary lg:aspect-[4/5]"
+                style={{ clipPath: "inset(100% 0 0 0)" }}
+              >
+                <img
+                  src="/images/about/about-preview.jpg"
+                  alt="HVAC equipment maintained by Komfort iQ HVAC in the Boise area"
+                  className="h-full w-full scale-110 object-cover"
+                />
+              </div>
+
+              {/* Photo caption — magazine style */}
+              <div className="mt-4 flex items-center justify-between gap-4 text-foreground/55">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
+                  Komfort iQ HVAC · Boise, Idaho
+                </span>
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] tabular-nums">
+                  — 001
+                </span>
+              </div>
             </div>
-
-            {/* Large editorial headline */}
-            <h2 className="about-headline text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-heading font-black uppercase leading-[0.92] tracking-tight text-background mb-10">
-              Built on hard work.<br />
-              Driven by <span className="text-primary">reliability.</span>
-            </h2>
-
-            {/* Two-column body text — editorial rhythm */}
-            <div className="md:flex md:gap-10 mb-12">
-              <p className="about-body text-background/60 text-sm sm:text-base leading-relaxed mb-6 md:mb-0 md:flex-1">
-                C&B Electric & A/C Services started with basic wire and cable installations. As experience grew, so did our capabilities — expanding into air conditioning repair, HVAC maintenance, and commercial refrigeration.
-              </p>
-              <p className="about-body text-background/60 text-sm sm:text-base leading-relaxed md:flex-1">
-                Today we handle a wide range of electrical and HVAC projects across the Rio Grande Valley, including urgent jobs and time-sensitive requests. We focus on being reliable, trustworthy, and efficient.
-              </p>
-            </div>
-
-            {/* Stats strip — horizontal, minimal */}
-            <div className="about-stats flex flex-wrap gap-x-10 gap-y-4 mb-12 pt-8 border-t border-background/10">
-              {[
-                { value: "24/7", label: "Availability" },
-                { value: "Residential", label: "& Commercial" },
-                { value: "McAllen", label: "Texas" },
-              ].map((stat, idx) => (
-                <div key={idx} className="about-stat">
-                  <p className="text-2xl md:text-3xl font-heading font-black text-primary leading-none">{stat.value}</p>
-                  <p className="text-[11px] uppercase tracking-wider text-background/40 mt-1">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA — minimal underline style */}
-            <Link
-              to="/about"
-              className="about-body group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-background hover:text-primary transition-colors"
-            >
-              <span className="border-b border-background/30 group-hover:border-primary pb-1 transition-colors">Learn Our Story</span>
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </Link>
           </div>
 
-          {/* Right — full-height image, flush to edge */}
-          <div className="lg:w-[45%] relative min-h-[50vh] lg:min-h-0">
-            <div
-              className="about-img absolute inset-0 overflow-hidden"
-              style={{ clipPath: "inset(100% 0 0 0)" }}
-            >
-              <img
-                src="/images/about/about-preview.jpg"
-                alt="Electrical work in progress"
-                className="w-full h-full object-cover scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-foreground/30 via-transparent to-transparent" />
+          {/* ═══════════════ Right: editorial copy + brand profile ═══════════════ */}
+          <div>
+            {/* Kicker */}
+            <div className="about-copy mb-8 flex items-center gap-3" style={{ opacity: 0 }}>
+              <span className="block h-[2px] w-10 bg-primary" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                About Komfort iQ HVAC
+              </span>
             </div>
+
+            {/* Editorial headline */}
+            <h2 className="about-headline mb-8 font-heading font-black uppercase leading-[0.95] tracking-tight text-foreground text-4xl md:text-5xl lg:text-[3rem] xl:text-[3.5rem]">
+              Family-Owned
+              <br />
+              Heating &amp; Air
+              <br />
+              in <span className="text-primary">Boise, Idaho.</span>
+            </h2>
+
+            {/* Body copy */}
+            <div className="mb-12 max-w-xl space-y-4">
+              <p
+                className="about-copy text-sm md:text-base font-medium leading-relaxed text-foreground/70"
+                style={{ opacity: 0 }}
+              >
+                Komfort iQ HVAC focuses on HVAC services with an emphasis on
+                dependable local service and day-to-day comfort.
+              </p>
+              <p
+                className="about-copy text-sm md:text-base font-medium leading-relaxed text-foreground/70"
+                style={{ opacity: 0 }}
+              >
+                Our approach is practical and straightforward — heating, air
+                conditioning, and general HVAC work for homes and businesses in
+                the Boise area.
+              </p>
+            </div>
+
+            {/* Brand profile — spec-sheet style */}
+            <div className="mb-12">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="block h-[1px] w-6 bg-foreground/30" />
+                <span className="text-foreground/45 text-[10px] font-semibold uppercase tracking-[0.3em]">
+                  Brand Profile
+                </span>
+              </div>
+
+              <dl className="about-profile border-t border-foreground/12">
+                {brandProfile.map((item, i) => {
+                  const idx = String(i + 1).padStart(2, "0");
+                  return (
+                    <div
+                      key={item.label}
+                      className="about-profile-row group flex items-start gap-5 border-b border-foreground/12 py-5 transition-colors hover:bg-accent/40"
+                      style={{ opacity: 0 }}
+                    >
+                      <span className="shrink-0 pt-0.5 w-8 font-heading font-black text-primary text-sm tabular-nums">
+                        {idx}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <dt className="mb-1 font-heading font-black uppercase tracking-tight text-foreground text-base md:text-lg">
+                          {item.label}
+                        </dt>
+                        <dd className="text-sm font-medium leading-relaxed text-foreground/60">
+                          {item.description}
+                        </dd>
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        className="mt-3 block h-[2px] w-6 shrink-0 bg-primary/30 transition-all duration-300 group-hover:w-12 group-hover:bg-primary"
+                      />
+                    </div>
+                  );
+                })}
+              </dl>
+            </div>
+
+            {/* CTA */}
+            <Link
+              to="/about"
+              className="about-copy group inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-foreground transition-colors hover:text-primary"
+              style={{ opacity: 0 }}
+            >
+              <span className="border-b-2 border-foreground/25 pb-1 transition-colors group-hover:border-primary">
+                Learn More About Us
+              </span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
           </div>
         </div>
       </div>

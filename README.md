@@ -1,24 +1,14 @@
-# Sona HVAC
+# Komfort iQ HVAC
 
-HVAC services website for Sona HVAC based in Elk Grove Village, Illinois.
+Website for Komfort iQ Heating and Air LLC — a family-owned HVAC company based in Boise, Idaho.
 
-## Tech Stack
-
-- React + TypeScript
-- Vite
-- Tailwind CSS
-- GSAP + Lenis (smooth scroll)
-- Framer Motion
+## Stack
+Vite + React 18 + TypeScript + Tailwind CSS, React Router.
 
 ## Development
-
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
-
-```bash
-npm run build
-```
+Build: `npm run build`  ·  Preview: `npm run preview`  ·  Tests: `npm run test`

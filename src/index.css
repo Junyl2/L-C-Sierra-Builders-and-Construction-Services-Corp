@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* ─── Cool Electric Palette ─── */
+    /* ─── Komfort iQ Palette · Orange #df6516 + Slate #324249 ─── */
     --background: 210 20% 98%;
     --foreground: 215 28% 10%;
 
@@ -16,34 +16,34 @@
     --popover: 210 18% 99%;
     --popover-foreground: 215 28% 10%;
 
-    --primary: 192 82% 42%;
+    --primary: 22 82% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 218 38% 12%;
+    --secondary: 198 19% 24%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 212 14% 92%;
     --muted-foreground: 215 12% 46%;
 
-    --accent: 200 28% 94%;
-    --accent-foreground: 192 82% 28%;
+    --accent: 22 70% 96%;
+    --accent-foreground: 22 82% 36%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 212 16% 88%;
     --input: 212 16% 88%;
-    --ring: 192 82% 42%;
+    --ring: 22 82% 48%;
 
     --radius: 0.125rem;
 
     --hero-gradient: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(210 18% 95%) 50%, hsl(200 20% 93%) 100%);
     --section-warm: 210 18% 96%;
-    --nav-solid: 218 38% 12%;
+    --nav-solid: 198 19% 24%;
     --nav-solid-foreground: 210 16% 94%;
-    --topbar-bg: 218 38% 8%;
+    --topbar-bg: 198 19% 18%;
     --topbar-foreground: 210 14% 82%;
-    --footer-bg: 218 40% 7%;
+    --footer-bg: 198 19% 16%;
     --footer-foreground: 210 12% 65%;
     --footer-heading: 0 0% 100%;
 
@@ -54,7 +54,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 192 82% 42%;
+    --sidebar-ring: 22 82% 48%;
   }
 }
 
@@ -78,17 +78,17 @@
   background: hsl(212 14% 92%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(192 82% 42%);
+  background: hsl(22 82% 48%);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(192 82% 34%);
+  background: hsl(22 82% 40%);
 }
 
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: hsl(192 82% 42%) hsl(212 14% 92%);
+  scrollbar-color: hsl(22 82% 48%) hsl(212 14% 92%);
 }
 
 /* Lenis smooth scroll */

@@ -1,380 +1,579 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Shield, Heart, MessageSquare, Phone, Mail, MapPin, Facebook, Youtube, Twitter } from "lucide-react";
+import {
+  Home,
+  Map,
+  Wrench,
+  Phone,
+  MapPin,
+  Quote,
+  ArrowUpRight,
+} from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import PageBanner from "@/components/PageBanner";
 
+const mastheadTerms = [
+  "Brand Profile",
+  "Family-Owned",
+  "Heating · Air · HVAC",
+  "Boise, Idaho",
+  "Est. Local",
+  "Vol. 01",
+];
+
+const principles = [
+  {
+    icon: Home,
+    title: "Family-Owned",
+    description:
+      "A family-run business based in Boise, Idaho — locally operated and focused on the communities we serve.",
+  },
+  {
+    icon: Map,
+    title: "Local Service",
+    description:
+      "Being based in Boise means we understand the local climate and what homes and businesses need from a heating and air partner.",
+  },
+  {
+    icon: Wrench,
+    title: "Practical Approach",
+    description:
+      "Straightforward heating, cooling, and general HVAC work, with clear communication and attention to day-to-day comfort.",
+  },
+];
+
 const About = () => {
-  const introRef = useRef<HTMLElement>(null);
-  const storyRef = useRef<HTMLElement>(null);
-  const valuesRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLElement>(null);
+  const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "About | C&B Electric & A/C Services";
+    document.title = "About | Komfort iQ HVAC";
   }, []);
 
   useEffect(() => {
-    const intro = introRef.current;
-    const story = storyRef.current;
-    const values = valuesRef.current;
-    const cta = ctaRef.current;
-
-    if (!intro || !story || !values || !cta) return;
+    const page = pageRef.current;
+    if (!page) return;
 
     const ctx = gsap.context(() => {
-      // --- Intro ---
-      const introItems = intro.querySelectorAll(".anim");
-      gsap.fromTo(introItems, { opacity: 0, y: 50 }, {
-        opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: intro, start: "top 72%", once: true },
-      });
+      // Opener
+      const openerItems = page.querySelectorAll<HTMLElement>(".opener-anim");
+      gsap.fromTo(
+        openerItems,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: ".opener", start: "top 82%", once: true },
+        }
+      );
 
-      const introImg = intro.querySelector(".intro-img");
-      if (introImg) {
-        gsap.fromTo(introImg, { clipPath: "inset(0 100% 0 0)" }, {
-          clipPath: "inset(0 0% 0 0)", duration: 1.3, ease: "power3.inOut",
-          scrollTrigger: { trigger: introImg, start: "top 78%", once: true },
+      const openerImg = page.querySelector<HTMLElement>(".opener-img");
+      if (openerImg) {
+        gsap.fromTo(
+          openerImg,
+          { clipPath: "inset(0 100% 0 0)" },
+          {
+            clipPath: "inset(0 0% 0 0)",
+            duration: 1.3,
+            ease: "power3.inOut",
+            scrollTrigger: { trigger: openerImg, start: "top 85%", once: true },
+          }
+        );
+      }
+
+      const openerImgInner = page.querySelector<HTMLElement>(".opener-img img");
+      if (openerImgInner) {
+        gsap.to(openerImgInner, {
+          y: -40,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".opener",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          },
         });
       }
 
-      // Parallax on intro image
-      const introImgInner = intro.querySelector(".intro-img img");
-      if (introImgInner) {
-        gsap.to(introImgInner, {
-          y: -40, ease: "none",
-          scrollTrigger: { trigger: intro, start: "top bottom", end: "bottom top", scrub: 1.5 },
-        });
-      }
+      // Story
+      const storyItems = page.querySelectorAll<HTMLElement>(".story-anim");
+      gsap.fromTo(
+        storyItems,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: ".story", start: "top 78%", once: true },
+        }
+      );
 
-      // --- Story timeline ---
-      const storyItems = story.querySelectorAll(".anim");
-      gsap.fromTo(storyItems, { opacity: 0, y: 40 }, {
-        opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: story, start: "top 72%", once: true },
-      });
+      // Principles
+      const prinHeader =
+        page.querySelectorAll<HTMLElement>(".principles-anim");
+      gsap.fromTo(
+        prinHeader,
+        { opacity: 0, y: 32 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: ".principles", start: "top 80%", once: true },
+        }
+      );
 
-      const milestones = story.querySelectorAll(".milestone");
-      gsap.fromTo(milestones, { opacity: 0, x: -30 }, {
-        opacity: 1, x: 0, duration: 0.6, ease: "power3.out", stagger: 0.12,
-        scrollTrigger: { trigger: story.querySelector(".milestones"), start: "top 78%", once: true },
-      });
+      const prinCards = page.querySelectorAll<HTMLElement>(".principle-card");
+      gsap.fromTo(
+        prinCards,
+        { opacity: 0, y: 48 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: ".principles-grid",
+            start: "top 80%",
+            once: true,
+          },
+        }
+      );
 
-      // --- Values ---
-      const valuesItems = values.querySelectorAll(".anim");
-      gsap.fromTo(valuesItems, { opacity: 0, y: 40 }, {
-        opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: values, start: "top 72%", once: true },
-      });
-
-      const valueRows = values.querySelectorAll(".value-row");
-      gsap.fromTo(valueRows, { opacity: 0, y: 30 }, {
-        opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.15,
-        scrollTrigger: { trigger: values.querySelector(".values-list"), start: "top 78%", once: true },
-      });
-
-      // --- CTA ---
-      const ctaItems = cta.querySelectorAll(".anim");
-      gsap.fromTo(ctaItems, { opacity: 0, y: 40 }, {
-        opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.12,
-        scrollTrigger: { trigger: cta, start: "top 72%", once: true },
-      });
-    });
+      // CTA
+      const ctaItems = page.querySelectorAll<HTMLElement>(".cta-anim");
+      gsap.fromTo(
+        ctaItems,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: {
+            trigger: ".cta-section",
+            start: "top 78%",
+            once: true,
+          },
+        }
+      );
+    }, page);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <>
+    <div ref={pageRef}>
       <PageBanner
         title="About Us"
-        subtitle="Professional electrical and AC service you can trust"
+        subtitle="Family-owned heating and air in Boise, Idaho"
         backgroundImage="/images/banners/about-banner.jpg"
       />
 
-      {/* ───────── SECTION 1: Introduction — Split editorial ───────── */}
-      <section ref={introRef} className="relative overflow-hidden bg-background">
-        <div className="container mx-auto px-4">
-          <div className="lg:flex lg:items-stretch min-h-[65vh]">
-            {/* Text side */}
-            <div className="lg:w-[55%] flex flex-col justify-center py-20 md:py-28 lg:py-36 lg:pr-16 xl:pr-24">
-              <div className="anim flex items-center gap-3 mb-8">
-                <span className="block w-10 h-[2px] bg-primary" />
-                <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">Who We Are</span>
-              </div>
-
-              <h2 className="anim text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] xl:text-[3.6rem] font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground mb-10">
-                Your local<br />
-                <span className="text-primary">electric & AC</span> partner.
-              </h2>
-
-              <div className="md:flex md:gap-10 mb-12">
-                <p className="anim text-muted-foreground text-sm sm:text-base leading-relaxed mb-6 md:mb-0 md:flex-1">
-                  C&B Electric & A/C Services provides professional electrical and air conditioning repair services for residential and commercial customers in McAllen, Texas and the Rio Grande Valley.
-                </p>
-                <p className="anim text-muted-foreground text-sm sm:text-base leading-relaxed md:flex-1">
-                  We focus on delivering reliable, efficient, and cost-effective solutions tailored to each client's needs and budget. Our team is committed to high professional standards in every project.
-                </p>
-              </div>
-
-              {/* Inline stats */}
-              <div className="anim flex flex-wrap gap-x-10 gap-y-4 pt-8 border-t border-border">
-                {[
-                  { value: "24/7", label: "Availability" },
-                  { value: "Residential", label: "& Commercial" },
-                  { value: "McAllen, TX", label: "Based In" },
-                ].map((stat, idx) => (
-                  <div key={idx}>
-                    <p className="text-2xl md:text-3xl font-heading font-black text-primary leading-none">{stat.value}</p>
-                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Image side — full height bleed */}
-            <div className="lg:w-[45%] relative min-h-[50vh] lg:min-h-0">
-              <div className="intro-img absolute inset-0 overflow-hidden" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                <img
-                  src="/images/about/about-main.jpg"
-                  alt="Professional electrical installation"
-                  className="w-full h-full object-cover scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-background/20 via-transparent to-transparent" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────── SECTION 2: Our Story — Dark, timeline milestones ───────── */}
-      <section
-        ref={storyRef}
-        className="relative py-24 md:py-32 lg:py-40 overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.97) 100%)" }}
-      >
-        <div className="container mx-auto px-4">
-          {/* Header — wide spread */}
-          <div className="lg:flex lg:items-end lg:justify-between gap-8 mb-16 md:mb-24">
-            <div className="max-w-xl mb-8 lg:mb-0">
-              <div className="anim flex items-center gap-3 mb-6">
-                <span className="block w-10 h-[2px] bg-primary" />
-                <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">Our Story</span>
-              </div>
-              <h2 className="anim text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-background leading-[0.92] tracking-tight">
-                How We <span className="text-primary">Got Here</span>
-              </h2>
-            </div>
-            <p className="anim text-background/50 text-base md:text-lg max-w-md lg:text-right leading-relaxed">
-              From basic installations to a full-service electrical and HVAC operation.
-            </p>
-          </div>
-
-          {/* Timeline milestones — horizontal on desktop */}
-          <div className="milestones">
-            <div className="lg:flex lg:gap-0">
-              {[
-                {
-                  phase: "Foundation",
-                  title: "Wire & Cable Installations",
-                  desc: "The company started with basic wire and cable installations, building a foundation of hands-on electrical expertise and workmanship.",
-                },
-                {
-                  phase: "Expansion",
-                  title: "AC Repair & HVAC Maintenance",
-                  desc: "As experience and capabilities grew, air conditioning repair and HVAC maintenance were added to serve a wider range of client needs.",
-                },
-                {
-                  phase: "Growth",
-                  title: "Commercial Refrigeration",
-                  desc: "Commercial refrigeration services were introduced, extending our reach to restaurants, stores, and other businesses across the Valley.",
-                },
-                {
-                  phase: "Today",
-                  title: "Full-Service Operations",
-                  desc: "Today we handle a wide range of electrical and HVAC-related projects, including urgent jobs and time-sensitive service requests.",
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`milestone flex-1 relative py-8 lg:py-0 lg:px-8 xl:px-10 ${
-                    idx < 3 ? "border-b lg:border-b-0 lg:border-r border-background/10" : ""
-                  }`}
-                >
-                  {/* Phase label */}
-                  <span className="text-[11px] font-semibold text-primary uppercase tracking-[0.2em] mb-4 block">
-                    {String(idx + 1).padStart(2, "0")} — {item.phase}
-                  </span>
-
-                  <h3 className="font-heading font-bold text-lg md:text-xl text-background mb-3 leading-snug">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-background/50 text-sm leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+      {/* ═══════════════════ SECTION 1 · Editorial Cover / Opener ═══════════════════ */}
+      <section className="opener relative overflow-hidden bg-background">
+        {/* Masthead strip */}
+        <div className="border-b border-foreground/15">
+          <div className="container mx-auto px-4 py-3.5">
+            <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-foreground/55 text-xs font-semibold uppercase tracking-[0.25em] md:justify-start md:gap-x-8">
+              <li className="text-primary">— About</li>
+              {mastheadTerms.map((term, i) => (
+                <li key={term} className="flex items-center gap-5 md:gap-8">
+                  <span>{term}</span>
+                  {i < mastheadTerms.length - 1 && (
+                    <span
+                      aria-hidden="true"
+                      className="block h-[2px] w-2 bg-primary/40"
+                    />
+                  )}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
-      </section>
 
-      {/* ───────── SECTION 3: Values — Light, editorial lines ───────── */}
-      <section ref={valuesRef} className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-background">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <div className="max-w-2xl mb-16 md:mb-20">
-            <div className="anim flex items-center gap-3 mb-6">
-              <span className="block w-10 h-[2px] bg-primary" />
-              <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">Our Values</span>
-            </div>
-            <h2 className="anim text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-foreground leading-[0.92] tracking-tight mb-6">
-              What <span className="text-primary">drives</span> us
-            </h2>
-            <p className="anim text-muted-foreground text-base md:text-lg leading-relaxed">
-              The principles that guide every job, every interaction, and every solution we deliver.
-            </p>
-          </div>
-
-          {/* Values — divider-separated rows, not cards */}
-          <div className="values-list border-t border-border">
-            {[
-              {
-                icon: Shield,
-                title: "Reliability",
-                desc: "We show up when you need us and deliver consistent, dependable service every time. Being available 24/7 means we're there for urgent situations and scheduled projects alike.",
-              },
-              {
-                icon: Heart,
-                title: "Integrity",
-                desc: "Honest assessments, transparent pricing, and work we stand behind with confidence. We believe trust is built through straightforward communication and delivering on promises.",
-              },
-              {
-                icon: MessageSquare,
-                title: "Respect",
-                desc: "We treat every client, property, and project with the highest level of professionalism and care. From residential homes to commercial facilities, every job receives our full attention.",
-              },
-            ].map((value, idx) => (
+        <div className="container mx-auto px-4 py-20 md:py-28 lg:py-36">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Left: type */}
+            <div className="lg:col-span-7">
               <div
-                key={value.title}
-                className="value-row group border-b border-border py-10 md:py-14"
+                className="opener-anim mb-8 flex items-center gap-3"
+                style={{ opacity: 0 }}
               >
-                <div className="lg:flex lg:items-start lg:gap-16">
-                  {/* Left — number + icon + title */}
-                  <div className="flex items-center gap-5 mb-5 lg:mb-0 lg:w-[320px] lg:flex-shrink-0">
-                    <span className="text-xs font-semibold text-muted-foreground tracking-widest tabular-nums">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <div className="w-12 h-12 bg-foreground flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
-                      <value.icon className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
-                    </div>
-                    <h3 className="font-heading font-bold text-xl uppercase text-foreground tracking-wide group-hover:text-primary transition-colors duration-300">
-                      {value.title}
-                    </h3>
-                  </div>
-
-                  {/* Right — description */}
-                  <p className="text-muted-foreground text-base leading-relaxed lg:flex-1 lg:pt-1">
-                    {value.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────── SECTION 4: Contact CTA — Dark, editorial split with image ───────── */}
-      <section
-        ref={ctaRef}
-        className="relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.97) 100%)" }}
-      >
-        <div className="container mx-auto px-4">
-          <div className="lg:flex lg:items-stretch min-h-[70vh]">
-            {/* Left — headline + contact details */}
-            <div className="lg:w-[55%] flex flex-col justify-center py-24 md:py-32 lg:py-40 lg:pr-16 xl:pr-24">
-              <div className="anim flex items-center gap-3 mb-8">
-                <span className="block w-10 h-[2px] bg-primary" />
-                <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">Get In Touch</span>
-              </div>
-
-              <h2 className="anim text-4xl sm:text-5xl md:text-6xl lg:text-[3.6rem] font-heading font-black uppercase text-background leading-[0.92] tracking-tight mb-8">
-                Ready to start<br />
-                your <span className="text-primary">project?</span>
-              </h2>
-
-              <p className="anim text-background/50 text-base md:text-lg leading-relaxed max-w-lg mb-10">
-                Whether it's electrical work, AC repair, or a full system installation — our team is available 24/7 to deliver reliable solutions across the Rio Grande Valley.
-              </p>
-
-              {/* Contact details — inline row */}
-              <div className="anim flex flex-wrap gap-x-8 gap-y-4 mb-10 text-background/60 text-sm">
-                <a href="tel:+19567154379" className="inline-flex items-center gap-2 hover:text-primary transition-colors">
-                  <Phone className="w-4 h-4 text-primary" />
-                  (956) 715-4379
-                </a>
-                <a href="mailto:carloselectric1@yahoo.com" className="inline-flex items-center gap-2 hover:text-primary transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
-                  carloselectric1@yahoo.com
-                </a>
-                <span className="inline-flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  McAllen, TX
+                <span className="block h-[2px] w-10 bg-primary" />
+                <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                  Who We Are — 01
                 </span>
               </div>
 
-              <div className="anim flex flex-wrap items-center gap-5">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-10 py-5 bg-primary text-primary-foreground font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 active:translate-y-0"
-                >
-                  Schedule Service
-                </Link>
+              <h1
+                className="opener-anim mb-8 font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]"
+                style={{ opacity: 0 }}
+              >
+                A local heating
+                <br />
+                and air company
+                <br />
+                in <span className="text-primary">Boise, Idaho.</span>
+              </h1>
 
-                {/* Social links */}
-                <div className="flex items-center gap-2">
-                  <a
-                    href="https://www.facebook.com/carloselectric1/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-4 h-4 text-background/60 hover:text-primary" />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@cbelectricacservices986"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-                    aria-label="YouTube"
-                  >
-                    <Youtube className="w-4 h-4 text-background/60 hover:text-primary" />
-                  </a>
-                  <a
-                    href="https://x.com/carloselectric1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 flex items-center justify-center border border-background/15 hover:border-primary hover:bg-primary/10 transition-all duration-300"
-                    aria-label="X (Twitter)"
-                  >
-                    <Twitter className="w-4 h-4 text-background/60 hover:text-primary" />
-                  </a>
+              <p
+                className="opener-anim max-w-xl text-foreground/70 text-base md:text-lg font-medium leading-relaxed"
+                style={{ opacity: 0 }}
+              >
+                Komfort iQ HVAC is a family-owned heating and air company
+                focused on dependable local service and day-to-day comfort for
+                homes and businesses in the Boise area.
+              </p>
+            </div>
+
+            {/* Right: image + caption */}
+            <div className="lg:col-span-5">
+              <div
+                className="opener-img relative aspect-[4/5] overflow-hidden bg-secondary"
+                style={{ clipPath: "inset(0 100% 0 0)" }}
+              >
+                <img
+                  src="/images/about/about-main.jpg"
+                  alt="HVAC equipment serviced by Komfort iQ HVAC"
+                  className="h-full w-full scale-110 object-cover"
+                />
+              </div>
+              <div className="mt-3 flex items-center justify-between text-foreground/50 text-xs font-semibold uppercase tracking-[0.2em]">
+                <span>Komfort iQ HVAC · Boise, Idaho</span>
+                <span className="tabular-nums">— Fig. 01</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════ SECTION 2 · Long-read story ═══════════════════ */}
+      <section className="story relative overflow-hidden bg-foreground text-background">
+        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-40">
+          <div className="mx-auto max-w-3xl">
+            {/* Header */}
+            <div
+              className="story-anim mb-10 flex items-center gap-3"
+              style={{ opacity: 0 }}
+            >
+              <span className="block h-[2px] w-10 bg-primary" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                The Story — 02
+              </span>
+            </div>
+
+            <h2
+              className="story-anim mb-12 font-heading font-black uppercase leading-[0.95] tracking-tight text-background text-4xl md:text-5xl lg:text-[3.5rem]"
+              style={{ opacity: 0 }}
+            >
+              A family business
+              <br />
+              built on local service.
+            </h2>
+
+            {/* Body with drop cap */}
+            <div
+              className="story-anim mb-14 text-background/75 text-lg md:text-xl font-medium leading-[1.75]"
+              style={{ opacity: 0 }}
+            >
+              <p>
+                <span className="float-left mr-4 mt-1 font-heading font-black text-primary text-7xl md:text-8xl leading-[0.85] tracking-tight">
+                  K
+                </span>
+                omfort iQ HVAC is a family-owned heating and air company
+                based in Boise, Idaho. Our focus is HVAC services — with an
+                emphasis on dependable local service and day-to-day comfort
+                for the customers we work with.
+              </p>
+            </div>
+
+            {/* Pull quote */}
+            <blockquote
+              className="story-anim relative mb-14 border-l-2 border-primary py-4 pl-8 md:py-6 md:pl-12"
+              style={{ opacity: 0 }}
+            >
+              <Quote
+                aria-hidden="true"
+                className="absolute -left-3 -top-2 h-8 w-8 bg-foreground text-primary md:-left-4"
+                strokeWidth={2.5}
+              />
+              <p className="font-heading font-black uppercase leading-[1.05] tracking-tight text-background text-2xl md:text-4xl lg:text-5xl">
+                Dependable local service.
+                <br />
+                <span className="text-primary">Day-to-day comfort.</span>
+              </p>
+              <cite className="not-italic mt-5 block text-background/45 text-xs font-semibold uppercase tracking-[0.25em]">
+                — Komfort iQ HVAC
+              </cite>
+            </blockquote>
+
+            <div
+              className="story-anim space-y-6 text-background/70 text-base md:text-lg font-medium leading-[1.75]"
+              style={{ opacity: 0 }}
+            >
+              <p>
+                We work with customers who need help with heating, cooling,
+                and general HVAC — for homes and businesses throughout the
+                Boise area. Our approach is practical and straightforward.
+              </p>
+              <p>
+                Based on available public information, the company mainly
+                serves Boise and nearby areas.
+              </p>
+            </div>
+
+            {/* Signature meta row */}
+            <div
+              className="story-anim mt-14 flex items-center justify-between gap-4 border-t border-background/15 pt-6 text-background/50 text-xs font-semibold uppercase tracking-[0.25em]"
+              style={{ opacity: 0 }}
+            >
+              <span>Komfort iQ Heating and Air LLC</span>
+              <span className="tabular-nums">— 002</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════ SECTION 3 · Principles ═══════════════════ */}
+      <section className="principles relative overflow-hidden bg-background">
+        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-36">
+          {/* Header */}
+          <div className="mb-14 grid gap-10 md:mb-20 md:grid-cols-12 md:gap-12">
+            <div className="md:col-span-7">
+              <div
+                className="principles-anim mb-6 flex items-center gap-3"
+                style={{ opacity: 0 }}
+              >
+                <span className="block h-[2px] w-10 bg-primary" />
+                <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                  Principles — 03
+                </span>
+              </div>
+              <h2
+                className="principles-anim max-w-xl font-heading font-black uppercase leading-[0.95] tracking-tight text-foreground text-4xl md:text-5xl lg:text-[3.2rem]"
+                style={{ opacity: 0 }}
+              >
+                What we <span className="text-primary">focus on.</span>
+              </h2>
+            </div>
+            <div className="md:col-span-5 md:self-end">
+              <p
+                className="principles-anim text-foreground/65 text-base md:text-lg font-medium leading-relaxed"
+                style={{ opacity: 0 }}
+              >
+                A simple approach rooted in local service and practical
+                solutions for homes and businesses in the Boise area.
+              </p>
+            </div>
+          </div>
+
+          {/* Grid of principle cards */}
+          <div className="principles-grid grid gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
+            {principles.map((p, i) => {
+              const Icon = p.icon;
+              const idx = String(i + 1).padStart(2, "0");
+              return (
+                <article
+                  key={p.title}
+                  className="principle-card group relative flex flex-col justify-between border border-foreground/12 bg-background p-8 transition-colors hover:border-primary/60 lg:p-10 min-h-[340px]"
+                  style={{ opacity: 0 }}
+                >
+                  {/* Top row: number + icon */}
+                  <div className="flex items-start justify-between">
+                    <span className="font-heading font-black text-primary leading-none tabular-nums tracking-tight text-5xl md:text-6xl">
+                      {idx}
+                    </span>
+                    <span className="flex h-10 w-10 items-center justify-center border border-foreground/15 bg-background transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </span>
+                  </div>
+
+                  {/* Body */}
+                  <div>
+                    <span className="mb-4 block h-[2px] w-8 bg-primary transition-all duration-500 group-hover:w-16" />
+                    <h3 className="mb-3 font-heading font-black uppercase leading-tight tracking-tight text-foreground text-xl md:text-2xl">
+                      {p.title}
+                    </h3>
+                    <p className="text-foreground/65 text-sm md:text-base font-medium leading-relaxed">
+                      {p.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom edge accent */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
+                  />
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════ SECTION 4 · Contact CTA ═══════════════════ */}
+      <section
+        className="cta-section relative overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.97) 100%)",
+        }}
+      >
+        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-36">
+          <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16 xl:gap-20">
+            {/* LEFT · Image plate */}
+            <div className="lg:col-span-5">
+              <div className="relative h-full">
+                {/* Tag above image */}
+                <div className="mb-3 flex items-center justify-between gap-4 text-background/50 text-xs font-semibold uppercase tracking-[0.25em]">
+                  <span className="flex items-center gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="block h-[2px] w-6 bg-primary"
+                    />
+                    <span>Reach Out · Boise, ID</span>
+                  </span>
+                  <span className="tabular-nums">— Fig. 04</span>
+                </div>
+
+                {/* Image with left-edge primary rule */}
+                <div
+                  className="cta-anim relative overflow-hidden bg-secondary aspect-[4/5] lg:aspect-auto lg:h-[calc(100%-3.5rem)] lg:min-h-[560px]"
+                  style={{ opacity: 0 }}
+                >
+                  <img
+                    src="/images/about/contact-cta.jpg"
+                    alt="HVAC equipment serviced by Komfort iQ HVAC"
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/25" />
+
+                  {/* Vertical orange index rule on left edge */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-y-0 left-0 block w-[3px] bg-primary"
+                  />
+
+                  {/* Top-right corner mark */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-4 top-4 block h-5 w-5 border-r-2 border-t-2 border-primary"
+                  />
+
+                  {/* Floating label bottom-left */}
+                  <div className="absolute bottom-8 left-8">
+                    <span className="mb-2 block text-white/70 text-[10px] font-semibold uppercase tracking-[0.3em]">
+                      Family-owned
+                    </span>
+                    <span className="block font-heading font-black uppercase tracking-tight text-white text-lg md:text-xl">
+                      Local Service
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right — full-height image */}
-            <div className="lg:w-[45%] relative min-h-[50vh] lg:min-h-0">
-              <div className="absolute inset-0 overflow-hidden">
-                <img
-                  src="/images/about/contact-cta.jpg"
-                  alt="Electrical infrastructure"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-foreground/40 via-transparent to-transparent" />
+            {/* RIGHT · Content + Direct Contact */}
+            <div className="lg:col-span-7 flex flex-col justify-center">
+              <div
+                className="cta-anim mb-8 flex items-center gap-3"
+                style={{ opacity: 0 }}
+              >
+                <span className="block h-[2px] w-10 bg-primary" />
+                <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                  Get in Touch — 04
+                </span>
+              </div>
+
+              <h2
+                className="cta-anim mb-8 font-heading font-black uppercase leading-[0.92] tracking-tight text-background text-4xl sm:text-5xl md:text-6xl lg:text-[3.6rem]"
+                style={{ opacity: 0 }}
+              >
+                Ready to talk
+                <br />
+                about <span className="text-primary">comfort?</span>
+              </h2>
+
+              <p
+                className="cta-anim mb-10 max-w-xl text-base md:text-lg font-medium leading-relaxed text-background/55"
+                style={{ opacity: 0 }}
+              >
+                Contact us to ask about service or request a quote. We help
+                with heating, cooling, and general HVAC needs in the Boise
+                area.
+              </p>
+
+              {/* Direct Contact — inline grid */}
+              <div
+                className="cta-anim mb-10 border-t border-background/15 pt-8"
+                style={{ opacity: 0 }}
+              >
+                <span className="mb-6 block text-background/45 text-xs font-semibold uppercase tracking-[0.3em]">
+                  Direct Contact
+                </span>
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  <a
+                    href="tel:+19864974822"
+                    className="group flex items-center gap-5"
+                  >
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center border border-background/20 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </span>
+                    <span>
+                      <span className="mb-1 block text-background/45 text-xs font-semibold uppercase tracking-[0.2em]">
+                        Call Us
+                      </span>
+                      <span className="block font-heading font-bold text-background text-lg transition-colors group-hover:text-primary">
+                        (986) 497-4822
+                      </span>
+                    </span>
+                  </a>
+
+                  <div className="flex items-center gap-5">
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center border border-background/20">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </span>
+                    <span>
+                      <span className="mb-1 block text-background/45 text-xs font-semibold uppercase tracking-[0.2em]">
+                        Based In
+                      </span>
+                      <span className="block text-base font-semibold text-background">
+                        Boise, Idaho
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA + Facebook */}
+              <div
+                className="cta-anim flex flex-wrap items-center gap-5"
+                style={{ opacity: 0 }}
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2 bg-primary px-10 py-5 text-primary-foreground font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0"
+                >
+                  Contact Us
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </Link>
+
+                <p className="text-background/55 text-sm font-medium">
+                  Find us on Facebook:{" "}
+                  <span className="font-semibold text-background/85">
+                    Komfort IQ Heating and Air
+                  </span>
+                </p>
               </div>
             </div>
           </div>
@@ -382,7 +581,7 @@ const About = () => {
 
         <div className="h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
       </section>
-    </>
+    </div>
   );
 };
 

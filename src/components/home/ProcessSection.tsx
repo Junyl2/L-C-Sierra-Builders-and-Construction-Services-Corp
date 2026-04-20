@@ -7,27 +7,30 @@ const steps = [
     icon: PhoneCall,
     number: "01",
     label: "Contact",
-    desc: "Call us or request service online. We respond promptly to schedule your appointment.",
+    desc: "Reach out by phone to tell us what you need. We listen and schedule a visit.",
   },
   {
     icon: ClipboardCheck,
     number: "02",
-    label: "Assess",
-    desc: "Our technician inspects your system and provides a clear diagnosis and estimate.",
+    label: "Diagnose",
+    desc: "We inspect the heating or air system on-site and share a clear explanation of the issue.",
   },
   {
     icon: Wrench,
     number: "03",
-    label: "Execute",
-    desc: "We complete the repair, installation, or maintenance with professional precision.",
+    label: "Service",
+    desc: "We handle the repair, installation, or HVAC maintenance with a straightforward approach.",
   },
   {
     icon: ThumbsUp,
     number: "04",
-    label: "Deliver",
-    desc: "Your system runs optimally. We ensure your satisfaction before the job is done.",
+    label: "Follow Up",
+    desc: "We check that the system is running as expected and answer any remaining questions.",
   },
 ];
+
+// Per-step desktop staircase offsets (mt values). Step 01 lowest, Step 04 highest.
+const stepOffsets = ["lg:mt-[120px]", "lg:mt-[80px]", "lg:mt-[40px]", "lg:mt-0"];
 
 const ProcessSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,27 +40,55 @@ const ProcessSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      // Header
-      const header = section.querySelectorAll(".proc-header");
-      gsap.fromTo(header, { opacity: 0, y: 40 }, {
-        opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: section, start: "top 75%", once: true },
-      });
+      const header = section.querySelectorAll<HTMLElement>(".proc-header");
+      gsap.fromTo(
+        header,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+          stagger: 0.1,
+          scrollTrigger: { trigger: section, start: "top 75%", once: true },
+        }
+      );
 
-      // Steps — stagger from left with a slight cascade
-      const stepEls = section.querySelectorAll(".proc-step");
-      gsap.fromTo(stepEls, { opacity: 0, y: 50 }, {
-        opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.15,
-        scrollTrigger: { trigger: section.querySelector(".proc-steps"), start: "top 78%", once: true },
-      });
+      const stepEls = section.querySelectorAll<HTMLElement>(".proc-step");
+      gsap.fromTo(
+        stepEls,
+        { opacity: 0, y: 56 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.9,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: section.querySelector(".proc-steps"),
+            start: "top 78%",
+            once: true,
+          },
+        }
+      );
 
-      // Connecting line
-      const line = section.querySelector(".proc-line");
-      if (line) {
-        gsap.fromTo(line, { scaleX: 0 }, {
-          scaleX: 1, duration: 1.2, ease: "power2.inOut",
-          scrollTrigger: { trigger: section.querySelector(".proc-steps"), start: "top 70%", once: true },
-        });
+      // Animate the ascending rail on desktop
+      const rail = section.querySelector<HTMLElement>(".proc-rail");
+      if (rail) {
+        gsap.fromTo(
+          rail,
+          { scaleX: 0 },
+          {
+            scaleX: 1,
+            duration: 1.4,
+            ease: "power2.inOut",
+            scrollTrigger: {
+              trigger: section.querySelector(".proc-steps"),
+              start: "top 75%",
+              once: true,
+            },
+          }
+        );
       }
     }, section);
 
@@ -65,59 +96,114 @@ const ProcessSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-background">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-secondary py-24 md:py-32 lg:py-40"
+    >
+      {/* Top & bottom primary rules — editorial detail */}
+      <span
+        aria-hidden="true"
+        className="absolute left-0 top-0 h-[2px] w-24 bg-primary md:w-32"
+      />
+      <span
+        aria-hidden="true"
+        className="absolute bottom-0 right-0 h-[2px] w-24 bg-primary md:w-32"
+      />
+
       <div className="container mx-auto px-4">
-        {/* Header — wide spread layout */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-20 md:mb-28">
+        {/* Header */}
+        <div className="mb-20 flex flex-col gap-6 md:mb-28 md:flex-row md:items-end md:justify-between">
           <div>
-            <div className="proc-header flex items-center gap-3 mb-5">
-              <span className="block w-10 h-[2px] bg-primary" />
-              <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">How It Works</span>
+            <div
+              className="proc-header mb-5 flex items-center gap-3"
+              style={{ opacity: 0 }}
+            >
+              <span className="block h-[2px] w-10 bg-primary" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                How It Works — 04 Steps
+              </span>
             </div>
-            <h2 className="proc-header text-4xl md:text-5xl lg:text-6xl font-heading font-black uppercase text-foreground leading-[0.92] tracking-tight">
-              Our <span className="text-primary">Process</span>
+            <h2
+              className="proc-header font-heading font-black uppercase leading-[0.92] tracking-tight text-white text-4xl md:text-5xl lg:text-6xl"
+              style={{ opacity: 0 }}
+            >
+              From first call
+              <br />
+              to <span className="text-primary">follow up.</span>
             </h2>
           </div>
-          <p className="proc-header text-muted-foreground text-base md:text-lg max-w-sm md:text-right leading-relaxed">
-            A straightforward approach from first call to job completion.
+          <p
+            className="proc-header max-w-sm text-base md:text-lg font-medium leading-relaxed text-white/65 md:text-right"
+            style={{ opacity: 0 }}
+          >
+            A practical, straightforward approach — four clear steps that keep
+            you informed from start to finish.
           </p>
         </div>
 
-        {/* Steps — horizontal on desktop, vertical on mobile */}
+        {/* Staircase grid */}
         <div className="proc-steps relative">
-          {/* Connecting line (desktop) */}
-          <div className="proc-line hidden lg:block absolute top-[52px] left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-[1px] bg-border origin-left" style={{ transform: "scaleX(0)" }} />
+          {/* Ascending rail — diagonal orange line behind cards on lg+ */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none hidden lg:block absolute inset-x-6 top-[60px] z-0"
+            style={{
+              height: "120px",
+            }}
+          >
+            <div
+              className="proc-rail h-[2px] w-full origin-left bg-gradient-to-r from-primary/10 via-primary/60 to-primary"
+              style={{
+                transform: "translateY(60px) rotate(-7deg)",
+                transformOrigin: "left center",
+              }}
+            />
+          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 lg:gap-x-6">
-            {steps.map((step, i) => (
-              <div key={step.label} className="proc-step relative" style={{ opacity: 0 }}>
-                {/* Step number + icon row */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="relative z-10 w-[52px] h-[52px] bg-foreground flex items-center justify-center">
-                    <step.icon className="w-5 h-5 text-primary" />
+          <div className="relative z-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5 lg:items-start">
+            {steps.map((step, i) => {
+              const Icon = step.icon;
+              return (
+                <article
+                  key={step.label}
+                  className={`proc-step group relative flex flex-col justify-between border border-white/10 bg-secondary/60 p-7 backdrop-blur-sm transition-colors duration-300 hover:border-primary/70 md:p-8 lg:min-h-[340px] ${stepOffsets[i]}`}
+                  style={{ opacity: 0 }}
+                >
+                  {/* Top row: number + icon */}
+                  <div className="mb-6 flex items-start justify-between">
+                    <span className="font-heading font-black text-primary leading-none tabular-nums tracking-tight text-6xl md:text-7xl">
+                      {step.number}
+                    </span>
+                    <span className="flex h-10 w-10 items-center justify-center border border-white/15 bg-white/5 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/15">
+                      <Icon className="h-4 w-4 text-primary" />
+                    </span>
                   </div>
-                  <div className="flex-1 h-[1px] bg-border lg:hidden" />
-                  <span className="text-xs font-semibold text-muted-foreground tracking-widest tabular-nums lg:hidden">
-                    {step.number}
-                  </span>
-                </div>
 
-                {/* Desktop number */}
-                <span className="hidden lg:block text-[11px] font-semibold text-primary tracking-widest tabular-nums mb-3">
-                  Step {step.number}
-                </span>
+                  {/* Body */}
+                  <div>
+                    <span className="mb-4 block h-[2px] w-8 bg-primary transition-all duration-500 group-hover:w-16" />
 
-                {/* Label */}
-                <h3 className="font-heading font-bold text-lg uppercase text-foreground tracking-wide mb-3">
-                  {step.label}
-                </h3>
+                    <span className="mb-2 block text-white/45 text-xs font-semibold uppercase tracking-[0.25em]">
+                      Step {step.number}
+                    </span>
 
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {step.desc}
-                </p>
-              </div>
-            ))}
+                    <h3 className="mb-3 font-heading font-black uppercase leading-tight tracking-tight text-white text-xl md:text-2xl">
+                      {step.label}
+                    </h3>
+
+                    <p className="text-sm md:text-[15px] font-medium leading-relaxed text-white/65">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom edge accent — grows on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-[3px] w-0 bg-primary transition-all duration-500 ease-out group-hover:w-full"
+                  />
+                </article>
+              );
+            })}
           </div>
         </div>
       </div>

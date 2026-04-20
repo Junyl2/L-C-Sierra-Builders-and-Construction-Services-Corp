@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useParams, Navigate, Link } from "react-router-dom";
-import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Phone, MapPin } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { getServiceBySlug, services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
@@ -38,7 +38,7 @@ const ServiceDetail = () => {
 
   useEffect(() => {
     if (service) {
-      document.title = `${service.title} | C&B Electric & A/C Services`;
+      document.title = `${service.title} | Komfort iQ HVAC`;
     }
   }, [service]);
 
@@ -443,22 +443,15 @@ const ServiceDetail = () => {
             {/* Contact details */}
             <div className="anim-cta flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10 mb-12 text-background/70">
               <a
-                href="tel:+19567154379"
+                href="tel:+19864974822"
                 className="inline-flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="text-sm">(956) 715-4379</span>
-              </a>
-              <a
-                href="mailto:carloselectric1@yahoo.com"
-                className="inline-flex items-center gap-2 hover:text-primary transition-colors"
-              >
-                <Mail className="w-4 h-4 text-primary" />
-                <span className="text-sm">carloselectric1@yahoo.com</span>
+                <span className="text-sm">(986) 497-4822</span>
               </a>
               <span className="inline-flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm">McAllen, TX</span>
+                <span className="text-sm">Boise, ID</span>
               </span>
             </div>
 
