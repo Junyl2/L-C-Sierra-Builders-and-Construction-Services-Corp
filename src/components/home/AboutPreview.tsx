@@ -124,7 +124,7 @@ const AboutPreview = () => {
               {/* Small editorial "tag" above image */}
               <div className="mb-4 flex items-center gap-3">
                 <span className="block h-[2px] w-8 bg-primary" />
-                <span className="text-primary text-[10px] font-semibold uppercase tracking-[0.3em]">
+                <span className="text-primary text-xs font-semibold uppercase tracking-[0.3em]">
                   Est. Local
                 </span>
               </div>
@@ -143,10 +143,10 @@ const AboutPreview = () => {
 
               {/* Photo caption — magazine style */}
               <div className="mt-4 flex items-center justify-between gap-4 text-foreground/55">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em]">
                   Komfort iQ HVAC · Boise, Idaho
                 </span>
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] tabular-nums">
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] tabular-nums">
                   — 001
                 </span>
               </div>
@@ -195,7 +195,7 @@ const AboutPreview = () => {
             <div className="mb-12">
               <div className="mb-6 flex items-center gap-3">
                 <span className="block h-[1px] w-6 bg-foreground/30" />
-                <span className="text-foreground/45 text-[10px] font-semibold uppercase tracking-[0.3em]">
+                <span className="text-foreground/45 text-xs font-semibold uppercase tracking-[0.3em]">
                   Brand Profile
                 </span>
               </div>

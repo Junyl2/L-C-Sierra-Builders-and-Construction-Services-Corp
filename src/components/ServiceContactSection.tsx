@@ -28,7 +28,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded shadow-lg hidden md:block">
-              <p className="text-sm font-medium uppercase tracking-wide">Local Service</p>
+              <p className="text-sm font-semibold uppercase tracking-wide">Local Service</p>
               <p className="text-2xl font-heading font-bold">Boise, Idaho</p>
             </div>
           </motion.div>

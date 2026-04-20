@@ -335,8 +335,8 @@ const ServiceDetail = () => {
               <div className="lg:w-[42%] xl:w-[40%] flex-shrink-0 mt-12 lg:mt-0">
                 <div className="features-img relative aspect-[3/4] overflow-hidden">
                   <img
-                    src={service.contentImage}
-                    alt={`${service.shortTitle} service`}
+                    src={service.detailImage}
+                    alt={`${service.shortTitle} equipment detail`}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent" />

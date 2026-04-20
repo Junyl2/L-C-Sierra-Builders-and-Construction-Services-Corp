@@ -210,7 +210,7 @@ const ServiceAreaPreview = () => {
                   <span className="flex h-8 w-8 items-center justify-center border border-white/30 bg-black/40 backdrop-blur-sm">
                     <Navigation className="h-3.5 w-3.5 text-primary" />
                   </span>
-                  <span className="text-white/85 text-[10px] font-semibold uppercase tracking-[0.3em]">
+                  <span className="text-white/85 text-xs font-semibold uppercase tracking-[0.3em]">
                     N
                   </span>
                 </div>
@@ -239,7 +239,7 @@ const ServiceAreaPreview = () => {
                     aria-hidden="true"
                     className="block h-[2px] w-12 bg-primary"
                   />
-                  <span className="text-white/70 text-[10px] font-semibold uppercase tracking-[0.3em] tabular-nums">
+                  <span className="text-white/70 text-xs font-semibold uppercase tracking-[0.3em] tabular-nums">
                     Boise Area
                   </span>
                 </div>

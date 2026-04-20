@@ -13,6 +13,7 @@ export interface ServiceItem {
   benefits: string[];
   bannerImage: string;
   contentImage: string;
+  detailImage: string;
 }
 
 export const services: ServiceItem[] = [
@@ -37,6 +38,7 @@ export const services: ServiceItem[] = [
     ],
     bannerImage: "/images/services/heating-banner.jpg",
     contentImage: "/images/services/heating-content.jpg",
+    detailImage: "/images/services/hvac-maintenance-content.jpg",
   },
   {
     id: "air-conditioning",
@@ -59,6 +61,7 @@ export const services: ServiceItem[] = [
     ],
     bannerImage: "/images/services/cooling-banner.jpg",
     contentImage: "/images/services/cooling-content.jpg",
+    detailImage: "/images/services/ac-repair-content.jpg",
   },
   {
     id: "general-hvac",
@@ -81,6 +84,7 @@ export const services: ServiceItem[] = [
     ],
     bannerImage: "/images/services/hvac-systems-banner.jpg",
     contentImage: "/images/services/hvac-systems-content.jpg",
+    detailImage: "/images/services/inspections-content.jpg",
   },
 ];
 

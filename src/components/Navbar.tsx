@@ -74,32 +74,27 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
     ? "bg-transparent text-white lg:text-foreground"
     : "bg-transparent text-white";
 
-  const logoMainClass = isScrolled
-    ? "text-primary-foreground"
+  // Logo visibility by context:
+  // - Scrolled (any route): original colors (light nav bg makes dark logo visible)
+  // - Home + not scrolled: white on mobile (over dark hero), original on lg+ (over light bento padding)
+  // - Other routes + not scrolled: white everywhere (over dark page banners)
+  const logoFilterClass = isScrolled
+    ? ""
     : isHome
-    ? "text-white lg:text-foreground"
-    : "text-white";
-
-  const logoSubClass = isScrolled
-    ? "text-nav-solid-foreground/70"
-    : isHome
-    ? "text-white/70 lg:text-foreground/70"
-    : "text-white/70";
+    ? "brightness-0 invert lg:brightness-100 lg:invert-0"
+    : "brightness-0 invert";
 
   return (
     <>
       <nav className={`w-full z-50 transition-none ${navClass}`}>
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="flex flex-col leading-tight">
-              <span className={`font-heading font-extrabold text-xl tracking-tight ${logoMainClass}`}>
-                KOMFORT <span className="text-primary">iQ</span>
-              </span>
-              <span className={`text-[10px] tracking-widest uppercase ${logoSubClass}`}>
-                HVAC
-              </span>
-            </div>
+          <Link to="/" className="flex items-center" aria-label="Komfort iQ HVAC — Home">
+            <img
+              src="/images/main-logo.png"
+              alt="Komfort iQ HVAC"
+              className={`h-12 w-auto md:h-14 transition-[filter] duration-200 ${logoFilterClass}`}
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -201,14 +196,11 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
       >
         {/* Top - Logo + Close */}
         <div className="flex items-center justify-between p-4 border-b border-border">
-          <div className="flex flex-col leading-tight">
-            <span className="font-heading font-extrabold text-lg">
-              KOMFORT <span className="text-primary">iQ</span>
-            </span>
-            <span className="text-[10px] tracking-widest uppercase text-muted-foreground">
-              HVAC
-            </span>
-          </div>
+          <img
+            src="/images/main-logo.png"
+            alt="Komfort iQ HVAC"
+            className="h-10 w-auto"
+          />
           <button onClick={() => setMobileOpen(false)} className="p-2" aria-label="Close menu">
             <X className="w-6 h-6" />
           </button>

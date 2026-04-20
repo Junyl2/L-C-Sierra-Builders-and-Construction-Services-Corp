@@ -211,7 +211,7 @@ const HeroSection = () => {
                   <Phone className="h-4 w-4" />
                 </span>
                 <span className="flex flex-col">
-                  <span className="mb-1 text-[12px] font-medium uppercase tracking-wider leading-none text-white/60">
+                  <span className="mb-1 text-xs font-semibold uppercase tracking-wider leading-none text-white/60">
                     Call
                   </span>
                   <span className="text-base font-semibold leading-none tracking-wide">
@@ -301,7 +301,7 @@ const HeroSection = () => {
                       <Phone className="h-4 w-4" />
                     </span>
                     <span className="flex flex-col">
-                      <span className="mb-1 text-[12px] font-medium uppercase tracking-wider leading-none text-white/60">
+                      <span className="mb-1 text-xs font-semibold uppercase tracking-wider leading-none text-white/60">
                         Call
                       </span>
                       <span className="text-base font-semibold leading-none tracking-wide">

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Phone, MapPin, Send, Check } from "lucide-react";
+import { Phone, MapPin, Send, Check, Facebook } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
@@ -98,7 +98,7 @@ const Contact = () => {
                     <Phone className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </span>
                   <span className="flex-1">
-                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Call Us</span>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Call Us</span>
                     <span className="block text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors">(986) 497-4822</span>
                   </span>
                 </a>
@@ -108,16 +108,30 @@ const Contact = () => {
                     <MapPin className="w-5 h-5 text-primary" />
                   </span>
                   <span className="flex-1">
-                    <span className="block text-[11px] uppercase tracking-wider text-muted-foreground mb-0.5">Location</span>
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Location</span>
                     <span className="block text-base font-semibold text-foreground">Boise, Idaho</span>
                   </span>
                 </div>
               </div>
 
-              {/* Facebook plain-text mention (no URL publicly listed) */}
-              <p className="anim text-sm text-muted-foreground mt-8">
-                Find us on Facebook: <span className="text-foreground font-semibold">Komfort IQ Heating and Air</span>
-              </p>
+              {/* Facebook */}
+              <a
+                href="https://web.facebook.com/profile.php?id=61583999842870"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="anim group mt-8 inline-flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
+                aria-label="Komfort iQ HVAC on Facebook"
+              >
+                <span className="flex h-10 w-10 items-center justify-center border border-border transition-colors group-hover:border-primary group-hover:bg-primary/10">
+                  <Facebook className="h-4 w-4 text-primary" />
+                </span>
+                <span>
+                  Find us on Facebook:{" "}
+                  <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                    Komfort iQ HVAC
+                  </span>
+                </span>
+              </a>
             </div>
 
             {/* ── RIGHT: Contact form (dark) ── */}
@@ -259,8 +273,8 @@ const Contact = () => {
       {/* ───── Google Map — full width bottom (Boise, Idaho) ───── */}
       <div ref={mapRef} className="relative" style={{ height: "450px" }}>
         <iframe
-          title="Komfort iQ HVAC service area — Boise, Idaho"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d180000!2d-116.2023!3d43.6150!3m2!1i1024!2i768!4f13.1!2m1!1sBoise%2C%20Idaho!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+          title="Komfort iQ HVAC — Boise, Idaho"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d398895.9697208779!2d-116.4567941!3d43.8630074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa80fdce1596295e7%3A0xc69ffc9c0ec8b90f!2sKomfort%20iQ%20HVAC!5e1!3m2!1sen!2sph!4v1776698971176!5m2!1sen!2sph"
           width="100%"
           height="100%"
           style={{ border: 0 }}

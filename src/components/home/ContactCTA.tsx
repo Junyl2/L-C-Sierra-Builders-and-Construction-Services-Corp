@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Phone, MapPin, ArrowUpRight, Facebook } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 
 const ContactCTA = () => {
@@ -126,7 +126,7 @@ const ContactCTA = () => {
 
                 {/* Floating label — bottom-left on image */}
                 <div className="absolute bottom-8 left-8">
-                  <span className="mb-2 block text-white/70 text-[10px] font-semibold uppercase tracking-[0.3em]">
+                  <span className="mb-2 block text-white/70 text-xs font-semibold uppercase tracking-[0.3em]">
                     On-site service
                   </span>
                   <span className="block font-heading font-black uppercase tracking-tight text-white text-lg md:text-xl">
@@ -221,12 +221,23 @@ const ContactCTA = () => {
                 Contact Us
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
-              <p className="text-background/55 text-sm font-medium">
-                Facebook:{" "}
-                <span className="font-semibold text-background/85">
-                  Komfort IQ Heating and Air
+              <a
+                href="https://web.facebook.com/profile.php?id=61583999842870"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-3 text-background/70 text-sm font-medium transition-colors hover:text-primary"
+                aria-label="Komfort iQ HVAC on Facebook"
+              >
+                <span className="flex h-10 w-10 items-center justify-center border border-background/20 transition-colors group-hover:border-primary group-hover:bg-primary/10">
+                  <Facebook className="h-4 w-4 text-primary" />
                 </span>
-              </p>
+                <span>
+                  Facebook:{" "}
+                  <span className="font-semibold text-background group-hover:text-primary transition-colors">
+                    Komfort iQ HVAC
+                  </span>
+                </span>
+              </a>
             </div>
           </div>
         </div>

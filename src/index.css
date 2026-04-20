@@ -39,13 +39,13 @@
 
     --hero-gradient: linear-gradient(135deg, hsl(210 20% 98%) 0%, hsl(210 18% 95%) 50%, hsl(200 20% 93%) 100%);
     --section-warm: 210 18% 96%;
-    --nav-solid: 198 19% 24%;
-    --nav-solid-foreground: 210 16% 94%;
-    --topbar-bg: 198 19% 18%;
-    --topbar-foreground: 210 14% 82%;
-    --footer-bg: 198 19% 16%;
-    --footer-foreground: 210 12% 65%;
-    --footer-heading: 0 0% 100%;
+    --nav-solid: 210 20% 97%;
+    --nav-solid-foreground: 198 19% 18%;
+    --topbar-bg: 210 16% 93%;
+    --topbar-foreground: 198 19% 24%;
+    --footer-bg: 210 18% 95%;
+    --footer-foreground: 198 19% 32%;
+    --footer-heading: 198 19% 15%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
