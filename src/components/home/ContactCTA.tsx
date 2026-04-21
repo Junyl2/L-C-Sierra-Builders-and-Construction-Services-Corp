@@ -77,7 +77,7 @@ const ContactCTA = () => {
         className="absolute bottom-0 right-0 h-[2px] w-24 bg-primary md:w-32"
       />
 
-      <div className="container mx-auto px-4 py-24 md:py-28 lg:py-32">
+      <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16 xl:gap-20">
           {/* ═══════ LEFT · Contact plate image ═══════ */}
           <div className="lg:col-span-6">

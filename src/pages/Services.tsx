@@ -144,7 +144,7 @@ const Services = () => {
       />
 
       {/* ═══════════════ Intro + Service Index ═══════════════ */}
-      <section className="svc-intro-wrap bg-background py-24 md:py-32 lg:py-36">
+      <section className="svc-intro-wrap bg-background py-16 md:py-24 lg:py-32">
         <div className="container mx-auto px-4">
           {/* Kicker */}
           <div
@@ -229,7 +229,7 @@ const Services = () => {
               <article
                 key={s.id}
                 id={`service-${s.slug}`}
-                className="svc-block scroll-mt-32 border-t border-foreground/15 py-20 md:py-28 lg:py-32"
+                className="svc-block scroll-mt-32 border-t border-foreground/15 py-14 md:py-20 lg:py-28"
               >
                 {/* Chapter header rail */}
                 <div
@@ -360,7 +360,7 @@ const Services = () => {
             "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.97) 100%)",
         }}
       >
-        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-40">
+        <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
           <div className="lg:flex lg:items-end lg:justify-between lg:gap-16">
             <div className="mb-14 lg:mb-0 lg:max-w-2xl">
               <div

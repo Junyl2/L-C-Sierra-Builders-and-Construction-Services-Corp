@@ -67,7 +67,7 @@ const ServiceAreaPreview = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-foreground py-24 md:py-32 lg:py-40"
+      className="relative overflow-hidden bg-foreground py-16 md:py-24 lg:py-32"
     >
       {/* Corner editorial rules */}
       <span

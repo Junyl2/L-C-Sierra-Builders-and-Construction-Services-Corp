@@ -200,7 +200,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="container mx-auto px-4 py-20 md:py-28 lg:py-36">
+        <div className="container mx-auto px-4 py-14 md:py-20 lg:py-28">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             {/* Left: type */}
             <div className="lg:col-span-7">
@@ -258,7 +258,7 @@ const About = () => {
 
       {/* ═══════════════════ SECTION 2 · Long-read story ═══════════════════ */}
       <section className="story relative overflow-hidden bg-foreground text-background">
-        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-40">
+        <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
           <div className="mx-auto max-w-3xl">
             {/* Header */}
             <div
@@ -345,7 +345,7 @@ const About = () => {
 
       {/* ═══════════════════ SECTION 3 · Principles ═══════════════════ */}
       <section className="principles relative overflow-hidden bg-background">
-        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-36">
+        <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
           {/* Header */}
           <div className="mb-14 grid gap-10 md:mb-20 md:grid-cols-12 md:gap-12">
             <div className="md:col-span-7">
@@ -428,7 +428,7 @@ const About = () => {
             "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.97) 100%)",
         }}
       >
-        <div className="container mx-auto px-4 py-24 md:py-32 lg:py-36">
+        <div className="container mx-auto px-4 py-16 md:py-24 lg:py-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:items-stretch lg:gap-16 xl:gap-20">
             {/* LEFT · Image plate */}
             <div className="lg:col-span-5">

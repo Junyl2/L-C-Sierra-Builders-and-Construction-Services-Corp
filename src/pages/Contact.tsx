@@ -62,7 +62,7 @@ const Contact = () => {
       />
 
       {/* ───── Main section: contact info LEFT + form RIGHT ───── */}
-      <section ref={mainRef} className="bg-background py-20 md:py-28 lg:py-36 overflow-hidden">
+      <section ref={mainRef} className="bg-background py-14 md:py-20 lg:py-28 overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="lg:flex lg:gap-16 xl:gap-24">
 

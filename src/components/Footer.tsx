@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
 
       {/* ═══════ Main content ═══════ */}
-      <div className="container mx-auto px-4 py-20 md:py-24 lg:py-28">
+      <div className="container mx-auto px-4 py-14 md:py-20 lg:py-24">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-14">
           {/* ── Brand column — 5 ── */}
           <div className="lg:col-span-5">

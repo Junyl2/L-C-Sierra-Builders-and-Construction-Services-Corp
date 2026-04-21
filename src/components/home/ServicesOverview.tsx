@@ -57,7 +57,7 @@ const ServicesOverview = () => {
         className="absolute left-0 top-0 h-[2px] w-24 bg-primary md:w-32"
       />
 
-      <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
+      <div className="container mx-auto px-4 py-14 md:py-20 lg:py-28">
         {/* ── Header ── */}
         <div
           className="services-header mb-14 flex flex-col gap-10 md:mb-20 md:flex-row md:items-end md:justify-between"

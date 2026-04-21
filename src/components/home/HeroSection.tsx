@@ -122,7 +122,7 @@ const HeroSection = () => {
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         {/* Content — compact single-column layout */}
@@ -226,7 +226,7 @@ const HeroSection = () => {
                     />
                   </div>
                 ))}
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/90 via-black/55 to-black/25" />
+                <div className="absolute inset-0 bg-black/30" />
               </div>
 
               <div className="relative z-10 flex h-full flex-col justify-between p-12 xl:p-14">
@@ -298,10 +298,10 @@ const HeroSection = () => {
               <img
                 src="/images/about/about-main.jpg"
                 alt="HVAC equipment at Komfort iQ HVAC"
-                className="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-[1200ms] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-[1200ms] group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/75 to-secondary/20" />
+              <div className="absolute inset-0 bg-black/30" />
               <div className="relative z-10 flex h-full flex-col justify-between p-9">
                 <div className="flex items-center gap-3">
                   <span className="block h-[2px] w-8 bg-primary" />
@@ -332,10 +332,10 @@ const HeroSection = () => {
               <img
                 src="/images/services/hvac-systems-content.jpg"
                 alt="HVAC systems installation"
-                className="absolute inset-0 h-full w-full object-cover opacity-30 transition-transform duration-[1200ms] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-[1200ms] group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-secondary/95 via-secondary/85 to-primary/15" />
+              <div className="absolute inset-0 bg-black/30" />
               <div className="relative z-10 flex h-full flex-col justify-between p-9">
                 <div className="flex items-center gap-3">
                   <span className="block h-[2px] w-8 bg-primary" />

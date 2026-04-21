@@ -27,7 +27,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <div className={`fixed top-0 left-0 right-0 z-50 ${isHome && !isScrolled ? "" : ""}`}>
         <Topbar isScrolled={isScrolled} isHome={isHome} />
         <Navbar isScrolled={isScrolled} isHome={isHome} />
