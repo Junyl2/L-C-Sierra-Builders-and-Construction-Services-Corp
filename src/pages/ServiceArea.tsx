@@ -245,9 +245,11 @@ const ServiceArea = () => {
                   className="h-full w-full scale-110 object-cover"
                 />
               </div>
-              <div className="mt-3 flex items-center justify-between gap-4 text-foreground/50 text-xs font-semibold uppercase tracking-[0.2em]">
+              <div className="mt-3 flex items-center justify-between gap-3 text-foreground/55 text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
                 <span>Idaho Landscape · Serving Boise</span>
-                <span className="tabular-nums">— Fig. 01</span>
+                <span className="hidden tabular-nums sm:inline">
+                  — Fig. 01
+                </span>
               </div>
             </div>
 
@@ -513,8 +515,8 @@ const ServiceArea = () => {
       {/* ═══════════════ Google Map — Boise, Idaho ═══════════════ */}
       <section className="relative" style={{ height: "450px" }}>
         <iframe
-          title="Komfort iQ HVAC service area — Boise, Idaho"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d180000!2d-116.2023!3d43.6150!3m2!1i1024!2i768!4f13.1!2m1!1sBoise%2C%20Idaho!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+          title="Komfort iQ HVAC — Boise, Idaho"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d398895.9697208779!2d-116.4567941!3d43.8630074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa80fdce1596295e7%3A0xc69ffc9c0ec8b90f!2sKomfort%20iQ%20HVAC!5e1!3m2!1sen!2sph!4v1776698971176!5m2!1sen!2sph"
           width="100%"
           height="100%"
           style={{ border: 0 }}

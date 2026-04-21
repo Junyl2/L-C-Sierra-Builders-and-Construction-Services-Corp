@@ -103,7 +103,7 @@ const HeroSection = () => {
 
   return (
     <section ref={sectionRef} className="relative w-full bg-background">
-      {/* ═══════════════════ MOBILE / TABLET HERO (original layout) ═══════════════════ */}
+      {/* ═══════════════════ MOBILE / TABLET HERO — fits 100vh ═══════════════════ */}
       <div className="relative h-screen overflow-hidden bg-foreground lg:hidden">
         {/* Background carousel */}
         <div className="absolute inset-0">
@@ -125,96 +125,73 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75" />
         </div>
 
-        {/* Content */}
-        <div className="container relative z-10 mx-auto flex h-full flex-col justify-between px-4 pb-12 pt-32 md:pb-16 md:pt-40">
+        {/* Content — compact single-column layout */}
+        <div className="container relative z-10 mx-auto flex h-full flex-col justify-between px-4 pb-8 pt-24 sm:pb-10 sm:pt-28 md:pt-32 md:pb-12">
           {/* Kicker */}
           <div
             className="mobile-kicker flex items-center gap-3"
             style={{ opacity: 0 }}
           >
-            <span className="block h-[2px] w-10 bg-primary" />
-            <span className="text-primary font-semibold text-xs sm:text-sm uppercase tracking-[0.2em]">
+            <span className="block h-[2px] w-8 bg-primary" />
+            <span className="text-primary text-xs font-semibold uppercase tracking-[0.2em]">
               Boise, Idaho — Heating &amp; Air
             </span>
           </div>
 
           {/* Headline */}
-          <div className="flex flex-1 items-center">
+          <div className="flex flex-1 items-center py-6">
             <h1 className="mb-0">
               <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.92] tracking-tight text-white"
-                style={{ fontSize: "clamp(2.6rem, 7vw, 6rem)", opacity: 0 }}
+                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-white"
+                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
               >
                 Heating and Air
               </span>
               <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.92] tracking-tight text-white"
-                style={{ fontSize: "clamp(2.6rem, 7vw, 6rem)", opacity: 0 }}
+                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-white"
+                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
               >
                 Services <span className="text-primary">for</span> Homes
               </span>
               <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.92] tracking-tight text-primary"
-                style={{ fontSize: "clamp(2.6rem, 7vw, 6rem)", opacity: 0 }}
+                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-primary"
+                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
               >
                 &amp; Businesses
               </span>
             </h1>
           </div>
 
-          {/* Bottom */}
-          <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-            <div
-              className="mobile-bottom-item max-w-md"
+          {/* Bottom — support line + CTAs */}
+          <div className="flex flex-col gap-4">
+            <p
+              className="mobile-bottom-item text-xs sm:text-sm font-medium tracking-wide text-white/70"
               style={{ opacity: 0 }}
             >
-              <p className="text-sm font-medium leading-relaxed text-white/70 sm:text-base">
-                Komfort iQ HVAC is a family-owned heating and air company
-                serving customers in the Boise area. We provide HVAC support
-                with a practical, straightforward approach and a focus on
-                comfort.
-              </p>
-              <p className="mt-3 text-xs font-medium tracking-wide text-white/50 sm:text-sm">
-                On-site HVAC service in the Boise area.
-              </p>
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {[
-                  "Heating services",
-                  "Air conditioning services",
-                  "General HVAC services",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="inline-flex items-center border border-white/20 px-3 py-1.5 text-xs font-medium tracking-wide text-white/80"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+              On-site HVAC service in the Boise area.
+            </p>
             <div
-              className="mobile-bottom-item flex flex-wrap items-center gap-5"
+              className="mobile-bottom-item flex flex-wrap items-center gap-4"
               style={{ opacity: 0 }}
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center bg-primary px-8 py-4 text-primary-foreground font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0"
+                className="inline-flex items-center justify-center bg-primary px-6 py-3.5 text-primary-foreground text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0"
               >
                 Contact Us
               </Link>
               <a
                 href="tel:+19864974822"
-                className="group inline-flex items-center gap-3 text-white/80 transition-colors hover:text-white"
+                className="group inline-flex items-center gap-3 text-white/90 transition-colors hover:text-white"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
                   <Phone className="h-4 w-4" />
                 </span>
-                <span className="flex flex-col">
-                  <span className="mb-1 text-xs font-semibold uppercase tracking-wider leading-none text-white/60">
+                <span className="flex flex-col leading-none">
+                  <span className="mb-0.5 text-xs font-semibold uppercase tracking-wider text-white/60">
                     Call
                   </span>
-                  <span className="text-base font-semibold leading-none tracking-wide">
+                  <span className="text-sm font-semibold tracking-wide">
                     (986) 497-4822
                   </span>
                 </span>

@@ -162,7 +162,7 @@ const ServiceAreaPreview = () => {
           <div className="lg:col-span-7">
             <div className="area-plate relative" style={{ opacity: 0 }}>
               {/* Coordinate overlay — above plate */}
-              <div className="mb-3 flex items-center justify-between gap-4 text-white/50 text-xs font-semibold uppercase tracking-[0.25em]">
+              <div className="mb-3 flex items-center justify-between gap-4 text-white/55 text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
                 <span className="flex items-center gap-3">
                   <span
                     aria-hidden="true"
@@ -170,7 +170,9 @@ const ServiceAreaPreview = () => {
                   />
                   <span>Coverage Plate · Boise, ID</span>
                 </span>
-                <span className="tabular-nums">43.6150° N · 116.2023° W</span>
+                <span className="hidden tabular-nums sm:inline">
+                  43.6150° N · 116.2023° W
+                </span>
               </div>
 
               {/* Photo container with technical framing */}
@@ -246,9 +248,11 @@ const ServiceAreaPreview = () => {
               </div>
 
               {/* Caption below plate */}
-              <div className="mt-3 flex items-center justify-between gap-4 text-white/50 text-xs font-semibold uppercase tracking-[0.25em]">
-                <span>Boise, Idaho · Downtown & Foothills</span>
-                <span className="tabular-nums">— Fig. 05</span>
+              <div className="mt-3 flex items-center justify-between gap-4 text-white/55 text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
+                <span>Boise, Idaho · Downtown &amp; Foothills</span>
+                <span className="hidden tabular-nums sm:inline">
+                  — Fig. 05
+                </span>
               </div>
             </div>
           </div>
