@@ -17,7 +17,7 @@ const PageBanner = ({ title, subtitle, backgroundImage }: PageBannerProps) => {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
       )}
 

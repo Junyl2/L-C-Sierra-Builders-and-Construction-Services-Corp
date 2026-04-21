@@ -122,7 +122,7 @@ const HeroSection = () => {
               />
             </div>
           ))}
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/50" />
         </div>
 
         {/* Content — compact single-column layout */}
@@ -226,7 +226,7 @@ const HeroSection = () => {
                     />
                   </div>
                 ))}
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 bg-black/50" />
               </div>
 
               <div className="relative z-10 flex h-full flex-col justify-between p-12 xl:p-14">
