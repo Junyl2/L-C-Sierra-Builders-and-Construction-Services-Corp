@@ -12,34 +12,37 @@ import {
 } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import PageBanner from "@/components/PageBanner";
+import aboutHeroImage from "@/assets/contact-about/about-4.jpg";
+import aboutMainImage from "@/assets/contact-about/about-1.jpg";
+import aboutContactImage from "@/assets/contact-about/contact-section.jpg";
 
 const mastheadTerms = [
   "Brand Profile",
-  "Family-Owned",
-  "Heating · Air · HVAC",
-  "Boise, Idaho",
-  "Est. Local",
+  "Commercial",
+  "General Construction",
+  "Cebu City",
+  "Since 2020",
   "Vol. 01",
 ];
 
 const principles = [
   {
     icon: Home,
-    title: "Family-Owned",
+    title: "Commercial Construction",
     description:
-      "A family-run business based in Boise, Idaho — locally operated and focused on the communities we serve.",
+      "A Cebu City-based commercial construction company providing general construction and structural strengthening services.",
   },
   {
     icon: Map,
     title: "Local Service",
     description:
-      "Being based in Boise means we understand the local climate and what homes and businesses need from a heating and air partner.",
+      "Based in Cebu City since 2020, the company supports commercial clients and project teams in the area.",
   },
   {
     icon: Wrench,
     title: "Practical Approach",
     description:
-      "Straightforward heating, cooling, and general HVAC work, with clear communication and attention to day-to-day comfort.",
+      "Straightforward general construction and structural strengthening work, with clear communication and practical coordination.",
   },
 ];
 
@@ -47,7 +50,7 @@ const About = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "About | Komfort iQ HVAC";
+    document.title = "About | L C Sierra Builders and Construction Services Corporation";
   }, []);
 
   useEffect(() => {
@@ -174,8 +177,8 @@ const About = () => {
     <div ref={pageRef}>
       <PageBanner
         title="About Us"
-        subtitle="Family-owned heating and air in Boise, Idaho"
-        backgroundImage="/images/banners/about-banner.jpg"
+        subtitle="Commercial construction company based in Cebu City since 2020"
+        backgroundImage={aboutHeroImage}
       />
 
       {/* ═══════════════════ SECTION 1 · Editorial Cover / Opener ═══════════════════ */}
@@ -218,20 +221,21 @@ const About = () => {
                 className="opener-anim mb-8 font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem]"
                 style={{ opacity: 0 }}
               >
-                A local heating
+                A commercial
                 <br />
-                and air company
+                construction company
                 <br />
-                in <span className="text-primary">Boise, Idaho.</span>
+                in <span className="text-primary">Cebu City.</span>
               </h1>
 
               <p
                 className="opener-anim max-w-xl text-foreground/70 text-base md:text-lg font-medium leading-relaxed"
                 style={{ opacity: 0 }}
               >
-                Komfort iQ HVAC is a family-owned heating and air company
-                focused on dependable local service and day-to-day comfort for
-                homes and businesses in the Boise area.
+                L C Sierra Builders and Construction Services Corporation is a
+                commercial construction company providing general construction
+                and structural strengthening services. The company has been
+                based in Cebu City since 2020.
               </p>
             </div>
 
@@ -242,13 +246,13 @@ const About = () => {
                 style={{ clipPath: "inset(0 100% 0 0)" }}
               >
                 <img
-                  src="/images/about/about-main.jpg"
-                  alt="HVAC equipment serviced by Komfort iQ HVAC"
+                  src={aboutMainImage}
+                  alt="L C Sierra Builders and Construction Services Corporation construction project team in Cebu City"
                   className="h-full w-full scale-110 object-cover"
                 />
               </div>
               <div className="mt-3 flex items-center justify-between text-foreground/50 text-xs font-semibold uppercase tracking-[0.2em]">
-                <span>Komfort iQ HVAC · Boise, Idaho</span>
+                <span>L C Sierra Builders and Construction Services Corporation · Cebu City</span>
                 <span className="tabular-nums">— Fig. 01</span>
               </div>
             </div>
@@ -289,10 +293,10 @@ const About = () => {
                 <span className="float-left mr-4 mt-1 font-heading font-black text-primary text-7xl md:text-8xl leading-[0.85] tracking-tight">
                   K
                 </span>
-                omfort iQ HVAC is a family-owned heating and air company
-                based in Boise, Idaho. Our focus is HVAC services — with an
-                emphasis on dependable local service and day-to-day comfort
-                for the customers we work with.
+                L C Sierra Builders and Construction Services Corporation is a
+                commercial construction company based in Cebu City since 2020.
+                Its work centers on general construction and structural
+                strengthening services for commercial construction needs.
               </p>
             </div>
 
@@ -307,12 +311,12 @@ const About = () => {
                 strokeWidth={2.5}
               />
               <p className="font-heading font-black uppercase leading-[1.05] tracking-tight text-background text-2xl md:text-4xl lg:text-5xl">
-                Dependable local service.
+                Practical construction service.
                 <br />
-                <span className="text-primary">Day-to-day comfort.</span>
+                <span className="text-primary">Clear project coordination.</span>
               </p>
               <cite className="not-italic mt-5 block text-background/45 text-xs font-semibold uppercase tracking-[0.25em]">
-                — Komfort iQ HVAC
+                — L C Sierra Builders and Construction Services Corporation
               </cite>
             </blockquote>
 
@@ -321,13 +325,13 @@ const About = () => {
               style={{ opacity: 0 }}
             >
               <p>
-                We work with customers who need help with heating, cooling,
-                and general HVAC — for homes and businesses throughout the
-                Boise area. Our approach is practical and straightforward.
+                We work with customers who need general construction and
+                structural strengthening support for commercial projects. Our
+                approach is practical, coordinated, and straightforward.
               </p>
               <p>
-                Based on available public information, the company mainly
-                serves Boise and nearby areas.
+                The company is based in Cebu City. Service availability can be
+                confirmed directly through phone, email, or Facebook.
               </p>
             </div>
 
@@ -336,7 +340,7 @@ const About = () => {
               className="story-anim mt-14 flex items-center justify-between gap-4 border-t border-background/15 pt-6 text-background/50 text-xs font-semibold uppercase tracking-[0.25em]"
               style={{ opacity: 0 }}
             >
-              <span>Komfort iQ Heating and Air LLC</span>
+              <span>L C Sierra Builders and Construction Services Corporation</span>
               <span className="tabular-nums">— 002</span>
             </div>
           </div>
@@ -371,7 +375,7 @@ const About = () => {
                 style={{ opacity: 0 }}
               >
                 A simple approach rooted in local service and practical
-                solutions for homes and businesses in the Boise area.
+                construction support for commercial project needs.
               </p>
             </div>
           </div>
@@ -440,7 +444,7 @@ const About = () => {
                       aria-hidden="true"
                       className="block h-[2px] w-6 bg-primary"
                     />
-                    <span>Reach Out · Boise, ID</span>
+                    <span>Reach Out · Cebu City</span>
                   </span>
                   <span className="tabular-nums">— Fig. 04</span>
                 </div>
@@ -451,8 +455,8 @@ const About = () => {
                   style={{ opacity: 0 }}
                 >
                   <img
-                    src="/images/about/contact-cta.jpg"
-                    alt="HVAC equipment serviced by Komfort iQ HVAC"
+                    src={aboutContactImage}
+                    alt="L C Sierra Builders and Construction Services Corporation structural construction work in progress"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
@@ -473,7 +477,7 @@ const About = () => {
                   {/* Floating label bottom-left */}
                   <div className="absolute bottom-8 left-8">
                     <span className="mb-2 block text-white/70 text-xs font-semibold uppercase tracking-[0.3em]">
-                      Family-owned
+                      Cebu City
                     </span>
                     <span className="block font-heading font-black uppercase tracking-tight text-white text-lg md:text-xl">
                       Local Service
@@ -501,16 +505,16 @@ const About = () => {
               >
                 Ready to talk
                 <br />
-                about <span className="text-primary">comfort?</span>
+                about <span className="text-primary">your project?</span>
               </h2>
 
               <p
                 className="cta-anim mb-10 max-w-xl text-base md:text-lg font-medium leading-relaxed text-background/55"
                 style={{ opacity: 0 }}
               >
-                Contact us to ask about service or request a quote. We help
-                with heating, cooling, and general HVAC needs in the Boise
-                area.
+                Contact us to ask about service availability or request a
+                quote for general construction and structural strengthening
+                needs.
               </p>
 
               {/* Direct Contact — inline grid */}
@@ -524,7 +528,7 @@ const About = () => {
 
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <a
-                    href="tel:+19864974822"
+                    href="tel:+639176360922"
                     className="group flex items-center gap-5"
                   >
                     <span className="flex h-14 w-14 shrink-0 items-center justify-center border border-background/20 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
@@ -535,7 +539,7 @@ const About = () => {
                         Call Us
                       </span>
                       <span className="block font-heading font-bold text-background text-lg transition-colors group-hover:text-primary">
-                        (986) 497-4822
+                        0917 636 0922
                       </span>
                     </span>
                   </a>
@@ -549,7 +553,7 @@ const About = () => {
                         Based In
                       </span>
                       <span className="block text-base font-semibold text-background">
-                        Boise, Idaho
+                        Cebu City
                       </span>
                     </span>
                   </div>
@@ -570,11 +574,11 @@ const About = () => {
                 </Link>
 
                 <a
-                  href="https://web.facebook.com/profile.php?id=61583999842870"
+                  href="https://web.facebook.com/build.sheracon/?_rdc=1&_rdr#"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-3 text-background/70 text-sm font-medium transition-colors hover:text-primary"
-                  aria-label="Komfort iQ HVAC on Facebook"
+                  aria-label="L C Sierra Builders and Construction Services Corporation on Facebook"
                 >
                   <span className="flex h-10 w-10 items-center justify-center border border-background/20 transition-colors group-hover:border-primary group-hover:bg-primary/10">
                     <Facebook className="h-4 w-4 text-primary" />
@@ -582,7 +586,7 @@ const About = () => {
                   <span>
                     Find us on Facebook:{" "}
                     <span className="font-semibold text-background group-hover:text-primary transition-colors">
-                      Komfort iQ HVAC
+                      L C Sierra Builders and Construction Services Corporation
                     </span>
                   </span>
                 </a>

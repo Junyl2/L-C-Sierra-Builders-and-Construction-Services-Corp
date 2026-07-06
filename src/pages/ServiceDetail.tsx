@@ -38,7 +38,7 @@ const ServiceDetail = () => {
 
   useEffect(() => {
     if (service) {
-      document.title = `${service.title} | Komfort iQ HVAC`;
+      document.title = `${service.title} | L C Sierra Builders and Construction Services Corporation`;
     }
   }, [service]);
 
@@ -443,15 +443,15 @@ const ServiceDetail = () => {
             {/* Contact details */}
             <div className="anim-cta flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10 mb-12 text-background/70">
               <a
-                href="tel:+19864974822"
+                href="tel:+639176360922"
                 className="inline-flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Phone className="w-4 h-4 text-primary" />
-                <span className="text-sm">(986) 497-4822</span>
+                <span className="text-sm">0917 636 0922</span>
               </a>
               <span className="inline-flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-sm">Boise, ID</span>
+                <span className="text-sm">Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000</span>
               </span>
             </div>
 

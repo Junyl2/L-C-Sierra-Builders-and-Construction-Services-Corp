@@ -7,6 +7,7 @@ import { LenisProvider } from "@/lib/lenis";
 import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
+import Projects from "./pages/Projects";
 import Services from "./pages/Services";
 import ServiceDetail from "./pages/ServiceDetail";
 import ServiceArea from "./pages/ServiceArea";
@@ -26,6 +27,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/service-area" element={<ServiceArea />} />

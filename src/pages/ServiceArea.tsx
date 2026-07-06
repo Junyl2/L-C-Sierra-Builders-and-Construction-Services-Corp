@@ -10,40 +10,51 @@ import {
 } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import PageBanner from "@/components/PageBanner";
+import serviceAreaBannerImage from "@/assets/projects/project-9.jpg";
+import serviceAreaIntroImage from "@/assets/projects/project-10.jpg";
+import serviceAreaSiteImage from "@/assets/projects/project-2.jpg";
+import serviceAreaAccessImage from "@/assets/projects/project-6.jpg";
+import serviceAreaUrbanImage from "@/assets/projects/project-5.jpg";
+
+const companyAddress =
+  "Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000";
+
+const companyMapEmbed =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.818618742494!2d123.90089527503511!3d10.29436578982662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99b6e27b4fee7%3A0x9e8d1babe0aa4ad4!2sL%20C%20Sierra%20Builders%20and%20Construction%20Services%20Corp!5e1!3m2!1sen!2sau!4v1783323027398!5m2!1sen!2sau";
 
 const mastheadTerms = [
   "Coverage",
-  "Boise, Idaho",
-  "43.6150° N",
-  "116.2023° W",
+  "Cebu City",
+  "Philippines",
+  "Since 2020",
   "Local Service",
 ];
 
 const coverageData = [
-  { label: "Primary Area", value: "Boise, Idaho" },
-  { label: "Also Served", value: "Boise and nearby areas" },
-  { label: "Business Type", value: "Family-owned, locally run" },
+  { label: "Primary Address", value: companyAddress },
+  { label: "Also Served", value: "Cebu City and nearby areas" },
+  { label: "Business Type", value: "Commercial construction" },
 ];
 
 const radiusTiles = [
   {
-    image: "/images/service-area/residential-aerial.jpg",
-    label: "Residential",
-    meta: "Homes & neighborhoods",
+    image: serviceAreaSiteImage,
+    label: "Commercial Sites",
+    meta: "Project locations",
     icon: Home,
     idx: "01",
   },
   {
-    image: "/images/service-area/neighborhood-drone.jpg",
-    label: "Local Streets",
-    meta: "Boise-area routes",
+    image: serviceAreaAccessImage,
+    label: "Site Access",
+    meta: "Cebu City routes",
     icon: Navigation,
     idx: "02",
   },
   {
-    image: "/images/service-area/boise-skyline.jpg",
-    label: "City Center",
-    meta: "Downtown Boise",
+    image: serviceAreaUrbanImage,
+    label: "Urban Work",
+    meta: "Cebu City",
     icon: Mountain,
     idx: "03",
   },
@@ -53,7 +64,7 @@ const ServiceArea = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Service Area | Komfort iQ HVAC";
+    document.title = "Service Area | L C Sierra Builders and Construction Services Corporation";
   }, []);
 
   useEffect(() => {
@@ -202,8 +213,8 @@ const ServiceArea = () => {
     <div ref={pageRef}>
       <PageBanner
         title="Service Area"
-        subtitle="Serving Boise, Idaho and nearby areas"
-        backgroundImage="/images/service-area/boise-skyline.jpg"
+        subtitle="Serving Cebu City and nearby areas"
+        backgroundImage={serviceAreaBannerImage}
       />
 
       {/* ═══════════════ SECTION 1 · Coordinates masthead + editorial intro ═══════════════ */}
@@ -240,13 +251,13 @@ const ServiceArea = () => {
                 style={{ clipPath: "inset(0 0 100% 0)" }}
               >
                 <img
-                  src="/images/service-area/idaho-road.jpg"
-                  alt="Open road through the Idaho landscape"
+                  src={serviceAreaIntroImage}
+                  alt="Construction site reference image for Cebu City service area"
                   className="h-full w-full scale-110 object-cover"
                 />
               </div>
               <div className="mt-3 flex items-center justify-between gap-3 text-foreground/55 text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]">
-                <span>Idaho Landscape · Serving Boise</span>
+                <span>Cebu Landscape · Serving Cebu City</span>
                 <span className="hidden tabular-nums sm:inline">
                   — Fig. 01
                 </span>
@@ -279,16 +290,16 @@ const ServiceArea = () => {
                   className="sa-intro-anim text-foreground/70 text-base md:text-lg font-medium leading-relaxed"
                   style={{ opacity: 0 }}
                 >
-                  Komfort iQ HVAC is based in Boise, Idaho and appears to
-                  mainly work within Boise and nearby areas.
+                  L C Sierra Builders and Construction Services Corporation is
+                  based at {companyAddress} and provides commercial
+                  construction services from Cebu City.
                 </p>
                 <p
                   className="sa-intro-anim text-foreground/70 text-base md:text-lg font-medium leading-relaxed"
                   style={{ opacity: 0 }}
                 >
-                  Public references suggest visibility in the broader
-                  Treasure Valley, but this is not clearly confirmed as an
-                  official service area.
+                  Service availability for specific project locations should
+                  be confirmed directly with the company before scheduling.
                 </p>
               </div>
 
@@ -359,9 +370,8 @@ const ServiceArea = () => {
                 className="sa-radius-anim text-foreground/65 text-base md:text-lg font-medium leading-relaxed"
                 style={{ opacity: 0 }}
               >
-                From residential streets to downtown Boise, we serve homes
-                and businesses across the area with local, family-owned HVAC
-                service.
+                From site access to project coordination, the company supports
+                commercial construction needs from its Cebu City base.
               </p>
             </div>
           </div>
@@ -452,8 +462,8 @@ const ServiceArea = () => {
                 style={{ opacity: 0 }}
               >
                 Contact us to ask about service availability or request a
-                quote. We help with heating, cooling, and general HVAC needs
-                in the Boise area.
+                quote for general construction and structural strengthening
+                needs.
               </p>
               <div className="sa-cta-anim" style={{ opacity: 0 }}>
                 <Link
@@ -476,7 +486,7 @@ const ServiceArea = () => {
                 </span>
                 <div className="space-y-6">
                   <a
-                    href="tel:+19864974822"
+                    href="tel:+639176360922"
                     className="group flex items-center gap-5"
                   >
                     <span className="flex h-14 w-14 shrink-0 items-center justify-center border border-background/20 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
@@ -487,7 +497,7 @@ const ServiceArea = () => {
                         Call Us
                       </span>
                       <span className="block font-heading font-bold text-background text-xl transition-colors group-hover:text-primary">
-                        (986) 497-4822
+                        0917 636 0922
                       </span>
                     </span>
                   </a>
@@ -500,7 +510,7 @@ const ServiceArea = () => {
                         Based In
                       </span>
                       <span className="block text-base font-semibold text-background">
-                        Boise, Idaho
+                        Cebu City
                       </span>
                     </span>
                   </div>
@@ -512,17 +522,17 @@ const ServiceArea = () => {
         <div className="h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
       </section>
 
-      {/* ═══════════════ Google Map — Boise, Idaho ═══════════════ */}
+      {/* ═══════════════ Google Map — Cebu City ═══════════════ */}
       <section className="relative" style={{ height: "450px" }}>
         <iframe
-          title="Komfort iQ HVAC — Boise, Idaho"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d398895.9697208779!2d-116.4567941!3d43.8630074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa80fdce1596295e7%3A0xc69ffc9c0ec8b90f!2sKomfort%20iQ%20HVAC!5e1!3m2!1sen!2sph!4v1776698971176!5m2!1sen!2sph"
+          title="L C Sierra Builders and Construction Services Corporation — Cebu City"
+          src={companyMapEmbed}
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       </section>
     </div>

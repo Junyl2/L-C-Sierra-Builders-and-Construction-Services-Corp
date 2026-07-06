@@ -21,15 +21,15 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
           >
             <div className="aspect-[4/3] rounded overflow-hidden">
               <img
-                src="/images/services/contact-section.jpg"
-                alt="HVAC installation work"
+                src="/placeholder.svg"
+                alt="L C Sierra construction placeholder"
                 className="w-full h-full object-cover"
               />
             </div>
             {/* Floating badge */}
             <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 rounded shadow-lg hidden md:block">
-              <p className="text-sm font-semibold uppercase tracking-wide">Local Service</p>
-              <p className="text-2xl font-heading font-bold">Boise, Idaho</p>
+              <p className="text-sm font-semibold uppercase tracking-wide">Cebu City, Philippines</p>
+              <p className="text-2xl font-heading font-bold">Since 2020</p>
             </div>
           </motion.div>
 
@@ -48,13 +48,13 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
               Ready for {serviceName}?
             </h2>
             <p className="text-secondary-foreground/80 leading-relaxed mb-8">
-              Contact us today to discuss your heating and air conditioning needs. We provide on-site service throughout the Boise, Idaho area. Our team is ready to deliver reliable, efficient HVAC solutions.
+              Contact us today to discuss your commercial construction needs. L C Sierra Builders and Construction Services Corporation provides general construction and structural strengthening services from Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000.
             </p>
 
             {/* Contact Details */}
             <div className="space-y-4 mb-8">
               <a
-                href="tel:+19864974822"
+                href="tel:+639176360922"
                 className="flex items-center gap-4 group"
               >
                 <div className="w-12 h-12 rounded bg-primary/20 flex items-center justify-center">
@@ -63,7 +63,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
                 <div>
                   <p className="text-sm text-secondary-foreground/60">Call Us</p>
                   <p className="text-lg font-semibold text-primary-foreground group-hover:text-primary transition-colors">
-                    (986) 497-4822
+                    0917 636 0922
                   </p>
                 </div>
               </a>
@@ -75,7 +75,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
                 <div>
                   <p className="text-sm text-secondary-foreground/60">Location</p>
                   <p className="text-lg font-semibold text-primary-foreground">
-                    Boise, Idaho
+                    Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000
                   </p>
                 </div>
               </div>
@@ -84,7 +84,7 @@ const ServiceContactSection = ({ serviceName }: ServiceContactSectionProps) => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+19864974822"
+                href="tel:+639176360922"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded hover:bg-primary/90 transition-colors"
               >
                 <Phone className="w-4 h-4" />

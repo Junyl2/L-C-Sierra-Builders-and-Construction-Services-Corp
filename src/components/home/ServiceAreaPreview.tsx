@@ -2,11 +2,12 @@ import { useRef, useEffect } from "react";
 import { MapPin, ArrowUpRight, Navigation } from "lucide-react";
 import { Link } from "react-router-dom";
 import { gsap } from "@/lib/gsap";
+import serviceAreaPreviewImage from "@/assets/projects/project-2.jpg";
 
 const coverageFacts = [
-  { label: "Based In", value: "Boise, Idaho" },
-  { label: "Coverage", value: "Boise & nearby areas" },
-  { label: "Status", value: "Family-owned, local" },
+  { label: "Based In", value: "Cebu City" },
+  { label: "Coverage", value: "Cebu City & nearby areas" },
+  { label: "Status", value: "Since 2020" },
 ];
 
 const ServiceAreaPreview = () => {
@@ -99,23 +100,24 @@ const ServiceAreaPreview = () => {
             >
               Serving
               <br />
-              <span className="text-primary">Boise, Idaho.</span>
+              <span className="text-primary">Cebu City.</span>
             </h2>
 
             <p
               className="area-left mb-5 max-w-lg text-base md:text-lg font-medium leading-relaxed text-white/70"
               style={{ opacity: 0 }}
             >
-              Komfort iQ HVAC is based in Boise, Idaho and mainly serves Boise
-              and nearby areas.
+              L C Sierra Builders and Construction Services Corporation is
+              based in Cebu City and provides commercial construction services
+              from that location.
             </p>
 
             <p
               className="area-left mb-10 max-w-lg text-sm md:text-base font-medium leading-relaxed text-white/55"
               style={{ opacity: 0 }}
             >
-              Public references suggest visibility in the broader Treasure
-              Valley, but this is not officially confirmed.
+              Service availability for specific project locations should be
+              confirmed directly with the company before scheduling.
             </p>
 
             {/* Coverage facts — inline spec */}
@@ -148,11 +150,11 @@ const ServiceAreaPreview = () => {
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="tel:+19864974822"
+                href="tel:+639176360922"
                 className="group inline-flex items-center gap-2 text-white/80 text-sm font-semibold uppercase tracking-wider transition-colors hover:text-primary"
               >
                 <span className="border-b-2 border-white/25 pb-1 transition-colors group-hover:border-primary">
-                  Call (986) 497-4822
+                  Call 0917 636 0922
                 </span>
               </a>
             </div>
@@ -168,10 +170,10 @@ const ServiceAreaPreview = () => {
                     aria-hidden="true"
                     className="block h-[2px] w-6 bg-primary"
                   />
-                  <span>Coverage Plate · Boise, ID</span>
+                  <span>Coverage Plate · Cebu City</span>
                 </span>
                 <span className="hidden tabular-nums sm:inline">
-                  43.6150° N · 116.2023° W
+                  Cebu City · Philippines
                 </span>
               </div>
 
@@ -180,8 +182,8 @@ const ServiceAreaPreview = () => {
                 {/* Background photo */}
                 <div className="area-img absolute inset-0">
                   <img
-                    src="/images/service-area/boise-skyline.jpg"
-                    alt="Downtown Boise, Idaho with the foothills in the background"
+                    src={serviceAreaPreviewImage}
+                    alt="Construction site reference image for L C Sierra service area"
                     className="h-full w-full object-cover"
                     loading="lazy"
                   />
@@ -228,10 +230,10 @@ const ServiceAreaPreview = () => {
                   />
                 </div>
 
-                {/* Boise label — below pin */}
+                {/* Cebu City label — below pin */}
                 <div className="absolute left-1/2 top-[calc(50%+3rem)] -translate-x-1/2 bg-background px-4 py-2">
                   <span className="text-foreground text-xs font-semibold uppercase tracking-[0.25em] whitespace-nowrap">
-                    Boise, ID
+                    Cebu City
                   </span>
                 </div>
 
@@ -242,14 +244,14 @@ const ServiceAreaPreview = () => {
                     className="block h-[2px] w-12 bg-primary"
                   />
                   <span className="text-white/70 text-xs font-semibold uppercase tracking-[0.3em] tabular-nums">
-                    Boise Area
+                    Cebu City
                   </span>
                 </div>
               </div>
 
               {/* Caption below plate */}
               <div className="mt-3 flex items-center justify-between gap-4 text-white/55 text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.25em]">
-                <span>Boise, Idaho · Downtown &amp; Foothills</span>
+                <span>Cebu City · Commercial Construction</span>
                 <span className="hidden tabular-nums sm:inline">
                   — Fig. 05
                 </span>

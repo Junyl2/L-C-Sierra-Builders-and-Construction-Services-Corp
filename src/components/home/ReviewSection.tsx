@@ -1,16 +1,16 @@
 import { useRef, useEffect } from "react";
-import { Star, User, ArrowUpRight, Quote } from "lucide-react";
+import { Star, ArrowUpRight, Quote } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 
 const googleReviewsUrl =
-  "https://www.google.com/maps/place/Komfort+iQ+HVAC/@43.8630074,-116.4567941,91602m/data=!3m1!1e3!4m8!3m7!1s0xa80fdce1596295e7:0xc69ffc9c0ec8b90f!8m2!3d43.8073244!4d-115.742997!9m1!1b1!16s%2Fg%2F11z14lf6gr";
+  "https://www.google.com/maps/place/L+C+Sierra+Builders+and+Construction+Services+Corp/@10.2943658,123.9008953,914m/data=!3m1!1e3!4m8!3m7!1s0x33a99b6e27b4fee7:0x9e8d1babe0aa4ad4!8m2!3d10.2943658!4d123.9034702!9m1!1b1!16s%2Fg%2F11q_56ph7f?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D";
 
-const GoogleIcon = ({ className = "" }: { className?: string }) => (
+const GoogleIcon = ({ className = "h-5 w-5" }: { className?: string }) => (
   <svg
-    viewBox="0 0 24 24"
-    xmlns="http://www.w3.org/2000/svg"
     className={className}
-    aria-hidden="true"
+    viewBox="0 0 24 24"
+    role="img"
+    aria-label="Google"
   >
     <path
       fill="#4285F4"
@@ -22,11 +22,11 @@ const GoogleIcon = ({ className = "" }: { className?: string }) => (
     />
     <path
       fill="#FBBC05"
-      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
     />
     <path
       fill="#EA4335"
-      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.16-3.16C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z"
     />
   </svg>
 );
@@ -113,16 +113,16 @@ const ReviewSection = () => {
           >
             <span className="block h-[2px] w-10 bg-primary" />
             <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
-              Reviews — From Google
+              Reviews — Google
             </span>
           </div>
           <h2
             className="rev-header font-heading font-black uppercase leading-[0.95] tracking-tight text-foreground text-4xl md:text-5xl lg:text-6xl"
             style={{ opacity: 0 }}
           >
-            What our customers
+            Rated by local
             <br />
-            are <span className="text-primary">saying.</span>
+            project <span className="text-primary">experiences.</span>
           </h2>
         </div>
 
@@ -143,13 +143,10 @@ const ReviewSection = () => {
             {/* Review text */}
             <blockquote className="mt-2 mb-10">
               <p className="font-body font-medium leading-[1.55] tracking-tight text-foreground text-lg md:text-xl lg:text-[1.3rem]">
-                Komfort IQ Heating and Air is one of those rare companies that
-                truly leads with integrity. Their commitment to quality work
-                and doing right by people is clear in everything they
-                represent. I've seen firsthand how dedicated they are to their
-                customers and to their work. Their values alone make them a
-                company worth recommending. You won't regret going through
-                them for any of your HVAC needs!!
+                L C Sierra Builders and Construction Services Corp currently
+                shows a 5.0 rating from 4 reviews on Google. Share your
+                experience to help future clients understand the company and
+                its commercial construction services.
               </p>
             </blockquote>
 
@@ -158,24 +155,26 @@ const ReviewSection = () => {
               {/* Profile + name + date */}
               <div className="flex items-center gap-4">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-primary/25 bg-primary/10">
-                  <User className="h-5 w-5 text-primary" />
+                  <Star className="h-5 w-5 fill-primary text-primary" />
                 </span>
                 <div>
                   <p className="font-heading font-bold text-foreground text-base">
-                    Shelbie Blackwood
+                    5.0
                   </p>
                   <p className="text-foreground/50 text-xs font-semibold uppercase tracking-[0.2em]">
-                    A month ago
+                    4 reviews
                   </p>
                 </div>
               </div>
 
               {/* Stars + Google badge */}
               <div className="flex items-center gap-3">
-                <GoogleIcon className="h-4 w-4" />
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-foreground/10">
+                  <GoogleIcon className="h-5 w-5" />
+                </span>
                 <div
                   className="flex items-center gap-1"
-                  aria-label="5 out of 5 stars"
+                  aria-label="5.0 out of 5 stars"
                 >
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
@@ -207,13 +206,14 @@ const ReviewSection = () => {
               </span>
 
               <h3 className="mb-4 font-heading font-black uppercase leading-tight tracking-tight text-white text-2xl md:text-3xl">
-                Leave us a{" "}
+                Leave a{" "}
                 <span className="text-primary">Google review.</span>
               </h3>
 
               <p className="mb-8 text-sm md:text-base font-medium leading-relaxed text-white/65">
-                Your feedback helps local families find reliable HVAC service
-                in the Boise area.
+                Reviews help future customers evaluate real project
+                experiences. Use Google to leave feedback after working with
+                the company.
               </p>
             </div>
 
@@ -235,7 +235,7 @@ const ReviewSection = () => {
                 rel="noopener noreferrer"
                 className="group inline-flex w-full items-center justify-center gap-2 border border-white/20 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 transition-all duration-300 hover:border-primary hover:text-primary"
               >
-                Read All Reviews on Google
+                View Reviews on Google
                 <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>

@@ -69,10 +69,10 @@ const ServicesOverview = () => {
               Our Services
             </span>
             <h2 className="max-w-3xl font-heading font-black uppercase leading-[0.95] tracking-tight text-white text-4xl md:text-5xl lg:text-6xl">
-              HVAC services for
+              Construction services for
               <br />
-              Boise-area{" "}
-              <span className="text-primary">homes &amp; businesses.</span>
+              Cebu City{" "}
+              <span className="text-primary">commercial needs.</span>
             </h2>
           </div>
           <Link

@@ -5,13 +5,13 @@ interface TopbarProps {
   isHome: boolean;
 }
 
-const facebookUrl = "https://web.facebook.com/profile.php?id=61583999842870";
+const facebookUrl = "https://web.facebook.com/build.sheracon/?_rdc=1&_rdr#";
 
 const Topbar = ({ isScrolled, isHome }: TopbarProps) => {
   const textClass = isScrolled
     ? "bg-topbar-bg text-topbar-foreground"
     : isHome
-    ? "bg-transparent text-white lg:text-foreground"
+    ? "bg-transparent text-white"
     : "bg-transparent text-white";
 
   return (
@@ -22,15 +22,15 @@ const Topbar = ({ isScrolled, isHome }: TopbarProps) => {
         {/* Left — phone + location */}
         <div className="flex items-center gap-6">
           <a
-            href="tel:+19864974822"
+            href="tel:+639176360922"
             className="flex items-center gap-2 hover:text-primary transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
-            <span>(986) 497-4822</span>
+            <span>0917 636 0922</span>
           </a>
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Boise, Idaho</span>
+            <span>Cebu City, Philippines</span>
           </div>
         </div>
 
@@ -41,7 +41,7 @@ const Topbar = ({ isScrolled, isHome }: TopbarProps) => {
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 hover:text-primary transition-colors"
-            aria-label="Komfort iQ HVAC on Facebook"
+            aria-label="L C Sierra on Facebook"
           >
             <Facebook className="w-3.5 h-3.5" />
             <span className="text-xs font-semibold uppercase tracking-[0.15em]">

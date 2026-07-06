@@ -7,25 +7,25 @@ const steps = [
     icon: PhoneCall,
     number: "01",
     label: "Contact",
-    desc: "Reach out by phone to tell us what you need. We listen and schedule a visit.",
+    desc: "Reach out by phone or email to share your project needs and service location.",
   },
   {
     icon: ClipboardCheck,
     number: "02",
-    label: "Diagnose",
-    desc: "We inspect the heating or air system on-site and share a clear explanation of the issue.",
+    label: "Review",
+    desc: "We review the construction or strengthening requirement and clarify the project scope.",
   },
   {
     icon: Wrench,
     number: "03",
     label: "Service",
-    desc: "We handle the repair, installation, or HVAC maintenance with a straightforward approach.",
+    desc: "We coordinate the general construction or structural strengthening service with a straightforward approach.",
   },
   {
     icon: ThumbsUp,
     number: "04",
     label: "Follow Up",
-    desc: "We check that the system is running as expected and answer any remaining questions.",
+    desc: "We check the completed work scope and answer any remaining questions.",
   },
 ];
 

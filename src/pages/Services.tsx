@@ -4,12 +4,13 @@ import { ArrowUpRight, Phone, MapPin } from "lucide-react";
 import { gsap } from "@/lib/gsap";
 import { services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
+import servicesBannerImage from "@/assets/projects/project-2.jpg";
 
 const Services = () => {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Services | Komfort iQ HVAC";
+    document.title = "Services | L C Sierra Builders and Construction Services Corporation";
   }, []);
 
   useEffect(() => {
@@ -139,8 +140,8 @@ const Services = () => {
     <div ref={pageRef}>
       <PageBanner
         title="Our Services"
-        subtitle="Heating, cooling, and general HVAC for the Boise area"
-        backgroundImage="/images/services/services-banner.jpg"
+        subtitle="General construction and structural strengthening services"
+        backgroundImage={servicesBannerImage}
       />
 
       {/* ═══════════════ Intro + Service Index ═══════════════ */}
@@ -162,10 +163,10 @@ const Services = () => {
             className="svc-intro mb-6 max-w-3xl font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground text-4xl md:text-5xl lg:text-6xl"
             style={{ opacity: 0 }}
           >
-            HVAC services for homes
+            Construction services for
             <br />
-            &amp; businesses in{" "}
-            <span className="text-primary">Boise.</span>
+            commercial needs in{" "}
+            <span className="text-primary">Cebu City.</span>
           </h2>
 
           {/* Intro paragraph */}
@@ -173,9 +174,9 @@ const Services = () => {
             className="svc-intro mb-20 max-w-2xl text-base md:text-lg font-medium leading-relaxed text-foreground/70"
             style={{ opacity: 0 }}
           >
-            A family-owned heating and air company focused on dependable local
-            service. We help with heating, cooling, and general HVAC needs in
-            Boise, Idaho and nearby areas.
+            L C Sierra Builders and Construction Services Corporation is a
+            commercial construction company based in Cebu City since 2020. We
+            help with general construction and structural strengthening needs.
           </p>
 
           {/* Service Index — Table of Contents */}
@@ -265,7 +266,7 @@ const Services = () => {
                     </div>
                     {/* Magazine-style caption */}
                     <div className="mt-3 flex items-center justify-between gap-4 text-foreground/50 text-xs font-semibold uppercase tracking-[0.2em]">
-                      <span>{s.shortTitle} · Boise, Idaho</span>
+                      <span>{s.shortTitle} · Cebu City</span>
                       <span className="tabular-nums">— 00{i + 1}</span>
                     </div>
                   </div>
@@ -332,7 +333,7 @@ const Services = () => {
                       style={{ opacity: 0 }}
                     >
                       <span className="text-foreground/50 text-xs font-semibold uppercase tracking-[0.3em]">
-                        Family-Owned · Boise, ID
+                        Commercial · Cebu City
                       </span>
                       <Link
                         to={`/services/${s.slug}`}
@@ -379,16 +380,16 @@ const Services = () => {
               >
                 Need help with your
                 <br />
-                <span className="text-primary">heating or cooling?</span>
+                <span className="text-primary">commercial construction?</span>
               </h2>
 
               <p
                 className="cta-animate mb-10 max-w-lg text-base md:text-lg font-medium leading-relaxed text-background/55"
                 style={{ opacity: 0 }}
               >
-                Contact us to ask about service or request a quote. We help
-                with heating, cooling, and general HVAC needs in the Boise
-                area.
+                Contact us to ask about service availability or request a
+                quote for general construction and structural strengthening
+                needs.
               </p>
 
               <div className="cta-animate" style={{ opacity: 0 }}>
@@ -404,7 +405,7 @@ const Services = () => {
             <div className="flex-shrink-0 lg:w-auto">
               <div className="space-y-8">
                 <a
-                  href="tel:+19864974822"
+                  href="tel:+639176360922"
                   className="cta-animate group flex items-center gap-5"
                   style={{ opacity: 0 }}
                 >
@@ -416,7 +417,7 @@ const Services = () => {
                       Call Us
                     </span>
                     <span className="block font-heading font-bold text-background text-xl transition-colors group-hover:text-primary">
-                      (986) 497-4822
+                      0917 636 0922
                     </span>
                   </span>
                 </a>
@@ -433,7 +434,7 @@ const Services = () => {
                       Location
                     </span>
                     <span className="block text-base font-semibold text-background">
-                      Boise, Idaho
+                      Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000
                     </span>
                   </span>
                 </div>

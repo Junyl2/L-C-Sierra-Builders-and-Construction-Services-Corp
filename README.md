@@ -1,6 +1,6 @@
-# Komfort iQ HVAC
+# L C Sierra Builders and Construction Services Corporation
 
-Website for Komfort iQ Heating and Air LLC — a family-owned HVAC company based in Boise, Idaho.
+Website for L C Sierra Builders and Construction Services Corporation, a commercial construction company based in Cebu City since 2020.
 
 ## Stack
 Vite + React 18 + TypeScript + Tailwind CSS, React Router.

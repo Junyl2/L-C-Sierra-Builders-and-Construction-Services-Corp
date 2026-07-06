@@ -1,13 +1,12 @@
 import { useRef, useEffect, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight, Building2, Phone } from "lucide-react";
 import { gsap } from "@/lib/gsap";
-import { services } from "@/data/services";
-import heroImage1 from "@/assets/hero-1.jpg";
-import heroImage2 from "@/assets/hero-2.jpg";
-import heroImage3 from "@/assets/hero-3.jpg";
+import heroImageOne from "@/assets/hero/hero-1.jpg";
+import heroImageTwo from "@/assets/hero/hero-2.jpg";
+import heroImageThree from "@/assets/hero/hero-3.jpg";
 
-const heroImages = [heroImage1, heroImage2, heroImage3];
+const heroImages = [heroImageOne, heroImageTwo, heroImageThree];
 
 let hasPlayedInitialAnimation = false;
 
@@ -17,10 +16,11 @@ const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => clearInterval(interval);
+    }, 6200);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -28,73 +28,25 @@ const HeroSection = () => {
     if (!section) return;
 
     const ctx = gsap.context(() => {
-      const cards = section.querySelectorAll<HTMLElement>(".bento-card");
-      const heroLines = section.querySelectorAll<HTMLElement>(".hero-title-line");
-      const mobileKicker = section.querySelector<HTMLElement>(".mobile-kicker");
-      const mobileBottomItems = section.querySelectorAll<HTMLElement>(".mobile-bottom-item");
+      const items = section.querySelectorAll<HTMLElement>(".hero-animate");
 
       if (!hasPlayedInitialAnimation) {
         hasPlayedInitialAnimation = true;
 
-        const tl = gsap.timeline({ delay: 0.2 });
-
-        if (mobileKicker) {
-          tl.fromTo(
-            mobileKicker,
-            { opacity: 0, y: -20 },
-            { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" },
-            0
-          );
-        }
-
-        if (cards.length) {
-          tl.fromTo(
-            cards,
-            { opacity: 0, y: 48 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.9,
-              ease: "power3.out",
-              stagger: 0.12,
-            },
-            0
-          );
-        }
-
-        tl.fromTo(
-          heroLines,
-          { opacity: 0, y: 40, skewY: 3 },
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 36 },
           {
             opacity: 1,
             y: 0,
-            skewY: 0,
-            duration: 0.8,
-            ease: "power4.out",
-            stagger: 0.08,
-          },
-          "-=0.55"
+            duration: 0.85,
+            ease: "power3.out",
+            stagger: 0.1,
+            delay: 0.25,
+          }
         );
-
-        if (mobileBottomItems.length) {
-          tl.fromTo(
-            mobileBottomItems,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              ease: "power3.out",
-              stagger: 0.15,
-            },
-            "-=0.4"
-          );
-        }
       } else {
-        gsap.set(cards, { opacity: 1, y: 0 });
-        gsap.set(heroLines, { opacity: 1, y: 0, skewY: 0 });
-        if (mobileKicker) gsap.set(mobileKicker, { opacity: 1, y: 0 });
-        gsap.set(mobileBottomItems, { opacity: 1, y: 0 });
+        gsap.set(items, { opacity: 1, y: 0 });
       }
     }, section);
 
@@ -102,272 +54,129 @@ const HeroSection = () => {
   }, [location.pathname]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-background">
-      {/* ═══════════════════ MOBILE / TABLET HERO — fits 100vh ═══════════════════ */}
-      <div className="relative h-screen overflow-hidden bg-foreground lg:hidden">
-        {/* Background carousel */}
-        <div className="absolute inset-0">
-          {heroImages.map((img, idx) => (
-            <div
-              key={idx}
-              className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
-              style={{ opacity: currentImageIndex === idx ? 1 : 0 }}
-            >
-              <img
-                src={img}
-                alt={`HVAC heating and air service in Boise, Idaho ${idx + 1}`}
-                className="h-full w-full scale-105 object-cover"
-                width={1920}
-                height={1280}
-              />
-            </div>
-          ))}
-          <div className="absolute inset-0 bg-black/50" />
-        </div>
-
-        {/* Content — compact single-column layout */}
-        <div className="container relative z-10 mx-auto flex h-full flex-col justify-between px-4 pb-8 pt-24 sm:pb-10 sm:pt-28 md:pt-32 md:pb-12">
-          {/* Kicker */}
+    <section
+      ref={sectionRef}
+      className="relative isolate flex h-[100svh] max-h-[100svh] w-full overflow-hidden bg-foreground text-white"
+    >
+      <div className="absolute inset-0">
+        {heroImages.map((image, index) => (
           <div
-            className="mobile-kicker flex items-center gap-3"
-            style={{ opacity: 0 }}
+            key={image}
+            className="absolute inset-0 transition-opacity duration-[1800ms] ease-in-out"
+            style={{ opacity: currentImageIndex === index ? 1 : 0 }}
           >
-            <span className="block h-[2px] w-8 bg-primary" />
-            <span className="text-primary text-xs font-semibold uppercase tracking-[0.2em]">
-              Boise, Idaho — Heating &amp; Air
-            </span>
+            <img
+              src={image}
+              alt={`L C Sierra construction site background ${index + 1}`}
+              className="h-full w-full scale-105 object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
+            />
           </div>
+        ))}
+        <div className="absolute inset-0 bg-black/42" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/32 to-black/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/38 to-transparent" />
+      </div>
 
-          {/* Headline */}
-          <div className="flex flex-1 items-center py-6">
-            <h1 className="mb-0">
-              <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-white"
-                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
-              >
-                Heating and Air
-              </span>
-              <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-white"
-                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
-              >
-                Services <span className="text-primary">for</span> Homes
-              </span>
-              <span
-                className="hero-title-line block font-heading font-black uppercase leading-[0.95] tracking-tight text-primary"
-                style={{ fontSize: "clamp(1.85rem, 9vw, 3.25rem)", opacity: 0 }}
-              >
-                &amp; Businesses
-              </span>
-            </h1>
-          </div>
-
-          {/* Bottom — support line + CTAs */}
-          <div className="flex flex-col gap-4">
-            <p
-              className="mobile-bottom-item text-xs sm:text-sm font-medium tracking-wide text-white/70"
+      <div className="container relative z-10 mx-auto flex h-full min-h-0 items-end px-4 pb-9 pt-28 sm:pt-32 md:pb-12 md:pt-36 lg:pb-14 lg:pt-36 xl:pb-16">
+        <div className="grid w-full min-h-0 gap-6 lg:grid-cols-12 lg:items-end lg:gap-12 xl:gap-16">
+          <div className="lg:col-span-8 xl:col-span-7">
+            <div
+              className="hero-animate mb-4 flex items-center gap-3 sm:mb-5 lg:mb-6"
               style={{ opacity: 0 }}
             >
-              On-site HVAC service in the Boise area.
+              <span className="block h-[2px] w-10 bg-primary" />
+              <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
+                Cebu City — Since 2020
+              </span>
+            </div>
+
+            <h1
+              className="hero-animate font-heading font-black uppercase leading-[0.9] tracking-tight text-white text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[4.9rem] xl:text-[5.8rem]"
+              style={{ opacity: 0 }}
+            >
+              Commercial
+              <br />
+              construction
+              <br />
+              <span className="text-primary">built clearly.</span>
+            </h1>
+
+            <p
+              className="hero-animate mt-5 max-w-2xl text-sm font-medium leading-relaxed text-white/72 sm:text-base md:text-lg lg:mt-6"
+              style={{ opacity: 0 }}
+            >
+              L C Sierra Builders and Construction Services Corporation
+              provides general construction and structural strengthening
+              services from Cebu City, Philippines.
             </p>
+
             <div
-              className="mobile-bottom-item flex flex-wrap items-center gap-4"
+              className="hero-animate mt-6 flex flex-col gap-3 sm:flex-row sm:items-center lg:mt-8"
               style={{ opacity: 0 }}
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center bg-primary px-6 py-3.5 text-primary-foreground text-sm font-semibold uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0"
+                className="inline-flex items-center justify-center gap-2 bg-primary px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0 sm:px-7 sm:py-4 sm:text-sm"
               >
-                Contact Us
+                Request a Quote
+                <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href="tel:+19864974822"
-                className="group inline-flex items-center gap-3 text-white/90 transition-colors hover:text-white"
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 border border-white/25 bg-white/10 px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary active:translate-y-0 sm:px-7 sm:py-4 sm:text-sm"
               >
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 transition-all duration-300 group-hover:border-primary group-hover:bg-primary/10">
-                  <Phone className="h-4 w-4" />
+                View Services
+                <Building2 className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          <aside className="hero-animate border-t border-white/20 pt-5 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0 xl:col-span-4 xl:col-start-9">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+              <div>
+                <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-white/45">
+                  Service Scope
                 </span>
-                <span className="flex flex-col leading-none">
-                  <span className="mb-0.5 text-xs font-semibold uppercase tracking-wider text-white/60">
-                    Call
+                <p className="font-heading text-lg font-black uppercase leading-tight tracking-tight text-white md:text-xl xl:text-2xl">
+                  General construction and structural strengthening.
+                </p>
+              </div>
+              <a
+                href="tel:+639176360922"
+                className="group flex items-center gap-3 text-white transition-colors hover:text-primary sm:gap-4"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/25 bg-white/10 backdrop-blur-sm transition-colors group-hover:border-primary group-hover:bg-primary/10 sm:h-12 sm:w-12">
+                  <Phone className="h-5 w-5" />
+                </span>
+                <span>
+                  <span className="mb-1 block text-xs font-semibold uppercase tracking-[0.22em] text-white/45">
+                    Call Us
                   </span>
-                  <span className="text-sm font-semibold tracking-wide">
-                    (986) 497-4822
+                  <span className="block font-heading text-lg font-bold tracking-wide sm:text-xl">
+                    0917 636 0922
                   </span>
                 </span>
               </a>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
 
-      {/* ═══════════════════ DESKTOP BENTO (lg+) ═══════════════════ */}
-      <div className="hidden lg:block pt-36 pb-14">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 grid-rows-2 gap-5 min-h-[calc(100vh-10rem)]">
-            {/* Card C — Primary hero (right column, spans both rows) */}
-            <article
-              className="bento-card group relative overflow-hidden bg-foreground col-start-2 row-start-1 row-span-2"
-              style={{ opacity: 0 }}
-            >
-              <div className="absolute inset-0">
-                {heroImages.map((img, idx) => (
-                  <div
-                    key={idx}
-                    className="absolute inset-0 transition-opacity duration-[1500ms] ease-in-out"
-                    style={{ opacity: currentImageIndex === idx ? 1 : 0 }}
-                  >
-                    <img
-                      src={img}
-                      alt={`HVAC heating and air service in Boise, Idaho ${idx + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-[1800ms] group-hover:scale-105"
-                      width={1920}
-                      height={1280}
-                    />
-                  </div>
-                ))}
-                <div className="absolute inset-0 bg-black/50" />
-              </div>
-
-              <div className="relative z-10 flex h-full flex-col justify-between p-12 xl:p-14">
-                <div className="flex items-center gap-3">
-                  <span className="block h-[2px] w-10 bg-primary" />
-                  <span className="text-primary font-semibold text-xs uppercase tracking-[0.25em]">
-                    Komfort iQ HVAC
-                  </span>
-                </div>
-
-                <div>
-                  <h1 className="font-heading font-black uppercase leading-[0.95] tracking-tight text-white">
-                    <span
-                      className="hero-title-line block"
-                      style={{ fontSize: "clamp(2rem, 4.6vw, 4.5rem)", opacity: 0 }}
-                    >
-                      Heating &amp; Air
-                    </span>
-                    <span
-                      className="hero-title-line block"
-                      style={{ fontSize: "clamp(2rem, 4.6vw, 4.5rem)", opacity: 0 }}
-                    >
-                      Services <span className="text-primary">for</span> Homes
-                    </span>
-                    <span
-                      className="hero-title-line block text-primary"
-                      style={{ fontSize: "clamp(2rem, 4.6vw, 4.5rem)", opacity: 0 }}
-                    >
-                      &amp; Businesses
-                    </span>
-                  </h1>
-                  <p className="mt-6 max-w-xl text-base font-medium tracking-wide text-white/70">
-                    On-site HVAC service in the Boise area.
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-5">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center bg-primary px-8 py-4 text-primary-foreground font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30 active:translate-y-0"
-                  >
-                    Contact Us
-                  </Link>
-                  <a
-                    href="tel:+19864974822"
-                    className="group/phone inline-flex items-center gap-3 text-white/80 transition-colors hover:text-white"
-                  >
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 transition-all duration-300 group-hover/phone:border-primary group-hover/phone:bg-primary/10">
-                      <Phone className="h-4 w-4" />
-                    </span>
-                    <span className="flex flex-col">
-                      <span className="mb-1 text-xs font-semibold uppercase tracking-wider leading-none text-white/60">
-                        Call
-                      </span>
-                      <span className="text-base font-semibold leading-none tracking-wide">
-                        (986) 497-4822
-                      </span>
-                    </span>
-                  </a>
-                </div>
-              </div>
-            </article>
-
-            {/* Card A — Brand intro (top-left) */}
-            <article
-              className="bento-card group relative overflow-hidden bg-secondary col-start-1 row-start-1"
-              style={{ opacity: 0 }}
-            >
-              <img
-                src="/images/about/about-main.jpg"
-                alt="HVAC equipment at Komfort iQ HVAC"
-                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-[1200ms] group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/30" />
-              <div className="relative z-10 flex h-full flex-col justify-between p-9">
-                <div className="flex items-center gap-3">
-                  <span className="block h-[2px] w-8 bg-primary" />
-                  <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">
-                    Boise, Idaho
-                  </span>
-                </div>
-                <div>
-                  <h2 className="font-heading font-black uppercase leading-[0.95] tracking-tight text-white text-[2rem]">
-                    Family-Owned
-                    <br />
-                    HVAC Service
-                  </h2>
-                  <p className="mt-4 max-w-sm text-sm font-medium leading-relaxed text-white/75">
-                    Komfort iQ HVAC is a family-owned heating and air company
-                    serving the Boise area with a practical, straightforward
-                    approach and a focus on comfort.
-                  </p>
-                </div>
-              </div>
-            </article>
-
-            {/* Card B — Services (bottom-left) */}
-            <article
-              className="bento-card group relative overflow-hidden bg-secondary col-start-1 row-start-2"
-              style={{ opacity: 0 }}
-            >
-              <img
-                src="/images/services/hvac-systems-content.jpg"
-                alt="HVAC systems installation"
-                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-[1200ms] group-hover:scale-105"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-black/30" />
-              <div className="relative z-10 flex h-full flex-col justify-between p-9">
-                <div className="flex items-center gap-3">
-                  <span className="block h-[2px] w-8 bg-primary" />
-                  <span className="text-primary font-semibold text-xs uppercase tracking-[0.2em]">
-                    Our Services
-                  </span>
-                </div>
-                <ul className="flex flex-col gap-2">
-                  {services.map((service) => {
-                    const Icon = service.icon;
-                    return (
-                      <li key={service.id}>
-                        <Link
-                          to={`/services/${service.slug}`}
-                          className="group/item flex items-center gap-3 py-2 text-white/85 transition-colors hover:text-white"
-                        >
-                          <span className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/5 transition-colors group-hover/item:border-primary/60 group-hover/item:bg-primary/15">
-                            <Icon className="h-4 w-4 text-primary" />
-                          </span>
-                          <span className="flex-1 text-sm font-semibold uppercase tracking-wider">
-                            {service.shortTitle}
-                          </span>
-                          <ArrowRight className="h-4 w-4 text-white/40 transition-all group-hover/item:translate-x-1 group-hover/item:text-primary" />
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
+      <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 md:bottom-6">
+        {heroImages.map((image, index) => (
+          <button
+            key={image}
+            type="button"
+            onClick={() => setCurrentImageIndex(index)}
+            className={`h-1.5 transition-all duration-300 ${
+              currentImageIndex === index
+                ? "w-8 bg-primary"
+                : "w-4 bg-white/35 hover:bg-white/70"
+            }`}
+            aria-label={`Show hero image ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

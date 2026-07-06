@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* ─── Komfort iQ Palette · Orange #df6516 + Slate #324249 ─── */
+    /* ─── L C Sierra Palette · Logo Red hsl(4 77% 51%) + Slate #324249 ─── */
     --background: 210 20% 98%;
     --foreground: 215 28% 10%;
 
@@ -16,7 +16,7 @@
     --popover: 210 18% 99%;
     --popover-foreground: 215 28% 10%;
 
-    --primary: 22 82% 48%;
+    --primary: 4 77% 51%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 198 19% 24%;
@@ -25,15 +25,15 @@
     --muted: 212 14% 92%;
     --muted-foreground: 215 12% 46%;
 
-    --accent: 22 70% 96%;
-    --accent-foreground: 22 82% 36%;
+    --accent: 4 72% 96%;
+    --accent-foreground: 4 77% 36%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 212 16% 88%;
     --input: 212 16% 88%;
-    --ring: 22 82% 48%;
+    --ring: 4 77% 51%;
 
     --radius: 0.125rem;
 
@@ -54,7 +54,7 @@
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 22 82% 48%;
+    --sidebar-ring: 4 77% 51%;
   }
 }
 
@@ -78,17 +78,17 @@
   background: hsl(212 14% 92%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(22 82% 48%);
+  background: hsl(4 77% 51%);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(22 82% 40%);
+  background: hsl(4 77% 42%);
 }
 
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: hsl(22 82% 48%) hsl(212 14% 92%);
+  scrollbar-color: hsl(4 77% 51%) hsl(212 14% 92%);
 }
 
 /* Lenis smooth scroll */

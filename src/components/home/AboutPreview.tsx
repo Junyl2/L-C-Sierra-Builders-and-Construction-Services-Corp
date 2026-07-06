@@ -2,24 +2,25 @@ import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "@/lib/gsap";
+import aboutPreviewImage from "@/assets/contact-about/about-1.jpg";
 
 const brandProfile = [
   {
-    label: "Ownership",
-    description: "Family-owned and locally run.",
+    label: "Type",
+    description: "Commercial construction company.",
   },
   {
     label: "Location",
-    description: "Based in Boise, Idaho. Serving Boise and nearby areas.",
+    description: "Based in Cebu City since 2020.",
   },
   {
     label: "Services",
-    description: "Heating, air conditioning, and general HVAC.",
+    description: "General construction and structural strengthening.",
   },
   {
     label: "Approach",
     description:
-      "Practical and straightforward, with a focus on day-to-day comfort.",
+      "Practical and straightforward, with clear project communication.",
   },
 ];
 
@@ -125,7 +126,7 @@ const AboutPreview = () => {
               <div className="mb-4 flex items-center gap-3">
                 <span className="block h-[2px] w-8 bg-primary" />
                 <span className="text-primary text-xs font-semibold uppercase tracking-[0.3em]">
-                  Est. Local
+                  Since 2020
                 </span>
               </div>
 
@@ -135,8 +136,8 @@ const AboutPreview = () => {
                 style={{ clipPath: "inset(100% 0 0 0)" }}
               >
                 <img
-                  src="/images/about/about-preview.jpg"
-                  alt="HVAC equipment maintained by Komfort iQ HVAC in the Boise area"
+                  src={aboutPreviewImage}
+                  alt="L C Sierra Builders and Construction Services Corporation construction project team"
                   className="h-full w-full scale-110 object-cover"
                 />
               </div>
@@ -144,7 +145,7 @@ const AboutPreview = () => {
               {/* Photo caption — magazine style */}
               <div className="mt-4 flex items-center justify-between gap-4 text-foreground/55">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em]">
-                  Komfort iQ HVAC · Boise, Idaho
+                  L C Sierra Builders and Construction Services Corporation · Cebu City
                 </span>
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] tabular-nums">
                   — 001
@@ -159,17 +160,17 @@ const AboutPreview = () => {
             <div className="about-copy mb-8 flex items-center gap-3" style={{ opacity: 0 }}>
               <span className="block h-[2px] w-10 bg-primary" />
               <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
-                About Komfort iQ HVAC
+                About L C Sierra Builders and Construction Services Corporation
               </span>
             </div>
 
             {/* Editorial headline */}
             <h2 className="about-headline mb-8 font-heading font-black uppercase leading-[0.95] tracking-tight text-foreground text-4xl md:text-5xl lg:text-[3rem] xl:text-[3.5rem]">
-              Family-Owned
+              Commercial
               <br />
-              Heating &amp; Air
+              General Construction
               <br />
-              in <span className="text-primary">Boise, Idaho.</span>
+              in <span className="text-primary">Cebu City.</span>
             </h2>
 
             {/* Body copy */}
@@ -178,16 +179,16 @@ const AboutPreview = () => {
                 className="about-copy text-sm md:text-base font-medium leading-relaxed text-foreground/70"
                 style={{ opacity: 0 }}
               >
-                Komfort iQ HVAC focuses on HVAC services with an emphasis on
-                dependable local service and day-to-day comfort.
+                L C Sierra Builders and Construction Services Corporation is a
+                commercial construction company based in Cebu City since 2020.
               </p>
               <p
                 className="about-copy text-sm md:text-base font-medium leading-relaxed text-foreground/70"
                 style={{ opacity: 0 }}
               >
-                Our approach is practical and straightforward — heating, air
-                conditioning, and general HVAC work for homes and businesses in
-                the Boise area.
+                The company provides general construction and structural
+                strengthening services with practical coordination for
+                commercial project needs.
               </p>
             </div>
 

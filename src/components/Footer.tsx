@@ -1,30 +1,32 @@
 import { Link } from "react-router-dom";
 import { Phone, Facebook, ArrowUpRight } from "lucide-react";
 import { services } from "@/data/services";
+import companyLogo from "@/assets/company-logo.png";
 
-const facebookUrl = "https://web.facebook.com/profile.php?id=61583999842870";
+const facebookUrl = "https://web.facebook.com/build.sheracon/?_rdc=1&_rdr#";
 
 const navLinks = [
   { label: "Home", path: "/" },
   { label: "Services", path: "/services" },
   { label: "About", path: "/about" },
+  { label: "Projects", path: "/projects" },
   { label: "Service Area", path: "/service-area" },
   { label: "Contact", path: "/contact" },
 ];
 
 const mastheadTerms = [
-  "Komfort iQ HVAC",
-  "Boise, Idaho",
-  "43.6150° N",
-  "116.2023° W",
-  "Family-Owned",
+  "L C Sierra",
+  "Cebu City, Philippines",
+  "Since 2020",
+  "Commercial",
+  "Construction",
 ];
 
 const brandSpec = [
-  { label: "Type", value: "Family-Owned HVAC" },
-  { label: "Base", value: "Boise, Idaho" },
-  { label: "Focus", value: "Heating · Air · HVAC" },
-  { label: "Approach", value: "Practical Local Service" },
+  { label: "Type", value: "Commercial Construction" },
+  { label: "Base", value: "Cebu City, Philippines" },
+  { label: "Focus", value: "General Construction" },
+  { label: "Approach", value: "Practical Project Service" },
 ];
 
 const Footer = () => {
@@ -68,20 +70,22 @@ const Footer = () => {
             <Link
               to="/"
               className="mb-8 inline-block"
-              aria-label="Komfort iQ HVAC — Home"
+              aria-label="L C Sierra — Home"
             >
               <img
-                src="/images/main-logo.png"
-                alt="Komfort iQ HVAC"
+                src={companyLogo}
+                alt="L C Sierra"
                 className="h-20 w-auto md:h-24"
               />
             </Link>
 
             <p className="mb-10 max-w-md text-base font-medium leading-relaxed text-footer-foreground/70">
-              Komfort iQ HVAC is a family-owned heating and air company based
-              in Boise, Idaho. We provide heating, air conditioning, and
-              general HVAC support for homes and businesses in the Boise
-              area.
+              L C Sierra Builders and Construction Services Corporation is a
+              commercial construction company based at Room 307-A WDC
+              Building, Osmena St., cor., P. Burgos St., Cebu City,
+              Philippines, 6000 since 2020.
+              We provide general construction and structural strengthening
+              services.
             </p>
 
             {/* Brand spec — editorial data sheet */}
@@ -112,7 +116,7 @@ const Footer = () => {
             <div className="mb-6 flex items-center gap-3">
               <span className="block h-[2px] w-6 bg-primary" />
               <span className="text-primary text-xs font-semibold uppercase tracking-[0.25em]">
-                Index — 05
+                Index — 06
               </span>
             </div>
             <nav className="border-y border-footer-foreground/10">
@@ -177,7 +181,7 @@ const Footer = () => {
 
             <div className="space-y-4">
               <a
-                href="tel:+19864974822"
+                href="tel:+639176360922"
                 className="group flex items-center gap-4"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-footer-foreground/20 transition-all group-hover:border-primary group-hover:bg-primary/10">
@@ -188,7 +192,7 @@ const Footer = () => {
                     Call
                   </span>
                   <span className="block font-heading font-black text-footer-heading text-xl tabular-nums transition-colors group-hover:text-primary">
-                    (986) 497-4822
+                    0917 636 0922
                   </span>
                 </span>
               </a>
@@ -198,7 +202,7 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-4"
-                aria-label="Komfort iQ HVAC on Facebook"
+                aria-label="L C Sierra on Facebook"
               >
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-footer-foreground/20 transition-all group-hover:border-primary group-hover:bg-primary/10">
                   <Facebook className="h-4 w-4 text-primary" />
@@ -208,7 +212,7 @@ const Footer = () => {
                     Facebook
                   </span>
                   <span className="block text-footer-heading text-sm font-semibold transition-colors group-hover:text-primary">
-                    Komfort iQ HVAC
+                    L C Sierra
                   </span>
                 </span>
               </a>
@@ -222,10 +226,10 @@ const Footer = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col items-center justify-center gap-2 text-center">
             <p className="text-footer-foreground/55 text-xs font-semibold uppercase tracking-[0.25em]">
-              © 2026 Komfort iQ HVAC. All rights reserved.
+              © 2026 L C Sierra Builders and Construction Services Corporation. All rights reserved.
             </p>
             <p className="text-footer-foreground/35 text-xs font-medium uppercase tracking-[0.2em]">
-              Komfort iQ Heating and Air LLC · Boise, Idaho
+              L C Sierra Builders and Construction Services Corporation · Cebu City, Philippines
             </p>
           </div>
         </div>

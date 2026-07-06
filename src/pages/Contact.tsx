@@ -1,8 +1,15 @@
 import { useEffect, useState, useRef } from "react";
-import { Phone, MapPin, Send, Check, Facebook } from "lucide-react";
+import { Phone, MapPin, Send, Check, Facebook, Mail } from "lucide-react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { services } from "@/data/services";
 import PageBanner from "@/components/PageBanner";
+import contactSectionImage from "@/assets/contact-about/contact-section.jpg";
+
+const companyAddress =
+  "Room 307-A WDC Building, Osmena St., cor., P. Burgos St., Cebu City, Philippines, 6000";
+
+const companyMapEmbed =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.818618742494!2d123.90089527503511!3d10.29436578982662!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99b6e27b4fee7%3A0x9e8d1babe0aa4ad4!2sL%20C%20Sierra%20Builders%20and%20Construction%20Services%20Corp!5e1!3m2!1sen!2sau!4v1783323027398!5m2!1sen!2sau";
 
 const Contact = () => {
   const mainRef = useRef<HTMLElement>(null);
@@ -24,7 +31,7 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    document.title = "Contact | Komfort iQ HVAC";
+    document.title = "Contact | L C Sierra Builders and Construction Services Corporation";
   }, []);
 
   useEffect(() => {
@@ -57,8 +64,8 @@ const Contact = () => {
     <>
       <PageBanner
         title="Contact Us"
-        subtitle="Get in touch for heating and air service"
-        backgroundImage="/images/banners/contact-banner.jpg"
+        subtitle="Get in touch for commercial construction service"
+        backgroundImage={contactSectionImage}
       />
 
       {/* ───── Main section: contact info LEFT + form RIGHT ───── */}
@@ -75,33 +82,50 @@ const Contact = () => {
 
               <h2 className="anim text-3xl sm:text-4xl md:text-5xl font-heading font-black uppercase leading-[0.92] tracking-tight text-foreground mb-6">
                 Let's talk about<br />
-                your <span className="text-primary">comfort.</span>
+                your <span className="text-primary">project.</span>
               </h2>
 
               <p className="anim text-muted-foreground text-base leading-relaxed mb-10 max-w-md">
-                Contact us to ask about service or request a quote. We help with heating, cooling, and general HVAC needs in the Boise area.
+                Contact us to ask about service availability or request a
+                quote for general construction and structural strengthening
+                needs.
               </p>
 
               {/* Image */}
               <div className="anim relative aspect-[16/10] overflow-hidden mb-10">
                 <img
-                  src="/images/contact/contact-tools.jpg"
-                  alt="HVAC tools and equipment"
+                  src={contactSectionImage}
+                  alt="L C Sierra Builders and Construction Services Corporation structural construction site"
                   className="w-full h-full object-cover"
                 />
               </div>
 
               {/* Contact rows */}
               <div className="border-t border-border">
-                <a href="tel:+19864974822" className="anim group flex items-center gap-5 py-5 border-b border-border">
+                <a href="tel:+639176360922" className="anim group flex items-center gap-5 py-5 border-b border-border">
                   <span className="flex items-center justify-center w-12 h-12 bg-foreground group-hover:bg-primary transition-colors duration-300">
                     <Phone className="w-5 h-5 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                   </span>
                   <span className="flex-1">
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Call Us</span>
-                    <span className="block text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors">(986) 497-4822</span>
+                    <span className="block text-lg font-heading font-bold text-foreground group-hover:text-primary transition-colors">0917 636 0922</span>
                   </span>
                 </a>
+
+                <div className="anim flex items-center gap-5 py-5 border-b border-border">
+                  <span className="flex items-center justify-center w-12 h-12 bg-foreground">
+                    <Mail className="w-5 h-5 text-primary" />
+                  </span>
+                  <span className="flex-1">
+                    <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Email</span>
+                    <a
+                      href="mailto:admin@lcsierraconstruction.com"
+                      className="block text-base font-semibold text-foreground hover:text-primary transition-colors break-all"
+                    >
+                      admin@lcsierraconstruction.com
+                    </a>
+                  </span>
+                </div>
 
                 <div className="anim flex items-center gap-5 py-5 border-b border-border">
                   <span className="flex items-center justify-center w-12 h-12 bg-foreground">
@@ -109,18 +133,20 @@ const Contact = () => {
                   </span>
                   <span className="flex-1">
                     <span className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-0.5">Location</span>
-                    <span className="block text-base font-semibold text-foreground">Boise, Idaho</span>
+                    <span className="block text-base font-semibold text-foreground">
+                      {companyAddress}
+                    </span>
                   </span>
                 </div>
               </div>
 
               {/* Facebook */}
               <a
-                href="https://web.facebook.com/profile.php?id=61583999842870"
+                href="https://web.facebook.com/build.sheracon/?_rdc=1&_rdr#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="anim group mt-8 inline-flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-primary"
-                aria-label="Komfort iQ HVAC on Facebook"
+                aria-label="L C Sierra Builders and Construction Services Corporation on Facebook"
               >
                 <span className="flex h-10 w-10 items-center justify-center border border-border transition-colors group-hover:border-primary group-hover:bg-primary/10">
                   <Facebook className="h-4 w-4 text-primary" />
@@ -128,7 +154,7 @@ const Contact = () => {
                 <span>
                   Find us on Facebook:{" "}
                   <span className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    Komfort iQ HVAC
+                    L C Sierra Builders and Construction Services Corporation
                   </span>
                 </span>
               </a>
@@ -234,7 +260,7 @@ const Contact = () => {
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
                         className="w-full px-5 py-4 bg-transparent border border-background/15 text-background placeholder:text-background/30 focus:outline-none focus:border-primary transition-colors resize-none"
-                        placeholder="Tell us about your heating or cooling needs..."
+                        placeholder="Tell us about your commercial construction needs..."
                       />
                     </div>
 
@@ -248,7 +274,7 @@ const Contact = () => {
                           required
                         />
                         <label htmlFor="consent" className="text-sm text-background/50 leading-relaxed">
-                          I consent to Komfort iQ HVAC collecting and storing my information to respond to this inquiry. *
+                          I consent to L C Sierra Builders and Construction Services Corporation collecting and storing my information to respond to this inquiry. *
                         </label>
                       </div>
 
@@ -270,17 +296,17 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ───── Google Map — full width bottom (Boise, Idaho) ───── */}
+      {/* ───── Google Map — full width bottom (Cebu City) ───── */}
       <div ref={mapRef} className="relative" style={{ height: "450px" }}>
         <iframe
-          title="Komfort iQ HVAC — Boise, Idaho"
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d398895.9697208779!2d-116.4567941!3d43.8630074!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa80fdce1596295e7%3A0xc69ffc9c0ec8b90f!2sKomfort%20iQ%20HVAC!5e1!3m2!1sen!2sph!4v1776698971176!5m2!1sen!2sph"
+          title="L C Sierra Builders and Construction Services Corporation — Cebu City"
+          src={companyMapEmbed}
           width="100%"
           height="100%"
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="strict-origin-when-cross-origin"
         />
       </div>
     </>

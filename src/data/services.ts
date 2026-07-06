@@ -1,5 +1,14 @@
-import { Flame, Snowflake, Wrench } from "lucide-react";
+import { Building2, ShieldCheck, Wrench } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import generalBannerImage from "@/assets/projects/project-2.jpg";
+import generalContentImage from "@/assets/projects/project-4.jpg";
+import generalDetailImage from "@/assets/projects/project-1.jpg";
+import strengtheningBannerImage from "@/assets/projects/project-6.jpg";
+import strengtheningContentImage from "@/assets/projects/project-10.jpg";
+import strengtheningDetailImage from "@/assets/projects/project-9.jpg";
+import commercialBannerImage from "@/assets/projects/project-10.jpg";
+import commercialContentImage from "@/assets/projects/project-5.jpg";
+import commercialDetailImage from "@/assets/projects/project-7.jpg";
 
 export interface ServiceItem {
   id: string;
@@ -18,73 +27,73 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    id: "heating",
-    slug: "heating",
-    icon: Flame,
-    title: "Heating Services",
-    shortTitle: "Heating",
-    shortDesc: "Heating support from a family-owned company in Boise, Idaho, with a practical, straightforward approach and a focus on comfort.",
-    fullDesc: "Komfort iQ HVAC is a family-owned heating and air company in Boise, Idaho that provides heating support with a practical, straightforward approach and a focus on comfort. Service is available for residential and commercial customers in the Boise area.",
+    id: "general-construction",
+    slug: "general-construction",
+    icon: Building2,
+    title: "General Construction",
+    shortTitle: "General Construction",
+    shortDesc: "Commercial construction support from a Cebu City company providing practical, coordinated project services.",
+    fullDesc: "L C Sierra Builders and Construction Services Corporation is a commercial construction company based in Cebu City since 2020. The company provides general construction services with a practical, coordinated approach for commercial project needs.",
     features: [
-      "Heating system service",
-      "General heating support",
-      "Local service for Boise-area customers",
+      "Commercial construction support",
+      "General project coordination",
+      "On-site construction service",
     ],
     benefits: [
-      "Practical, straightforward service",
-      "Local family-owned company",
-      "Focus on day-to-day comfort",
-      "Service for homes and businesses in the Boise area",
+      "Clear construction communication",
+      "Based in Cebu City since 2020",
+      "Commercial project focus",
+      "Safe, factual service scope",
     ],
-    bannerImage: "/images/services/heating-banner.jpg",
-    contentImage: "/images/services/heating-content.jpg",
-    detailImage: "/images/services/hvac-maintenance-content.jpg",
+    bannerImage: generalBannerImage,
+    contentImage: generalContentImage,
+    detailImage: generalDetailImage,
   },
   {
-    id: "air-conditioning",
-    slug: "air-conditioning",
-    icon: Snowflake,
-    title: "Air Conditioning Services",
-    shortTitle: "Air Conditioning",
-    shortDesc: "Air conditioning support from a family-owned company in Boise, Idaho, focused on practical help with indoor comfort.",
-    fullDesc: "Komfort iQ HVAC is a family-owned heating and air company in Boise, Idaho that provides air conditioning support with a practical, straightforward approach and a focus on comfort. Service is available for residential and commercial customers in the Boise area.",
+    id: "structural-strengthening",
+    slug: "structural-strengthening",
+    icon: ShieldCheck,
+    title: "Structural Strengthening",
+    shortTitle: "Structural Strengthening",
+    shortDesc: "Structural strengthening services for commercial properties where added reinforcement or corrective work is required.",
+    fullDesc: "L C Sierra Builders and Construction Services Corporation provides structural strengthening services for commercial construction needs. The service focuses on reinforcement and improvement work carried out with clear coordination and project-aware planning.",
     features: [
-      "Air conditioning service",
-      "Cooling system support",
-      "Help with indoor comfort",
+      "Structural strengthening work",
+      "Reinforcement-focused service",
+      "Commercial property support",
     ],
     benefits: [
-      "Practical, straightforward service",
-      "Local family-owned company",
-      "Focus on day-to-day comfort",
-      "Service for homes and businesses in the Boise area",
+      "Built around structural service needs",
+      "Practical project coordination",
+      "Commercial construction experience",
+      "Factual, non-exaggerated scope",
     ],
-    bannerImage: "/images/services/cooling-banner.jpg",
-    contentImage: "/images/services/cooling-content.jpg",
-    detailImage: "/images/services/ac-repair-content.jpg",
+    bannerImage: strengtheningBannerImage,
+    contentImage: strengtheningContentImage,
+    detailImage: strengtheningDetailImage,
   },
   {
-    id: "general-hvac",
-    slug: "general-hvac",
+    id: "commercial-construction",
+    slug: "commercial-construction",
     icon: Wrench,
-    title: "General HVAC Services",
-    shortTitle: "General HVAC",
-    shortDesc: "General HVAC support from a family-owned contractor in Boise, Idaho, covering everyday heating and cooling needs.",
-    fullDesc: "Komfort iQ HVAC is a family-owned heating and air company in Boise, Idaho that provides general HVAC support with a practical, straightforward approach and a focus on comfort. Service is available for residential and commercial customers in the Boise area.",
+    title: "Commercial Construction Services",
+    shortTitle: "Commercial Construction",
+    shortDesc: "Commercial construction services for organizations that need dependable site work and clear project communication.",
+    fullDesc: "L C Sierra Builders and Construction Services Corporation serves commercial construction needs from its Cebu City base. The company supports commercial projects with general construction and structural strengthening services.",
     features: [
-      "General HVAC service",
-      "Heating and cooling support",
-      "Local contractor service",
+      "Commercial construction service",
+      "Project-based site support",
+      "General construction and strengthening",
     ],
     benefits: [
-      "Practical, straightforward service",
-      "Local family-owned company",
-      "Focus on day-to-day comfort",
-      "Service for homes and businesses in the Boise area",
+      "Commercial-focused service language",
+      "Cebu City-based company",
+      "Clear contact and inquiry path",
+      "No unsupported claims or statistics",
     ],
-    bannerImage: "/images/services/hvac-systems-banner.jpg",
-    contentImage: "/images/services/hvac-systems-content.jpg",
-    detailImage: "/images/services/inspections-content.jpg",
+    bannerImage: commercialBannerImage,
+    contentImage: commercialContentImage,
+    detailImage: commercialDetailImage,
   },
 ];
 

@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, MapPin, ChevronDown } from "lucide-react";
 import { services } from "@/data/services";
 import { useLenis } from "@/lib/lenis";
+import companyLogo from "@/assets/company-logo.png";
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -13,6 +14,7 @@ const navLinks = [
   { label: "HOME", path: "/" },
   { label: "SERVICES", path: "/services", hasDropdown: true },
   { label: "ABOUT", path: "/about" },
+  { label: "PROJECTS", path: "/projects" },
   { label: "SERVICE AREA", path: "/service-area" },
   { label: "CONTACT US", path: "/contact" },
 ];
@@ -71,17 +73,17 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
   const navClass = isScrolled
     ? "bg-nav-solid text-nav-solid-foreground shadow-md"
     : isHome
-    ? "bg-transparent text-white lg:text-foreground"
+    ? "bg-transparent text-white"
     : "bg-transparent text-white";
 
   // Logo visibility by context:
   // - Scrolled (any route): original colors (light nav bg makes dark logo visible)
-  // - Home + not scrolled: white on mobile (over dark hero), original on lg+ (over light bento padding)
+  // - Home + not scrolled: white over full-screen hero imagery
   // - Other routes + not scrolled: white everywhere (over dark page banners)
   const logoFilterClass = isScrolled
     ? ""
     : isHome
-    ? "brightness-0 invert lg:brightness-100 lg:invert-0"
+    ? "brightness-0 invert"
     : "brightness-0 invert";
 
   return (
@@ -89,10 +91,10 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
       <nav className={`w-full z-50 transition-none ${navClass}`}>
         <div className="container mx-auto flex items-center justify-between py-4 px-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center" aria-label="Komfort iQ HVAC — Home">
+          <Link to="/" className="flex items-center" aria-label="L C Sierra — Home">
             <img
-              src="/images/main-logo.png"
-              alt="Komfort iQ HVAC"
+              src={companyLogo}
+              alt="L C Sierra"
               className={`h-12 w-auto md:h-14 transition-[filter] duration-200 ${logoFilterClass}`}
             />
           </Link>
@@ -164,11 +166,11 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
 
           {/* CTA */}
           <a
-            href="tel:+19864974822"
+            href="tel:+639176360922"
             className="hidden lg:flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
             <Phone className="w-4 h-4" />
-            (986) 497-4822
+            0917 636 0922
           </a>
 
           {/* Mobile hamburger */}
@@ -197,8 +199,8 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
         {/* Top - Logo + Close */}
         <div className="flex items-center justify-between p-4 border-b border-border">
           <img
-            src="/images/main-logo.png"
-            alt="Komfort iQ HVAC"
+            src={companyLogo}
+            alt="L C Sierra"
             className="h-10 w-auto"
           />
           <button onClick={() => setMobileOpen(false)} className="p-2" aria-label="Close menu">
@@ -265,13 +267,13 @@ const Navbar = ({ isScrolled, isHome }: NavbarProps) => {
 
         {/* Bottom - Contact info (sticky) */}
         <div className="border-t border-border p-4 space-y-3">
-          <a href="tel:+19864974822" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
+          <a href="tel:+639176360922" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
             <Phone className="w-4 h-4" />
-            (986) 497-4822
+            0917 636 0922
           </a>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="w-4 h-4" />
-            Boise, Idaho
+            Cebu City
           </div>
         </div>
       </div>
