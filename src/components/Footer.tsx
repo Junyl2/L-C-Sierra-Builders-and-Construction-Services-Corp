@@ -31,7 +31,7 @@ const brandSpec = [
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-footer-bg text-footer-foreground">
+    <footer className="cebu-grid-texture relative overflow-hidden bg-footer-bg text-footer-foreground">
       {/* Top primary gradient rule */}
       <div className="h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent" />
 
@@ -86,6 +86,9 @@ const Footer = () => {
               Philippines, 6000 since 2020.
               We provide general construction and structural strengthening
               services.
+            </p>
+            <p className="mb-10 max-w-md border-l-2 border-primary pl-5 text-sm font-semibold uppercase tracking-[0.2em] text-footer-heading">
+              Klarong koordinasyon. Lokal nga serbisyo from a Cebu-based construction team.
             </p>
 
             {/* Brand spec — editorial data sheet */}

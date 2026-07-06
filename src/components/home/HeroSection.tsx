@@ -136,10 +136,13 @@ const HeroSection = () => {
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
               <div>
                 <span className="mb-2 block text-xs font-semibold uppercase tracking-[0.25em] text-white/45">
-                  Service Scope
+                  Cebu-based team
                 </span>
                 <p className="font-heading text-lg font-black uppercase leading-tight tracking-tight text-white md:text-xl xl:text-2xl">
                   General construction and structural strengthening.
+                </p>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/50">
+                  Klarong koordinasyon. Lokal nga serbisyo.
                 </p>
               </div>
               <a

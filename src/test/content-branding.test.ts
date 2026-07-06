@@ -228,4 +228,18 @@ describe("L C Sierra content migration", () => {
     expect(reviews).toContain("fill=\"#34A853\"");
     expect(reviews).not.toContain("Building2");
   });
+
+  it("adds restrained Cebu local identity cues without changing the content scope", () => {
+    const hero = readFileSync(join(root, "src/components/home/HeroSection.tsx"), "utf8");
+    const footer = readFileSync(join(root, "src/components/Footer.tsx"), "utf8");
+    const css = readFileSync(join(root, "src/index.css"), "utf8");
+
+    expect(hero).toContain("Klarong koordinasyon");
+    expect(hero).toContain("Cebu-based team");
+    expect(footer).toContain("Lokal nga serbisyo");
+    expect(footer).toContain("Cebu-based construction team");
+    expect(footer).toContain("cebu-grid-texture");
+    expect(css).toContain(".cebu-grid-texture::before");
+    expect(css).toContain("linear-gradient(135deg");
+  });
 });
