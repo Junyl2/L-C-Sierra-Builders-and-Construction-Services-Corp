@@ -73,9 +73,9 @@ const HeroSection = () => {
             />
           </div>
         ))}
-        <div className="absolute inset-0 bg-black/42" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/68 via-black/32 to-black/10" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/38 to-transparent" />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/74 via-black/38 to-black/14" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/44 to-transparent" />
       </div>
 
       <div className="container relative z-10 mx-auto flex h-full min-h-0 items-end px-4 pb-9 pt-28 sm:pt-32 md:pb-12 md:pt-36 lg:pb-14 lg:pt-36 xl:pb-16">
@@ -103,7 +103,7 @@ const HeroSection = () => {
             </h1>
 
             <p
-              className="hero-animate mt-5 max-w-2xl text-sm font-medium leading-relaxed text-white/72 sm:text-base md:text-lg lg:mt-6"
+              className="hero-animate mt-5 hidden max-w-2xl text-sm font-medium leading-relaxed text-white/72 sm:text-base md:block md:text-lg lg:mt-6"
               style={{ opacity: 0 }}
             >
               L C Sierra Builders and Construction Services Corporation

@@ -186,18 +186,21 @@ describe("L C Sierra content migration", () => {
   it("uses the logo red as the global primary brand color", () => {
     const css = readFileSync(join(root, "src/index.css"), "utf8");
 
-    expect(css).toContain("--primary: 4 77% 51%");
-    expect(css).toContain("--ring: 4 77% 51%");
-    expect(css).toContain("hsl(4 77% 51%)");
+    expect(css).toContain("--primary: 2 78% 53%");
+    expect(css).toContain("--ring: 2 78% 53%");
+    expect(css).toContain("hsl(2 78% 53%)");
+    expect(css).not.toContain("--primary: 4 77% 51%");
     expect(css).not.toContain("--primary: 22 82% 48%");
   });
 
-  it("keeps the hero imagery more visible with lighter overlays", () => {
+  it("keeps the hero imagery visible with balanced overlays and compact mobile copy", () => {
     const hero = readFileSync(join(root, "src/components/home/HeroSection.tsx"), "utf8");
 
-    expect(hero).toContain("bg-black/42");
-    expect(hero).toContain("from-black/68");
-    expect(hero).toContain("via-black/32");
+    expect(hero).toContain("bg-black/50");
+    expect(hero).toContain("from-black/74");
+    expect(hero).toContain("via-black/38");
+    expect(hero).toContain("hidden max-w-2xl");
+    expect(hero).toContain("md:block");
     expect(hero).not.toContain("bg-black/60");
     expect(hero).not.toContain("from-black/80 via-black/48");
   });
